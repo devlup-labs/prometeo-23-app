@@ -1,18 +1,8 @@
-name: Prometeo'23 App Android Release
-
-on:
-  push:
-    branches: [ main ]
-
+on: push
+name: Test, Build and Release apk
 jobs:
-  version:
-    name: Create version number
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
   build:
-    name: Build APK and Create release
-    needs: [ version ]
+    name: Build APK
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -21,17 +11,12 @@ jobs:
         java-version: '12.x'
     - uses: subosito/flutter-action@v1
       with:
-        flutter-version: '1.17.0'
-    - name: Get version.txt
-      uses: actions/download-artifact@v2
-      with:
-        name: gitversion
-    - name: Read version
-      id: version
-      uses: juliangruber/read-file-action@v1
-      with:
-        path: version.txt
+        flutter-version: '1.7.8+hotfix.4'
     - run: flutter pub get
     - run: flutter test
-    - run: flutter build apk --release --split-per-abi
-    - run: flutter build appbundle
+    - run: flutter build apk --debug --split-per-abi
+    - name: Push APK to Releases
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "build/app/outputs/apk/debug/*.apk"
+        token: ${{ secrets.GH_TOKEN }}
