@@ -10,7 +10,6 @@ class CardSlider extends StatelessWidget {
     return Container(
       child: Center(
         child: Container(
-          color: Color(0xff0a182e),
           child: Column(
             children: <Widget>[
               const SizedBox(
