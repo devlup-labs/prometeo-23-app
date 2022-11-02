@@ -23,7 +23,8 @@ class _HomePageState extends State<HomePage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: const [
-            Icon(CupertinoIcons.line_horizontal_3),
+            Icon(CupertinoIcons.line_horizontal_3,
+            color: Color(0xffccd6f6),),
             Icon(CupertinoIcons.bell_solid)
             ],
           ),
@@ -35,7 +36,7 @@ class _HomePageState extends State<HomePage> {
            Container(
             height: 50,
             decoration: const BoxDecoration(
-              color: Color(0xff2f3b49),
+              color: Color(0xff8892b0),
               borderRadius: BorderRadius.all(Radius.circular(20))
             ),
             child: const CupertinoSearchTextField(
@@ -75,28 +76,38 @@ class _HomePageState extends State<HomePage> {
             // making the Tabs
             Container(  
               child: CupertinoSlidingSegmentedControl(
-                padding: EdgeInsets.all(10),
-                groupValue: groupValue,
-                thumbColor: Color(0xff00C8E9),
-                backgroundColor: CupertinoColors.systemGrey,
+                backgroundColor: Color(0xff0a182e),
+                thumbColor: Color(0xff0a182e),
                 children: {
                   0: Container(
-                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 2, color: Color(0xff64ffda)),
+                      borderRadius: BorderRadius.all(Radius.circular(10))
+                    ),
+                    padding: const EdgeInsets.all(10),
                     child: const Text(
-                      'Flagship Events'
+                      'Flagship Events',
+                      style: TextStyle(color: Color(0xff64ffda),
+                      fontSize: 12.0),
                       ),
                   ),
                   1: Container(
                     padding: const EdgeInsets.all(5),
                     child: const Text(
-                      'Flagship Events'
+                      'Technical Events',
+                      style: TextStyle(
+                        color: Color(0xff8892b0),
+                        fontSize: 12,
+                      ),
                       ),
                   ),
 
                   2: Container(
                     padding: const EdgeInsets.all(5),
                     child: const Text(
-                      'Flagship Events'
+                      'Entreprenurship Events',
+                      style: TextStyle(color: Color(0xff8892b0),
+                      fontSize: 12),
                       ),
                   ),
                 }, 
