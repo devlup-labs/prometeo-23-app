@@ -3,28 +3,30 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'cards.dart';
 
 class CardSlider extends StatelessWidget {
-  List <Widget>cards;
+  List<Widget> cards;
   CardSlider({required this.cards, super.key});
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
+    return Container(
       child: Center(
-        child: Column(
-          children: <Widget>[
-            const SizedBox(
-              height: 10,
-            ),
-            CarouselSlider(
-              options: CarouselOptions(
-                autoPlay: true,
-                autoPlayInterval: const Duration(seconds: 2),
-                enlargeCenterPage: true,
-                height: 350
+        child: Container(
+          color: Color(0xff0a182e),
+          child: Column(
+            children: <Widget>[
+              const SizedBox(
+                height: 10,
               ),
-              items: cards,
-            ),
-
-          ],
+              CarouselSlider(
+                options: CarouselOptions(
+                  autoPlay: true,
+                  autoPlayInterval: const Duration(seconds: 2),
+                  enlargeCenterPage: true,
+                  height: MediaQuery.of(context).size.height * 0.45,
+                ),
+                items: cards,
+              ),
+            ],
+          ),
         ),
       ),
     );

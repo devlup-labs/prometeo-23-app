@@ -11,30 +11,26 @@ class BottomNavigation extends StatefulWidget {
 }
 
 class _BottomNavigationState extends State<BottomNavigation> {
-  List pages = [
-    HomePage(),
-    Profile(),
-    Schedule()   
-  ];
-  
+  List pages = [HomePage(), Profile(), Schedule()];
+
   @override
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
-      tabBar: CupertinoTabBar(
-        activeColor: Color(0xff64ffda),
-        backgroundColor: Color(0xff0a182e),
-        items: const [
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.home)),
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.person)),
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.calendar)),
-        ],),
-      tabBuilder: ((context, index) {
-        return CupertinoTabView(  
-          builder: (context){
-            return pages[index];
-          },
-        );
-      })
-    );
+        tabBar: CupertinoTabBar(
+          activeColor: Color(0xff64ffda),
+          backgroundColor: Color(0xff0a182e),
+          items: const [
+            BottomNavigationBarItem(icon: Icon(CupertinoIcons.home)),
+            BottomNavigationBarItem(icon: Icon(CupertinoIcons.person)),
+            BottomNavigationBarItem(icon: Icon(CupertinoIcons.calendar)),
+          ],
+        ),
+        tabBuilder: ((context, index) {
+          return CupertinoTabView(
+            builder: (context) {
+              return pages[index];
+            },
+          );
+        }));
   }
 }
