@@ -63,28 +63,9 @@ class _HomePageState extends State<HomePage> {
       
             // tabs
             Tabs(),
-      
-            // sized box
-            const SizedBox(height: 25),
-            // Title of the slider
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const[
-                Text(
-                  'Flagship Events',
-                  style: TextStyle(
-                    color: CupertinoColors.white
-                    )
-                ),
-                Icon(
-                  CupertinoIcons.ellipsis_circle,
-                  color: Color(0xff64ffda))
-                ]
-              ),
-
-              // putting a sized box in between
-              
-              const SizedBox(height: 10),
+            
+            // putting a sized box in between
+            const SizedBox(height: 10),
               
               // introducing card slider
               const Expanded(
