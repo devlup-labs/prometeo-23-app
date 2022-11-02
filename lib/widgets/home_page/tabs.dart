@@ -9,6 +9,7 @@ class Tabs extends StatefulWidget {
 }
 
 class _TabsState extends State<Tabs> {
+  int activeIndex =0;
   List headings = [
     'Flagship Events',
     'Entreprenurship Events',
@@ -29,11 +30,15 @@ class _TabsState extends State<Tabs> {
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
             margin: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              border: Border.all(width: 2, color: const Color(0xff64ffda)),
+              border: Border.all(width: 2, color: index == activeIndex ? const Color(0xff64ffda) : const Color(0x00000000)),
               borderRadius: const BorderRadius.all(Radius.circular(20))
             ),
-            child: CupertinoButton(
-              onPressed: () {},
+            child: TextButton(
+              onPressed: () {
+                setState(() {
+                  activeIndex = index;
+                });
+              },
               child: Text(headings[index],
               style: const TextStyle(
                 color: CupertinoColors.white

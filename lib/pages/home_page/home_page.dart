@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:prometeo23/widgets/home_page/tabs.dart';
+import 'package:prometeo23/widgets/slider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
               color: Color(0xff64ffda),)
             ],
           ),
-
+      
           // sized box
           const SizedBox(height: 25),
            
@@ -56,14 +56,14 @@ class _HomePageState extends State<HomePage> {
               ),
               )
             ),
-
+      
             // sized box 
-
+      
             const SizedBox(height: 20),
-
+      
             // tabs
             Tabs(),
-
+      
             // sized box
             const SizedBox(height: 25),
             // Title of the slider
@@ -82,6 +82,15 @@ class _HomePageState extends State<HomePage> {
                 ]
               ),
 
+              // putting a sized box in between
+              
+              const SizedBox(height: 20),
+              
+              // introducing card slider
+              const Expanded(
+                child: CardSlider()
+                )
+      
         ]
       )
     );

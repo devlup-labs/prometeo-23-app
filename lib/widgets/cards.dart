@@ -22,14 +22,15 @@ class _CardsState extends State<Cards> {
         },
         child: Container(
           width: MediaQuery.of(context).size.width * 0.8,
-          height: MediaQuery.of(context).size.height * 0.7,
+          height: 400,
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(25)),
-            image: DecorationImage(  
-              fit: BoxFit.cover,
-              image: NetworkImage(widget.imageLink)
-            )
+            color: CupertinoColors.activeBlue
+            // image: DecorationImage(  
+            //   fit: BoxFit.cover,
+            //   image: NetworkImage(widget.imageLink)
+            // )
           ),
           child: Stack(
             children: [

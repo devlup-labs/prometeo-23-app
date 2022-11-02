@@ -1,7 +1,5 @@
-// import '.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-
 import 'cards.dart';
 
 final List<Widget> imageSliders = [
@@ -47,11 +45,11 @@ class CardSlider extends StatelessWidget {
                 autoPlay: true,
                 autoPlayInterval: const Duration(seconds: 2),
                 enlargeCenterPage: true,
-                // aspectRatio: 2.0,
-                // enlargeCenterPage: true,
+                height: 350
               ),
               items: imageSliders,
             ),
+
           ],
         ),
       ),
