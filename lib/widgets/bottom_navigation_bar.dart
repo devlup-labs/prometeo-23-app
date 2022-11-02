@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import '../pages/home_page/home_page.dart';
+import 'package:prometeo23/pages/bottom_navigation_pages/profile.dart';
+import 'package:prometeo23/pages/bottom_navigation_pages/schedule_page.dart';
+import '../pages/bottom_navigation_pages/home_page.dart';
 
 class BottomNavigation extends StatefulWidget {
   const BottomNavigation({super.key});
@@ -9,6 +11,12 @@ class BottomNavigation extends StatefulWidget {
 }
 
 class _BottomNavigationState extends State<BottomNavigation> {
+  List pages = [
+    HomePage(),
+    Profile(),
+    Schedule()   
+  ];
+  
   @override
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
@@ -23,7 +31,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
       tabBuilder: ((context, index) {
         return CupertinoTabView(  
           builder: (context){
-            return HomePage();
+            return pages[index];
           },
         );
       })

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class Cards extends StatefulWidget {
 
@@ -13,6 +14,7 @@ class Cards extends StatefulWidget {
 }
 
 class _CardsState extends State<Cards> {
+  bool like = false;
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
@@ -24,7 +26,7 @@ class _CardsState extends State<Cards> {
           width: MediaQuery.of(context).size.width * 0.8,
           height: 400,
           padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(25)),
             color: CupertinoColors.activeBlue
             // image: DecorationImage(  
@@ -64,14 +66,21 @@ class _CardsState extends State<Cards> {
                 child: Align(
                   alignment: Alignment.topRight,
                   child: Container(
-                    padding: const EdgeInsets.all(10),
                     decoration: const BoxDecoration(
                       color: CupertinoColors.systemGrey,
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                     ),
-                    child: const Icon(
-                      CupertinoIcons.heart_fill,
-                      color: CupertinoColors.white,
+                    child: CupertinoButton(
+                      onPressed: (){
+                        setState(() {
+                          like = !like;
+                        });
+                        print(like);
+                      },
+                      child: Icon(
+                        CupertinoIcons.heart_fill,
+                        color: like == true ?CupertinoColors.systemPink : CupertinoColors.white,
+                      ),
                     ),
                   ),
                 ),

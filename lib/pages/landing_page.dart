@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:prometeo23/pages/home_page/home_page.dart';
+import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
 
 class LandingPage extends StatefulWidget {

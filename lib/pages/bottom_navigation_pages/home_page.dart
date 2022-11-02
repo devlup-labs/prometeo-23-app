@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage> {
 
               // putting a sized box in between
               
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               
               // introducing card slider
               const Expanded(
