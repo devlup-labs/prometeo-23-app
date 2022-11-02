@@ -18,7 +18,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
     return CupertinoTabScaffold(
         tabBar: CupertinoTabBar(
           activeColor: Color(0xff64ffda),
-          backgroundColor: Color(0xff0a182e),
+          backgroundColor: CupertinoColors.systemBackground,
           items: const [
             BottomNavigationBarItem(icon: Icon(CupertinoIcons.home)),
             BottomNavigationBarItem(icon: Icon(CupertinoIcons.person)),
