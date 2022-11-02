@@ -1,23 +1,19 @@
 import 'package:flutter/cupertino.dart';
-import 'package:prometeo23/widgets/cards.dart';
-import 'package:prometeo23/widgets/slider.dart';
-import 'widgets/cards.dart';
-import 'widgets/slider.dart';
+import 'package:prometeo23/pages/landing_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Prometeo());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Prometeo extends StatelessWidget {
+  const Prometeo({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(
-      home: CupertinoPageScaffold(
-        child: CardSlider(),
-      ),
+    return  CupertinoApp(
+      debugShowCheckedModeBanner: false,
+      home:  LandingPage(),
     );
   }
 }
