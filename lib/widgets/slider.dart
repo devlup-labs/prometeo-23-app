@@ -2,35 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'cards.dart';
 
-final List<Widget> imageSliders = [
-  Cards(
-    title: "gjh",
-    date: "222",
-    imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
-  ),
-  Cards(
-    title: "gjh",
-    date: "222",
-    imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
-  ),
-  Cards(
-    title: "gjh",
-    date: "222",
-    imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
-  ),
-  Cards(
-    title: "gjh",
-    date: "222",
-    imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
-  ),
-];
-
 class CardSlider extends StatelessWidget {
-  const CardSlider({super.key});
+  List <Widget>cards;
+  CardSlider({required this.cards, super.key});
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
@@ -47,7 +21,7 @@ class CardSlider extends StatelessWidget {
                 enlargeCenterPage: true,
                 height: 350
               ),
-              items: imageSliders,
+              items: cards,
             ),
 
           ],
