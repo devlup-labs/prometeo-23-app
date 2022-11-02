@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class Tabs extends StatefulWidget {
   const Tabs({super.key});
@@ -8,47 +9,38 @@ class Tabs extends StatefulWidget {
 }
 
 class _TabsState extends State<Tabs> {
+  List headings = [
+    'Flagship Events',
+    'Entreprenurship Events',
+    'Technical Events',
+    'Workshops',
+    'Speakers'
+    ];
   @override
   Widget build(BuildContext context) {
-    return  Container(  
-              child: CupertinoSlidingSegmentedControl(
-                backgroundColor: const Color(0xff0a182e),
-                thumbColor: const Color(0xff0a182e),
-                children: {
-                  0: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(width: 2, color: const Color(0xff64ffda)),
-                      borderRadius: const BorderRadius.all(Radius.circular(10))
-                    ),
-                    padding: const EdgeInsets.all(10),
-                    child: const Text(
-                      'Flagship Events',
-                      style: TextStyle(color: Color(0xff64ffda),
-                      fontSize: 12.0),
-                      ),
-                  ),
-                  1: Container(
-                    padding: const EdgeInsets.all(5),
-                    child: const Text(
-                      'Technical Events',
-                      style: TextStyle(
-                        color: Color(0xff8892b0),
-                        fontSize: 12,
-                      ),
-                      ),
-                  ),
-
-                  2: Container(
-                    padding: const EdgeInsets.all(5),
-                    child: const Text(
-                      'Entreprenurship Events',
-                      style: TextStyle(color: Color(0xff8892b0),
-                      fontSize: 12),
-                      ),
-                  ),
-                }, 
-                onValueChanged: (value){
-                }),
-            );
+    return  Container( 
+      height: 50,
+      width: MediaQuery.of(context).size.width,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: headings.length, 
+        itemBuilder: ((context, index) {
+          return Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+            margin: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              border: Border.all(width: 2, color: const Color(0xff64ffda)),
+              borderRadius: const BorderRadius.all(Radius.circular(20))
+            ),
+            child: CupertinoButton(
+              onPressed: () {},
+              child: Text(headings[index],
+              style: const TextStyle(
+                color: CupertinoColors.white
+              ),),),
+          );
+        })
+        )
+    );
   } 
 }
