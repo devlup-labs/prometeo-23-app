@@ -18,11 +18,27 @@ class _BottomNavigationState extends State<BottomNavigation> {
     return CupertinoTabScaffold(
         tabBar: CupertinoTabBar(
           activeColor: Color(0xff64ffda),
-          backgroundColor: CupertinoColors.systemBackground,
+          // backgroundColor: CupertinoColors.systemBackground,
+          backgroundColor: Color.fromARGB(0, 0, 0, 0),
           items: const [
-            BottomNavigationBarItem(icon: Icon(CupertinoIcons.home)),
-            BottomNavigationBarItem(icon: Icon(CupertinoIcons.person)),
-            BottomNavigationBarItem(icon: Icon(CupertinoIcons.calendar)),
+            BottomNavigationBarItem(
+              icon: Icon(
+                CupertinoIcons.home,
+                size: 24,
+              ),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                CupertinoIcons.person,
+                size: 24,
+              ),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                CupertinoIcons.calendar,
+                size: 24,
+              ),
+            ),
           ],
         ),
         tabBuilder: ((context, index) {

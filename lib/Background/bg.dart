@@ -14,8 +14,8 @@ class CircularParticleScreen extends StatelessWidget {
         child: Center(
           child: CircularParticle(
             awayRadius: 80,
-            numberOfParticles: 150,
-            speedOfParticles: 1,
+            numberOfParticles: 100,
+            speedOfParticles: 0.5,
             height: screenHeight,
             width: screenWidth,
             onTapAnimation: true,
@@ -25,10 +25,11 @@ class CircularParticleScreen extends StatelessWidget {
             isRandSize: true,
             isRandomColor: true,
             randColorList: [
-              Colors.red.withAlpha(210),
+              // Colors.red.withAlpha(210),
               Colors.white.withAlpha(210),
-              Colors.yellow.withAlpha(210),
-              Colors.green.withAlpha(210)
+              // Colors.yellow.withAlpha(210),
+              // Colors.green.withAlpha(210),
+              Colors.cyan.withAlpha(210),
             ],
             awayAnimationCurve: Curves.easeInOutSine,
             enableHover: true,
