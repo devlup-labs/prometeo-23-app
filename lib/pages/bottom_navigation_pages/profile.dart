@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:prometeo23/Background/bg.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -10,6 +11,17 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
-    return Container(child: Center(child: Text('profile'),),);
+    return Stack(
+      children: [
+        CircularParticleScreen(),
+        Container(
+          child: Center(
+            child: Text(
+              'profile',
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }

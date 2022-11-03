@@ -15,7 +15,7 @@ class _TabsState extends State<Tabs> {
   int activeIndex = 0;
   List headings = [
     'Flagship Events',
-    'Entreprenurship Events',
+    'Entrepreneurship Events',
     'Technical Events',
     'Workshops',
     'Speakers'
@@ -27,7 +27,7 @@ class _TabsState extends State<Tabs> {
         child: Column(
           children: [
             Container(
-              height: 50,
+              height: MediaQuery.of(context).size.height / 12,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: headings.length,

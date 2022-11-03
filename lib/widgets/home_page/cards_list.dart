@@ -4,139 +4,138 @@ import '../cards.dart';
 
 final List<Cards> FlagshipCards = [
   Cards(
-    title: "gjh",
-    date: "222",
+    title: "Flagship Events",
+    date: "DD/MM/YYYY",
     imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
+        "https://i.postimg.cc/sgBFfbkY/audience-on-music-notes-background-0610-min.jpg",
   ),
   Cards(
-    title: "gjh",
-    date: "222",
+    title: "Flagship Events",
+    date: "DD/MM/YYYY",
     imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
+        "https://i.postimg.cc/sgBFfbkY/audience-on-music-notes-background-0610-min.jpg",
   ),
   Cards(
-    title: "gjh",
-    date: "222",
+    title: "Flagship Events",
+    date: "DD/MM/YYYY",
     imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
+        "https://i.postimg.cc/sgBFfbkY/audience-on-music-notes-background-0610-min.jpg",
   ),
   Cards(
-    title: "gjh",
-    date: "222",
+    title: "Flagship Events",
+    date: "DD/MM/YYYY",
     imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
+        "https://i.postimg.cc/sgBFfbkY/audience-on-music-notes-background-0610-min.jpg",
   ),
 ];
 final List<Cards> TechnicalCards = [
   Cards(
-    title: "gjh",
-    date: "222",
+    title: "Technical Event",
+    date: "DD/MM/YYYY",
     imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
+        "https://i.postimg.cc/sgBFfbkY/audience-on-music-notes-background-0610-min.jpg",
   ),
   Cards(
-    title: "gjh",
-    date: "222",
+    title: "Technical Event",
+    date: "DD/MM/YYYY",
     imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
+        "https://i.postimg.cc/sgBFfbkY/audience-on-music-notes-background-0610-min.jpg",
   ),
   Cards(
-    title: "gjh",
-    date: "222",
+    title: "Technical Event",
+    date: "DD/MM/YYYY",
     imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
+        "https://i.postimg.cc/sgBFfbkY/audience-on-music-notes-background-0610-min.jpg",
   ),
   Cards(
-    title: "gjh",
-    date: "222",
+    title: "Technical Event",
+    date: "DD/MM/YYYY",
     imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
+        "https://i.postimg.cc/sgBFfbkY/audience-on-music-notes-background-0610-min.jpg",
   ),
 ];
 final List<Cards> EntrepreneurshipCards = [
   Cards(
-    title: "Kunal",
-    date: "222",
+    title: "Event Name",
+    date: "DD/MM/YYYY",
     imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
+        "https://i.postimg.cc/sgBFfbkY/audience-on-music-notes-background-0610-min.jpg",
   ),
   Cards(
-    title: "Kunal",
-    date: "222",
+    title: "Event Name",
+    date: "DD/MM/YYYY",
     imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
+        "https://i.postimg.cc/sgBFfbkY/audience-on-music-notes-background-0610-min.jpg",
   ),
   Cards(
-    title: "Kunal",
-    date: "222",
+    title: "Event Name",
+    date: "DD/MM/YYYY",
     imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
+        "https://i.postimg.cc/sgBFfbkY/audience-on-music-notes-background-0610-min.jpg",
   ),
   Cards(
-    title: "Kunal",
-    date: "222",
+    title: "Event Name",
+    date: "DD/MM/YYYY",
     imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
+        "https://i.postimg.cc/sgBFfbkY/audience-on-music-notes-background-0610-min.jpg",
   ),
 ];
 final List<Cards> WorshopCards = [
   Cards(
-    title: "gjh",
-    date: "222",
+    title: "Event Name",
+    date: "DD/MM/YYYY",
     imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
+        "https://i.postimg.cc/sgBFfbkY/audience-on-music-notes-background-0610-min.jpg",
   ),
   Cards(
-    title: "gjh",
-    date: "222",
+    title: "Event Name",
+    date: "DD/MM/YYYY",
     imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
+        "https://i.postimg.cc/sgBFfbkY/audience-on-music-notes-background-0610-min.jpg",
   ),
   Cards(
-    title: "gjh",
-    date: "222",
+    title: "Event Name",
+    date: "DD/MM/YYYY",
     imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
+        "https://i.postimg.cc/sgBFfbkY/audience-on-music-notes-background-0610-min.jpg",
   ),
   Cards(
-    title: "gjh",
-    date: "222",
+    title: "Event Name",
+    date: "DD/MM/YYYY",
     imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
+        "https://i.postimg.cc/sgBFfbkY/audience-on-music-notes-background-0610-min.jpg",
   ),
 ];
 final List<Cards> SpeakersCards = [
   Cards(
-    title: "gjh",
-    date: "222",
+    title: "Event Name",
+    date: "DD/MM/YYYY",
     imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
+        "https://i.postimg.cc/sgBFfbkY/audience-on-music-notes-background-0610-min.jpg",
   ),
   Cards(
-    title: "gjh",
-    date: "222",
+    title: "Event Name",
+    date: "DD/MM/YYYY",
     imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
+        "https://i.postimg.cc/sgBFfbkY/audience-on-music-notes-background-0610-min.jpg",
   ),
   Cards(
-    title: "gjh",
-    date: "222",
+    title: "Event Name",
+    date: "DD/MM/YYYY",
     imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
+        "https://i.postimg.cc/sgBFfbkY/audience-on-music-notes-background-0610-min.jpg",
   ),
   Cards(
-    title: "gjh",
-    date: "222",
+    title: "Event Name",
+    date: "DD/MM/YYYY",
     imageLink:
-        "https://hullabaloo.co.uk/wp-content/uploads/2016/03/Hullabaloo-Loughborough-Graphics-Design-Blog-Images-0042..jpg",
+        "https://i.postimg.cc/sgBFfbkY/audience-on-music-notes-background-0610-min.jpg",
   ),
 ];
 
-
 final List SliderCards = [
   FlagshipCards,
-  TechnicalCards, 
+  TechnicalCards,
   EntrepreneurshipCards,
   WorshopCards,
   SpeakersCards
