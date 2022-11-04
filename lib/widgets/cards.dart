@@ -24,9 +24,11 @@ class _CardsState extends State<Cards> {
     return Container(
       child: GestureDetector(
         onTap: () {
-          Navigator.push(
+          Navigator.of(
             context,
-            MaterialPageRoute(
+            rootNavigator: false,
+          ).push(
+            CupertinoPageRoute(
               builder: (context) => Event(
                 eventName: widget.title,
                 eventDate: widget.date,

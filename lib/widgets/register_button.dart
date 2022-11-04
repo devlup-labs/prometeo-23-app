@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class RegisterButton extends StatefulWidget {
   const RegisterButton({super.key});
@@ -26,7 +26,7 @@ class _RegisterButtonState extends State<RegisterButton> {
           "Register",
           style: TextStyle(
             fontSize: 22,
-            color: CupertinoColors.black,
+            color: Colors.black,
             fontWeight: FontWeight.w600,
           ),
         ),

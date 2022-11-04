@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
 
 class EventDescription extends StatefulWidget {
@@ -25,7 +25,7 @@ class _EventDescriptionState extends State<EventDescription> {
             "Description",
             style: TextStyle(
               fontSize: 20,
-              color: CupertinoColors.white,
+              color: Colors.white,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -45,7 +45,7 @@ class _EventDescriptionState extends State<EventDescription> {
             ),
             style: TextStyle(
               fontSize: 16,
-              color: CupertinoColors.white,
+              color: Colors.white,
             ),
             lessStyle: TextStyle(
               fontSize: 12,

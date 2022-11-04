@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class Position extends StatefulWidget {
   String position;
@@ -23,7 +23,7 @@ class _PositionState extends State<Position> {
           widget.position,
           style: TextStyle(
             fontSize: 24,
-            color: CupertinoColors.black,
+            color: Colors.black,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -31,7 +31,7 @@ class _PositionState extends State<Position> {
           widget.abbr,
           style: TextStyle(
             fontSize: 14,
-            color: CupertinoColors.black,
+            color: Colors.black,
             fontWeight: FontWeight.w600,
           ),
         ),

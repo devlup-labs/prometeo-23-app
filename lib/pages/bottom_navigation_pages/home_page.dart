@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:prometeo23/Background/bg.dart';
 import 'package:prometeo23/widgets/home_page/tabs.dart';
 import 'package:prometeo23/widgets/slider.dart';
@@ -14,48 +14,50 @@ class _HomePageState extends State<HomePage> {
   int groupValue = 0;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Color(0xff110F16),
-      child: SingleChildScrollView(
-        child: Stack(
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              padding: const EdgeInsets.all(15),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Align(
-                    alignment: Alignment.topCenter,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        Icon(
-                          CupertinoIcons.line_horizontal_3,
-                          color: Color(0xffccd6f6),
-                        ),
-                        Icon(
-                          CupertinoIcons.bell_solid,
-                          color: Color(0xff64ffda),
-                        )
-                      ],
+    return Scaffold(
+      body: Container(
+        color: Color(0xff110F16),
+        child: SingleChildScrollView(
+          child: Stack(
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                padding: const EdgeInsets.all(15),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Align(
+                      alignment: Alignment.topCenter,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: const [
+                          Icon(
+                            Icons.menu,
+                            color: Color(0xffccd6f6),
+                          ),
+                          Icon(
+                            Icons.notification_add,
+                            color: Color(0xff64ffda),
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                  // search bar
-                  // const SearchBar(),
-                  Container(
-                    child: Image.network(
-                      "https://i.postimg.cc/xdmFVkjD/prometeo-logo-23.png",
+                    // search bar
+                    // const SearchBar(),
+                    Container(
+                      child: Image.network(
+                        "https://i.postimg.cc/xdmFVkjD/prometeo-logo-23.png",
+                      ),
                     ),
-                  ),
-                  LocationDate(),
-                  // tabs
-                  const Tabs(),
-                ],
+                    LocationDate(),
+                    // tabs
+                    const Tabs(),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -76,7 +78,7 @@ class LocationDate extends StatelessWidget {
           Row(
             children: [
               Icon(
-                CupertinoIcons.location_solid,
+                Icons.location_pin,
                 color: Color(0xff64ffda),
                 size: 24,
               ),
@@ -86,7 +88,7 @@ class LocationDate extends StatelessWidget {
               Text(
                 "IIT Jodhpur",
                 style: TextStyle(
-                  color: CupertinoColors.white,
+                  color: Colors.white,
                   fontSize: 14,
                 ),
               ),
@@ -95,7 +97,7 @@ class LocationDate extends StatelessWidget {
           Row(
             children: [
               Icon(
-                CupertinoIcons.calendar,
+                Icons.edit_calendar,
                 color: Color(0xff64ffda),
                 size: 24,
               ),
@@ -105,7 +107,7 @@ class LocationDate extends StatelessWidget {
               Text(
                 "23rd - 25th Jan",
                 style: TextStyle(
-                  color: CupertinoColors.white,
+                  color: Colors.white,
                   fontSize: 14,
                 ),
               ),

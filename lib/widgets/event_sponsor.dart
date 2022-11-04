@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class EventSponsor extends StatefulWidget {
   String eventSponsorLink;
@@ -25,7 +25,7 @@ class _EventSponsorState extends State<EventSponsor> {
               "Sponsored By",
               style: TextStyle(
                 fontSize: 20,
-                color: CupertinoColors.white,
+                color: Colors.white,
                 fontWeight: FontWeight.w600,
               ),
             ),

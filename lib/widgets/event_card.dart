@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class EventCard extends StatefulWidget {
   String eventName;
@@ -38,8 +38,8 @@ class _EventCardState extends State<EventCard> {
                   Navigator.of(context).pop();
                 },
                 child: Icon(
-                  CupertinoIcons.arrow_left,
-                  color: CupertinoColors.white,
+                  Icons.arrow_back_ios,
+                  color: Colors.white,
                   size: 24,
                 ),
               ),
@@ -64,7 +64,7 @@ class _EventCardState extends State<EventCard> {
                         widget.eventName,
                         style: const TextStyle(
                           fontSize: 30,
-                          color: CupertinoColors.white,
+                          color: Colors.white,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -79,7 +79,7 @@ class _EventCardState extends State<EventCard> {
                         Row(
                           children: [
                             Icon(
-                              CupertinoIcons.calendar,
+                              Icons.edit_calendar,
                               color: Color(0xff64ffda),
                               size: 18,
                             ),
@@ -91,7 +91,7 @@ class _EventCardState extends State<EventCard> {
                               child: Text(
                                 widget.eventDate,
                                 style: const TextStyle(
-                                  color: CupertinoColors.white,
+                                  color: Colors.white,
                                   fontSize: 14,
                                 ),
                               ),
@@ -101,7 +101,7 @@ class _EventCardState extends State<EventCard> {
                         Row(
                           children: [
                             Icon(
-                              CupertinoIcons.clock,
+                              Icons.alarm,
                               color: Color(0xff64ffda),
                               size: 18,
                             ),
@@ -113,7 +113,7 @@ class _EventCardState extends State<EventCard> {
                               child: Text(
                                 widget.eventTime,
                                 style: const TextStyle(
-                                  color: CupertinoColors.white,
+                                  color: Colors.white,
                                   fontSize: 14,
                                 ),
                               ),

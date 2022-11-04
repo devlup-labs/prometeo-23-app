@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:prometeo23/widgets/home_page/cards_list.dart';
 import 'package:prometeo23/widgets/home_page/slider_headings.dart';
@@ -53,7 +52,7 @@ class _TabsState extends State<Tabs> {
                         child: Text(
                           headings[index],
                           style: const TextStyle(
-                            color: CupertinoColors.white,
+                            color: Colors.white,
                           ),
                         ),
                       ),

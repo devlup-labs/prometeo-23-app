@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class SearchBar extends StatefulWidget {
@@ -16,16 +16,18 @@ class _SearchBarState extends State<SearchBar> {
       decoration: const BoxDecoration(
           color: Color(0xff8892b0),
           borderRadius: BorderRadius.all(Radius.circular(20))),
-      child: const CupertinoSearchTextField(
-        suffixIcon: Icon(
-          CupertinoIcons.ellipsis_vertical,
-          color: CupertinoColors.white,
-        ),
-        prefixIcon: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 8.0),
-          child: Icon(
-            CupertinoIcons.search,
-            color: CupertinoColors.white,
+      child: TextField(
+        decoration: InputDecoration(
+          suffixIcon: Icon(
+            Icons.more_vert,
+            color: Colors.white,
+          ),
+          prefixIcon: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8.0),
+            child: Icon(
+              Icons.search,
+              color: Colors.white,
+            ),
           ),
         ),
       ),

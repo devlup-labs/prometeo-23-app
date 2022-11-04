@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:prometeo23/Background/bg.dart';
 
 class Profile extends StatefulWidget {

@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class SliderHeading extends StatelessWidget {
   String heading;
@@ -10,12 +10,14 @@ class SliderHeading extends StatelessWidget {
       Text(
         heading,
         style: const TextStyle(
-          color: CupertinoColors.white,
-          fontWeight: FontWeight.w800,
-          fontSize: 24
-        ),
+            color: Colors.white, fontWeight: FontWeight.w800, fontSize: 24),
       ),
-      const Icon(CupertinoIcons.ellipsis_circle, color: Color(0xff64ffda))
+      const Icon(
+        Icons.flag_circle,
+        color: Color(
+          0xff64ffda,
+        ),
+      )
     ]);
   }
 }

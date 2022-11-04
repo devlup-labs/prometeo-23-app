@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:prometeo23/widgets/position.dart';
 
 class Price extends StatefulWidget {
@@ -88,7 +88,7 @@ class VerticalLine extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 2,
-      color: CupertinoColors.black,
+      color: Colors.black,
     );
   }
 }
@@ -103,7 +103,7 @@ class PriceAmount extends StatelessWidget {
       amount,
       style: TextStyle(
         fontSize: 12,
-        color: CupertinoColors.black,
+        color: Colors.black,
         fontWeight: FontWeight.w600,
       ),
     );
