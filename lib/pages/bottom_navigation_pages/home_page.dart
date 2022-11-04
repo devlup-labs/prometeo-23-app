@@ -19,7 +19,6 @@ class _HomePageState extends State<HomePage> {
       child: SingleChildScrollView(
         child: Stack(
           children: [
-            // CircularParticleScreen(),
             Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
@@ -50,6 +49,7 @@ class _HomePageState extends State<HomePage> {
                       "https://i.postimg.cc/xdmFVkjD/prometeo-logo-23.png",
                     ),
                   ),
+                  LocationDate(),
                   // tabs
                   const Tabs(),
                 ],
@@ -57,6 +57,61 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class LocationDate extends StatelessWidget {
+  const LocationDate({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Row(
+            children: [
+              Icon(
+                CupertinoIcons.location_solid,
+                color: Color(0xff64ffda),
+                size: 24,
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Text(
+                "IIT Jodhpur",
+                style: TextStyle(
+                  color: CupertinoColors.white,
+                  fontSize: 14,
+                ),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Icon(
+                CupertinoIcons.calendar,
+                color: Color(0xff64ffda),
+                size: 24,
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Text(
+                "23rd - 25th Jan",
+                style: TextStyle(
+                  color: CupertinoColors.white,
+                  fontSize: 14,
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

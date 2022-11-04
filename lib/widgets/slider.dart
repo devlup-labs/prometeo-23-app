@@ -18,7 +18,7 @@ class CardSlider extends StatelessWidget {
               CarouselSlider(
                 options: CarouselOptions(
                   autoPlay: true,
-                  autoPlayInterval: const Duration(seconds: 2),
+                  autoPlayInterval: const Duration(seconds: 3),
                   enlargeCenterPage: true,
                   height: MediaQuery.of(context).size.height * 0.45,
                 ),
