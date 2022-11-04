@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:prometeo23/widgets/event_card.dart';
 import 'package:prometeo23/widgets/event_description.dart';
 import 'package:prometeo23/widgets/event_sponsor.dart';
+import 'package:prometeo23/widgets/prices.dart';
 import 'package:prometeo23/widgets/register_button.dart';
 
 class Event extends StatefulWidget {
@@ -64,86 +65,7 @@ class _EventState extends State<Event> {
               const SizedBox(
                 height: 20,
               ),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.9,
-                height: MediaQuery.of(context).size.height / 14,
-                padding: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width * 0.1,
-                  right: MediaQuery.of(context).size.width * 0.1,
-                ),
-                decoration: BoxDecoration(
-                  color: Color(0xff64ffda),
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: Container(
-                  padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.01,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                        children: [
-                          Icon(
-                            CupertinoIcons.location_north_line_fill,
-                            color: CupertinoColors.black,
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "10K",
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: CupertinoColors.black,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Icon(
-                            CupertinoIcons.location_north_line_fill,
-                            color: CupertinoColors.black,
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "30K",
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: CupertinoColors.black,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Icon(
-                            CupertinoIcons.location_north_line_fill,
-                            color: CupertinoColors.black,
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "5K",
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: CupertinoColors.black,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              Price(),
               const SizedBox(
                 height: 30,
               ),
