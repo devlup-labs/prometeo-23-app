@@ -46,6 +46,7 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
+
                 // search bar
                 // const SearchBar(),
                 Container(
@@ -54,6 +55,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 LocationDate(),
+                const SizedBox(
+                  height: 30,
+                ),
                 // tabs
                 const Tabs(),
 
