@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:prometeo23/pages/event.dart';
 
 class Cards extends StatefulWidget {
   String title;
@@ -23,7 +24,18 @@ class _CardsState extends State<Cards> {
     return Container(
       child: GestureDetector(
         onTap: () {
-          // some logic
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Event(
+                eventName: widget.title,
+                eventDate: widget.date,
+                eventTime: "4pm - 12pm",
+                eventDescription:
+                    "Electronic music festival held in Belgium.\nTommorowland was first held in 2005 and has various different stages and themes.",
+              ),
+            ),
+          );
         },
         child: Container(
           width: MediaQuery.of(context).size.width * 0.8,
