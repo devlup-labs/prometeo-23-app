@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Color(0xff110F16),
       body: Container(
         padding: EdgeInsets.only(
-          top: 10,
+          top: 40,
         ),
         child: SingleChildScrollView(
           child: Container(
