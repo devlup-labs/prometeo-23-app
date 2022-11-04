@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
 import 'package:prometeo23/widgets/event_card.dart';
 import 'package:prometeo23/widgets/event_description.dart';
 import 'package:prometeo23/widgets/event_sponsor.dart';
@@ -27,8 +28,8 @@ class _EventState extends State<Event> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: Color(0xff110F16),
       body: Container(
-        color: Color(0xff110F16),
         child: SingleChildScrollView(
           child: Container(
             width: size.width,
@@ -86,6 +87,7 @@ class _EventState extends State<Event> {
           ),
         ),
       ),
+      bottomNavigationBar: BottomNavigation(),
     );
   }
 }

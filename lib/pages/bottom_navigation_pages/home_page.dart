@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prometeo23/Background/bg.dart';
+import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
 import 'package:prometeo23/widgets/home_page/tabs.dart';
 import 'package:prometeo23/widgets/slider.dart';
 
@@ -15,8 +16,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff110F16),
       body: Container(
-        color: Color(0xff110F16),
+        padding: EdgeInsets.only(
+          top: 10,
+        ),
         child: SingleChildScrollView(
           child: Stack(
             children: [
@@ -60,6 +64,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+      bottomNavigationBar: BottomNavigation(),
     );
   }
 }
