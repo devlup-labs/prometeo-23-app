@@ -65,7 +65,11 @@ class _EventState extends State<Event> {
               const SizedBox(
                 height: 20,
               ),
-              Price(),
+              Price(
+                firstPrice: "INR: 30K",
+                secondPrice: "INR: 10K",
+                thirdPrice: "INR: 5K",
+              ),
               const SizedBox(
                 height: 30,
               ),
@@ -76,7 +80,6 @@ class _EventState extends State<Event> {
               const SizedBox(
                 height: 10,
               ),
-              // RegisterButton(),
             ],
           ),
         ),

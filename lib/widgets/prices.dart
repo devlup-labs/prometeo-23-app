@@ -2,7 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:prometeo23/widgets/position.dart';
 
 class Price extends StatefulWidget {
-  const Price({super.key});
+  String firstPrice;
+  String secondPrice;
+  String thirdPrice;
+
+  Price({
+    required this.firstPrice,
+    required this.secondPrice,
+    required this.thirdPrice,
+  });
 
   @override
   State<Price> createState() => _PriceState();
@@ -39,7 +47,7 @@ class _PriceState extends State<Price> {
                 const SizedBox(
                   height: 5,
                 ),
-                PriceAmount(amount: "INR: 10K"),
+                PriceAmount(amount: widget.secondPrice),
               ],
             ),
             VerticalLine(),
@@ -50,7 +58,7 @@ class _PriceState extends State<Price> {
                 const SizedBox(
                   height: 5,
                 ),
-                PriceAmount(amount: "INR: 30K"),
+                PriceAmount(amount: widget.firstPrice),
               ],
             ),
             VerticalLine(),
@@ -61,7 +69,7 @@ class _PriceState extends State<Price> {
                 const SizedBox(
                   height: 5,
                 ),
-                PriceAmount(amount: "INR: 5K"),
+                PriceAmount(amount: widget.thirdPrice),
               ],
             ),
           ],

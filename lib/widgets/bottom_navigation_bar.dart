@@ -11,7 +11,11 @@ class BottomNavigation extends StatefulWidget {
 }
 
 class _BottomNavigationState extends State<BottomNavigation> {
-  List pages = [HomePage(), Profile(), Schedule()];
+  List pages = [
+    HomePage(),
+    Profile(),
+    Schedule(),
+  ];
 
   @override
   Widget build(BuildContext context) {
