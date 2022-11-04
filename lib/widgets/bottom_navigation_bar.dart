@@ -18,7 +18,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
     return CupertinoTabScaffold(
         tabBar: CupertinoTabBar(
           activeColor: Color(0xff64ffda),
-          // backgroundColor: CupertinoColors.systemBackground,
           backgroundColor: Color.fromARGB(0, 0, 0, 0),
           items: const [
             BottomNavigationBarItem(
@@ -44,6 +43,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
         tabBuilder: ((context, index) {
           return CupertinoTabView(
             builder: (context) {
+              print("index");
+              print(index);
               return pages[index];
             },
           );
