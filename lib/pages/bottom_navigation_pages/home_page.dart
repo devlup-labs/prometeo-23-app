@@ -3,6 +3,8 @@ import 'package:prometeo23/Background/bg.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
 import 'package:prometeo23/widgets/home_page/tabs.dart';
 import 'package:prometeo23/widgets/slider.dart';
+import 'package:prometeo23/widgets/socials.dart';
+import 'package:prometeo23/widgets/theme_video.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -22,45 +24,84 @@ class _HomePageState extends State<HomePage> {
           top: 10,
         ),
         child: SingleChildScrollView(
-          child: Stack(
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
-                padding: const EdgeInsets.all(15),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
-                          Icon(
-                            Icons.menu,
-                            color: Color(0xffccd6f6),
-                          ),
-                          Icon(
-                            Icons.notification_add,
-                            color: Color(0xff64ffda),
-                          )
-                        ],
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.all(15),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      Icon(
+                        Icons.menu,
+                        color: Color(0xffccd6f6),
                       ),
-                    ),
-                    // search bar
-                    // const SearchBar(),
-                    Container(
-                      child: Image.network(
-                        "https://i.postimg.cc/xdmFVkjD/prometeo-logo-23.png",
-                      ),
-                    ),
-                    LocationDate(),
-                    // tabs
-                    const Tabs(),
-                  ],
+                      Icon(
+                        Icons.notification_add,
+                        color: Color(0xff64ffda),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            ],
+                // search bar
+                // const SearchBar(),
+                Container(
+                  child: Image.network(
+                    "https://i.postimg.cc/xdmFVkjD/prometeo-logo-23.png",
+                  ),
+                ),
+                LocationDate(),
+                // tabs
+                const Tabs(),
+
+                const SizedBox(
+                  height: 20,
+                ),
+
+                Container(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    "Theme Video",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+
+                const SizedBox(
+                  height: 20,
+                ),
+
+                ThemeVideo(),
+
+                const SizedBox(
+                  height: 20,
+                ),
+
+                Container(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    "Follow Us On",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+
+                const SizedBox(
+                  height: 20,
+                ),
+
+                Socials(),
+              ],
+            ),
           ),
         ),
       ),

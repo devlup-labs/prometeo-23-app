@@ -34,7 +34,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
           SalomonBottomBarItem(
             icon: Icon(Icons.home, color: Colors.white),
             title: Text("Home"),
-            selectedColor: backgroudColor,
+            selectedColor: cyan,
           ),
 
           /// Likes
