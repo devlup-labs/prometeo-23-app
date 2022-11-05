@@ -31,7 +31,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
             } else if (widget.currentIndex == 2) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Sponsors()),
+                MaterialPageRoute(
+                  builder: (context) => Sponsors(),
+                ),
               );
             }
           },
@@ -62,7 +64,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
           SalomonBottomBarItem(
             icon: Icon(Icons.newspaper, color: Colors.white),
             title: Text("Updates"),
-            selectedColor: Colors.teal,
+            selectedColor: updatesColor,
           ),
         ],
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prometeo23/constants.dart';
+import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
 
 class Sponsors extends StatefulWidget {
@@ -16,13 +17,17 @@ class _SponsorsState extends State<Sponsors> {
       backgroundColor: bgColor,
       body: Container(
         padding: EdgeInsets.only(
-          top: MediaQuery.of(context).size.height * 0.08,
+          top: MediaQuery.of(context).size.height * 0.05,
           left: MediaQuery.of(context).size.width * 0.05,
           right: MediaQuery.of(context).size.width * 0.05,
         ),
         child: SingleChildScrollView(
           child: Column(
             children: [
+              CustomAppBar(),
+              const SizedBox(
+                height: 20,
+              ),
               SponsorTag(
                 sponsorName: "Title Sponsor",
               ),

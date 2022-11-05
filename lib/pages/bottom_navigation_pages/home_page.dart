@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prometeo23/Background/bg.dart';
+import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
 import 'package:prometeo23/widgets/home_page/tabs.dart';
 import 'package:prometeo23/widgets/slider.dart';
@@ -30,23 +31,7 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Icon(
-                        Icons.menu,
-                        color: Color(0xffccd6f6),
-                      ),
-                      Icon(
-                        Icons.notification_add,
-                        color: Color(0xff64ffda),
-                      )
-                    ],
-                  ),
-                ),
-
+                CustomAppBar(),
                 // search bar
                 // const SearchBar(),
                 Container(
