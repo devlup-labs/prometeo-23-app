@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
 import 'package:prometeo23/pages/sponsors.dart';
+import 'package:prometeo23/pages/updates_page.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class BottomNavigation extends StatefulWidget {
@@ -35,6 +36,13 @@ class _BottomNavigationState extends State<BottomNavigation> {
                   builder: (context) => Sponsors(),
                 ),
               );
+            } else if (widget.currentIndex == 3) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => UpdatesPage(),
+                ),
+              );
             }
           },
         ),
@@ -64,7 +72,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
           SalomonBottomBarItem(
             icon: Icon(Icons.newspaper, color: Colors.white),
             title: Text("Updates"),
-            selectedColor: updatesColor,
+            selectedColor: Colors.teal,
           ),
         ],
       ),

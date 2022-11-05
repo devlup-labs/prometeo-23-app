@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/event.dart';
 
 class Cards extends StatefulWidget {
@@ -63,17 +64,37 @@ class _CardsState extends State<Cards> {
                       child: Text(
                         widget.title,
                         style: const TextStyle(
-                            fontSize: 30, color: CupertinoColors.white),
+                          fontSize: 24,
+                          color: CupertinoColors.white,
+                        ),
                       ),
                     ),
-                    FittedBox(
-                        fit: BoxFit.fitWidth,
-                        child: Text(
-                          widget.date,
-                          style: const TextStyle(
-                            color: CupertinoColors.white,
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.edit_calendar,
+                          color: cyan,
+                          size: 18,
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        FittedBox(
+                          fit: BoxFit.fitWidth,
+                          child: Text(
+                            widget.date,
+                            style: const TextStyle(
+                              color: CupertinoColors.white,
+                              fontSize: 14,
+                            ),
                           ),
-                        ))
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ),
