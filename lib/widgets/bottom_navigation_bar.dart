@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
-import 'package:prometeo23/pages/sposors.dart';
+import 'package:prometeo23/pages/sponsors.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class BottomNavigation extends StatefulWidget {
