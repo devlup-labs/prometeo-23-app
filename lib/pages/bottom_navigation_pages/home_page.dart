@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                 Container(
                   alignment: Alignment.bottomLeft,
                   child: Text(
-                    "Theme Video",
+                    "Theme Reveal",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,
