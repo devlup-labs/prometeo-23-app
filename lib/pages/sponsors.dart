@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
+import 'package:prometeo23/widgets/nav_drawer.dart';
 
 class Sponsors extends StatefulWidget {
   const Sponsors({super.key});
@@ -14,6 +15,7 @@ class _SponsorsState extends State<Sponsors> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavDrawer(),
       backgroundColor: bgColor,
       body: Container(
         padding: EdgeInsets.only(

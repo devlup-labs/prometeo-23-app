@@ -16,9 +16,12 @@ class _CustomAppBarState extends State<CustomAppBar> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Icon(
-            Icons.menu,
-            color: Color(0xffccd6f6),
+          GestureDetector(
+            onTap: () => Scaffold.of(context).openDrawer(),
+            child: Icon(
+              Icons.menu,
+              color: Color(0xffccd6f6),
+            ),
           ),
           GestureDetector(
             onTap: () => {
@@ -33,7 +36,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
               Icons.notifications,
               color: Color(0xff64ffda),
             ),
-          )
+          ),
         ],
       ),
     );
