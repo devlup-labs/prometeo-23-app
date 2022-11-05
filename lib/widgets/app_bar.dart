@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prometeo23/pages/updates_page.dart';
 
 class CustomAppBar extends StatefulWidget {
   const CustomAppBar({super.key});
@@ -14,14 +15,24 @@ class _CustomAppBarState extends State<CustomAppBar> {
       alignment: Alignment.topCenter,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: const [
+        children: [
           Icon(
             Icons.menu,
             color: Color(0xffccd6f6),
           ),
-          Icon(
-            Icons.notification_add,
-            color: Color(0xff64ffda),
+          GestureDetector(
+            onTap: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => UpdatesPage(),
+                ),
+              ),
+            },
+            child: Icon(
+              Icons.notifications,
+              color: Color(0xff64ffda),
+            ),
           )
         ],
       ),
