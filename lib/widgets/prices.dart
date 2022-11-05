@@ -28,6 +28,8 @@ class _PriceState extends State<Price> {
       ),
       decoration: BoxDecoration(
         color: Color(0xff64ffda),
+        // color: Color(0xffC1DEAE),
+        // color: Color(0xff66BFBF),
         borderRadius: BorderRadius.circular(25),
       ),
       child: Container(

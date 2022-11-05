@@ -109,7 +109,9 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigation(),
+      bottomNavigationBar: BottomNavigation(
+        currentIndex: 0,
+      ),
     );
   }
 }

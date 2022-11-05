@@ -87,7 +87,9 @@ class _EventState extends State<Event> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigation(),
+      bottomNavigationBar: BottomNavigation(
+        currentIndex: 0,
+      ),
     );
   }
 }
