@@ -34,7 +34,7 @@ class _EventDescriptionState extends State<EventDescription> {
           ),
           ReadMoreText(
             widget.eventDescription,
-            trimLines: 2,
+            trimLines: 4,
             colorClickableText: Color(0xff64ffda),
             trimMode: TrimMode.Line,
             trimCollapsedText: ' Read more',

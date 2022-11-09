@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
+import 'package:prometeo23/pages/gallery.dart';
 import 'package:prometeo23/pages/sponsors.dart';
 import 'package:prometeo23/pages/updates_page.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
@@ -28,6 +29,13 @@ class _BottomNavigationState extends State<BottomNavigation> {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => HomePage()),
+              );
+            } else if (widget.currentIndex == 1) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Gallery(),
+                ),
               );
             } else if (widget.currentIndex == 2) {
               Navigator.push(

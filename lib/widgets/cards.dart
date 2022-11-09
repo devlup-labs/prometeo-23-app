@@ -1,26 +1,75 @@
+import 'dart:convert';
+import 'dart:ffi';
+import 'package:http/http.dart' as http;
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/event.dart';
 
 class Cards extends StatefulWidget {
+  String eventId;
   String title;
-  String date;
+  String prize;
   String imageLink;
+  String description;
 
-  Cards(
-      {required this.imageLink,
-      required this.date,
-      required this.title,
-      super.key});
+  Cards({
+    required this.eventId,
+    required this.imageLink,
+    required this.prize,
+    required this.title,
+    required this.description,
+    super.key,
+  });
 
   @override
   State<Cards> createState() => _CardsState();
 }
 
 class _CardsState extends State<Cards> {
+  List<String> sponsorLinks = [];
+  bool isLoading = true;
+  void fetchSponsorLink() async {
+    final response = await http.get(
+      Uri.parse(
+        'https://apiv.prometeo.in/api/EventSponsors/?event=' + widget.eventId,
+      ),
+    );
+    print(Uri.parse(
+        'https://apiv.prometeo.in/api/EventSponsors/?event=' + widget.eventId));
+
+    print(response);
+
+    if (response.statusCode == 200) {
+      // If the server did return a 200 OK response,
+      // then parse the JSON.
+      var list = json.decode(response.body) as List;
+
+      //iterate over json and create a list
+      for (var i = 0; i < list.length; i++) {
+        String sponsorLink =
+            'https://apiv.prometeo.in/' + list[i]['image'].substring(19);
+        sponsorLinks.add(sponsorLink);
+      }
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      throw Exception('Failed to load album');
+    }
+
+    setState(() {
+      isLoading = false;
+    });
+  }
+
   bool like = false;
   @override
+  void initState() {
+    super.initState();
+    fetchSponsorLink();
+  }
+
   Widget build(BuildContext context) {
     return Container(
       child: GestureDetector(
@@ -29,13 +78,14 @@ class _CardsState extends State<Cards> {
             context,
             rootNavigator: false,
           ).push(
-            CupertinoPageRoute(
+            MaterialPageRoute(
               builder: (context) => Event(
                 eventName: widget.title,
-                eventDate: widget.date,
+                eventDate: widget.prize,
                 eventTime: "4pm - 12pm",
-                eventDescription:
-                    "Electronic music festival held in Belgium.\nTommorowland was first held in 2005 and has various different stages and themes.",
+                eventDescription: widget.description,
+                imageLink: widget.imageLink,
+                sponsorLink: sponsorLinks,
               ),
             ),
           );
@@ -43,7 +93,7 @@ class _CardsState extends State<Cards> {
         child: Container(
           width: MediaQuery.of(context).size.width * 0.8,
           height: 400,
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(25)),
             // color: CupertinoColors.activeBlue
@@ -65,19 +115,20 @@ class _CardsState extends State<Cards> {
                         widget.title,
                         style: const TextStyle(
                           fontSize: 24,
-                          color: CupertinoColors.white,
+                          color: Colors.orange,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
+                    // const SizedBox(
+                    //   height: 5,
+                    // ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.edit_calendar,
-                          color: cyan,
+                          Icons.currency_rupee,
+                          color: Colors.orange,
                           size: 18,
                         ),
                         const SizedBox(
@@ -86,10 +137,11 @@ class _CardsState extends State<Cards> {
                         FittedBox(
                           fit: BoxFit.fitWidth,
                           child: Text(
-                            widget.date,
+                            "Prizes worth: " + widget.prize,
                             style: const TextStyle(
-                              color: CupertinoColors.white,
+                              color: Colors.orange,
                               fontSize: 14,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ),

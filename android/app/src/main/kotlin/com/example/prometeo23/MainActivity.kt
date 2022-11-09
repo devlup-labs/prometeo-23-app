@@ -1,4 +1,4 @@
-package com.example.prometeo23
+package com.prometeo23.android.prometeo23
 
 import io.flutter.embedding.android.FlutterActivity
 

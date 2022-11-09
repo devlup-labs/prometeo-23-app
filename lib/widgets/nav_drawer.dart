@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
+import 'package:prometeo23/pages/gallery.dart';
 import 'package:prometeo23/pages/sponsors.dart';
 import 'package:prometeo23/pages/updates_page.dart';
 
@@ -15,8 +16,9 @@ class NavDrawer extends StatelessWidget {
             decoration: BoxDecoration(
               color: Color(0xff110F16),
               image: DecorationImage(
-                image: NetworkImage(
-                    "https://i.postimg.cc/xdmFVkjD/prometeo-logo-23.png"),
+                image: AssetImage(
+                  "assets/prometeo_home_page.png",
+                ),
               ),
             ),
             child: Text(""),
@@ -58,7 +60,17 @@ class NavDrawer extends StatelessWidget {
           //   onTap: () => {Navigator.of(context).pop()},
           // ),
           ListTile(
-            leading: Icon(Icons.currency_rupee, color: Color(0xff64ffda)),
+            leading: Icon(Icons.favorite_border, color: Colors.pink),
+            title: Text('Gallery', style: TextStyle(color: Colors.white)),
+            onTap: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Gallery()),
+              )
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.currency_rupee, color: Colors.orange),
             title: Text('Past Sponsors', style: TextStyle(color: Colors.white)),
             onTap: () => {
               Navigator.push(
@@ -68,7 +80,7 @@ class NavDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.newspaper, color: Color(0xff64ffda)),
+            leading: Icon(Icons.newspaper, color: Colors.teal),
             title:
                 Text('News & Updates', style: TextStyle(color: Colors.white)),
             onTap: () => {

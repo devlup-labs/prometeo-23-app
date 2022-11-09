@@ -8,7 +8,7 @@
 PRODUCT_NAME = prometeo23
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.prometeo23
+PRODUCT_BUNDLE_IDENTIFIER = com.prometeo23.android.prometeo23
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2022 com.example. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2022 com.prometeo23.android. All rights reserved.

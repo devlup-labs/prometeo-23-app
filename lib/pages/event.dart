@@ -11,12 +11,16 @@ class Event extends StatefulWidget {
   String eventDate;
   String eventTime;
   String eventDescription;
+  String imageLink;
+  List<String> sponsorLink;
 
   Event({
     required this.eventName,
     required this.eventDate,
     required this.eventTime,
     required this.eventDescription,
+    required this.imageLink,
+    required this.sponsorLink,
   });
 
   @override
@@ -39,6 +43,7 @@ class _EventState extends State<Event> {
                   eventName: widget.eventName,
                   eventDate: widget.eventDate,
                   eventTime: widget.eventTime,
+                  ImageLink: widget.imageLink,
                 ),
                 const SizedBox(
                   height: 30,
@@ -75,10 +80,35 @@ class _EventState extends State<Event> {
                 const SizedBox(
                   height: 30,
                 ),
-                EventSponsor(
-                  eventSponsorLink:
-                      "https://i.postimg.cc/bvGfT4vm/gfg-logo-removebg-preview.png",
+                Container(
+                  padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width * 0.05,
+                    right: MediaQuery.of(context).size.width * 0.05,
+                  ),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Sponsored By",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
                 ),
+                const SizedBox(
+                  height: 30,
+                ),
+                for (var i = 0; i < widget.sponsorLink.length; i++)
+                  Container(
+                    margin: EdgeInsets.only(
+                      bottom: 20,
+                    ),
+                    child: EventSponsor(
+                      eventSponsorLink: widget.sponsorLink[i],
+                    ),
+                  ),
                 const SizedBox(
                   height: 10,
                 ),

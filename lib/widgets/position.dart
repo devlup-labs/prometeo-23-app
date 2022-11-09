@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prometeo23/constants.dart';
 
 class Position extends StatefulWidget {
   String position;
@@ -23,7 +24,7 @@ class _PositionState extends State<Position> {
           widget.position,
           style: TextStyle(
             fontSize: 24,
-            color: Colors.black,
+            color: Colors.white,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -31,7 +32,7 @@ class _PositionState extends State<Position> {
           widget.abbr,
           style: TextStyle(
             fontSize: 14,
-            color: Colors.black,
+            color: Colors.white,
             fontWeight: FontWeight.w600,
           ),
         ),

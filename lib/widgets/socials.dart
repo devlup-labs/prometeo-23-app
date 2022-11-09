@@ -7,10 +7,6 @@ class Socials extends StatelessWidget {
 
   List socialMediaHandles = [
     {
-      'imageLink': 'https://i.postimg.cc/gJ9zd79N/twitter.png',
-      'url': Uri.parse('https://twitter.com/IITJ_Prometeo'),
-    },
-    {
       'imageLink': 'https://i.postimg.cc/MpFZ3T9k/instagram-1.png',
       'url': Uri.parse('https://www.instagram.com/prometeo.iitj/'),
     },
@@ -18,6 +14,16 @@ class Socials extends StatelessWidget {
       'imageLink': 'https://i.postimg.cc/3RpgJzkR/linkedin.png',
       'url': Uri.parse('https://www.linkedin.com/company/prometeo2022/'),
     },
+    {
+      'imageLink': 'https://i.postimg.cc/gJ9zd79N/twitter.png',
+      'url': Uri.parse('https://twitter.com/IITJ_Prometeo'),
+    },
+    {
+      'imageLink': 'https://i.imgur.com/8nWRpd5.png',
+      'url': Uri.parse(
+        'https://www.youtube.com/channel/UC-NOBZ0ioDzQ_IWRtdFfqhw',
+      ),
+    }
   ];
 
   @override
@@ -30,7 +36,10 @@ class Socials extends StatelessWidget {
             return ElevatedButton(
               onPressed: () async {
                 if (await canLaunchUrl(element['url']))
-                  await launchUrl(element['url']);
+                  await launchUrl(
+                    element['url'],
+                    mode: LaunchMode.externalApplication,
+                  );
                 else
                   throw "Could not launch $element['url']";
               },

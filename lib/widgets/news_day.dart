@@ -60,7 +60,7 @@ class _NewsOfDayCardState extends State<NewsOfDayCard> {
                 padding: EdgeInsets.only(
                   left: MediaQuery.of(context).size.width * 0.05,
                   right: MediaQuery.of(context).size.width * 0.1,
-                  bottom: MediaQuery.of(context).size.height * 0.04,
+                  bottom: MediaQuery.of(context).size.height * 0.02,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -79,7 +79,7 @@ class _NewsOfDayCardState extends State<NewsOfDayCard> {
                         color: Colors.grey.withOpacity(0.4),
                         borderRadius: BorderRadius.circular(35),
                       ),
-                      child: Center(
+                      child: const Center(
                           child: Text(
                         "News of the day",
                         style: TextStyle(
@@ -93,7 +93,7 @@ class _NewsOfDayCardState extends State<NewsOfDayCard> {
                       height: 15,
                     ),
                     Text(
-                      "'V.I.P Immunization' for the Powerful and Their Cronies Rattles South America'",
+                      "First Version of Prometeo'23 App released on Play Store",
                       maxLines: 3,
                       style: TextStyle(
                         color: Colors.white,
@@ -104,27 +104,7 @@ class _NewsOfDayCardState extends State<NewsOfDayCard> {
                     const SizedBox(
                       height: 15,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Learn More",
-                          maxLines: 3,
-                          style: TextStyle(
-                            color: cyan,
-                            fontSize: 14,
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Icon(
-                          Icons.arrow_forward,
-                          color: cyan,
-                          size: 14,
-                        ),
-                      ],
-                    ),
+                    // LearnMore(),
                   ],
                 ),
               ),
@@ -132,6 +112,37 @@ class _NewsOfDayCardState extends State<NewsOfDayCard> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class LearnMore extends StatelessWidget {
+  const LearnMore({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Text(
+          "Learn More",
+          maxLines: 3,
+          style: TextStyle(
+            color: cyan,
+            fontSize: 14,
+          ),
+        ),
+        const SizedBox(
+          width: 10,
+        ),
+        Icon(
+          Icons.arrow_forward,
+          color: cyan,
+          size: 14,
+        ),
+      ],
     );
   }
 }

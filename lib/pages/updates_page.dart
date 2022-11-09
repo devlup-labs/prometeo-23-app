@@ -48,8 +48,8 @@ class _UpdatesPageState extends State<UpdatesPage> {
               ),
               NewsCard(
                 news:
-                    "This is all about the day when we are making Prometeo'23 Application",
-                date: "05/11/2022",
+                    "Your one stop destination to get all the latest updates about the fest.",
+                date: "10/11/2022",
                 imageLink:
                     "https://i.postimg.cc/sgBFfbkY/audience-on-music-notes-background-0610-min.jpg",
               ),

@@ -4,7 +4,8 @@ import 'cards.dart';
 
 class CardSlider extends StatelessWidget {
   List<Widget> cards;
-  CardSlider({required this.cards, super.key});
+  double height;
+  CardSlider({required this.cards, super.key, required this.height});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,7 +21,7 @@ class CardSlider extends StatelessWidget {
                   autoPlay: true,
                   autoPlayInterval: const Duration(seconds: 3),
                   enlargeCenterPage: true,
-                  height: MediaQuery.of(context).size.height * 0.45,
+                  height: height,
                 ),
                 items: cards,
               ),

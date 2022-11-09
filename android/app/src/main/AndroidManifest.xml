@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.prometeo23">
+    package="com.prometeo23.android.prometeo23">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="prometeo23"
+        android:label="Prometeo23"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
