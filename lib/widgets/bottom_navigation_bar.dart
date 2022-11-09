@@ -24,27 +24,31 @@ class _BottomNavigationState extends State<BottomNavigation> {
         currentIndex: widget.currentIndex,
         onTap: (i) => setState(
           () {
-            widget.currentIndex = i;
-            if (widget.currentIndex == 0) {
+            // widget.currentIndex = i;
+            if (i != widget.currentIndex && i == 0) {
+              widget.currentIndex = i;
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => HomePage()),
               );
-            } else if (widget.currentIndex == 1) {
+            } else if (i != widget.currentIndex && i == 1) {
+              widget.currentIndex = i;
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => Gallery(),
                 ),
               );
-            } else if (widget.currentIndex == 2) {
+            } else if (i != widget.currentIndex && i == 2) {
+              widget.currentIndex = i;
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => Sponsors(),
                 ),
               );
-            } else if (widget.currentIndex == 3) {
+            } else if (i != widget.currentIndex && i == 3) {
+              widget.currentIndex = i;
               Navigator.push(
                 context,
                 MaterialPageRoute(

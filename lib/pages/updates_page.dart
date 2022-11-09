@@ -53,6 +53,7 @@ class _UpdatesPageState extends State<UpdatesPage> {
                 imageLink:
                     "https://i.postimg.cc/sgBFfbkY/audience-on-music-notes-background-0610-min.jpg",
               ),
+              const SizedBox(height: 20),
             ],
           ),
         ),
