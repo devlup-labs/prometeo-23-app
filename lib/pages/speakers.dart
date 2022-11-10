@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
@@ -22,31 +21,41 @@ class SpeakersPage extends StatelessWidget {
             children:  [  
               const CustomAppBar(),
               const SizedBox(height: 20.0),
-              const Text(
-                'Past Speakers',
-                style: TextStyle(
-                  color: titleColor,
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.bold,
+              FadeInLeft(
+                duration: const Duration(milliseconds: 1500),
+                child: const Text(
+                  'Past Speakers',
+                  style: TextStyle(
+                    color: titleColor,
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
               const SizedBox(height: 10.0),
 
-              Container(
-                width: MediaQuery.of(context).size.width * 0.7,
-                child: const Text(
-                  'We have had the pleasure of hosting some amazing speakers from all over the world at Prometeo 23.',
-                  style: TextStyle(
-                    color: textColor
-                  )
+              FadeInLeft(
+                duration: const Duration(milliseconds: 1500),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.7,
+                  child: const Text(
+                    'We have had the pleasure of hosting some amazing speakers from all over the world at Prometeo 23.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: textColor
+                    )
+                  ),
                 ),
               ),
 
               const SizedBox(height: 20.0),
 
               // making the speakers grid
-              const Expanded(
-                child: SpeakersGrid()
+              Expanded(
+                child: FadeInUp(
+                  delay: const Duration(milliseconds: 1500),
+                  child: SpeakersGrid(),
+                  )
                 ),
             ],
           )
