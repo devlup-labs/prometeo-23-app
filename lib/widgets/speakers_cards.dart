@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/detials_page.dart';
 import 'package:animations/animations.dart';
-import 'package:prometeo23/widgets/position.dart';
 
 
 class SpeakersCards extends StatelessWidget {
