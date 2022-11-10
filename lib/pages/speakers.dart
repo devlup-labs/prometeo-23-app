@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
+import 'package:prometeo23/widgets/speakers_grid.dart';
 
 class SpeakersPage extends StatelessWidget {
   const SpeakersPage({super.key});
@@ -44,7 +45,9 @@ class SpeakersPage extends StatelessWidget {
               const SizedBox(height: 20.0),
 
               // making the speakers grid
-              
+              const Expanded(
+                child: SpeakersGrid()
+                ),
             ],
           )
         ),
