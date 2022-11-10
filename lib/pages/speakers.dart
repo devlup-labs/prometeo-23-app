@@ -39,7 +39,7 @@ class SpeakersPage extends StatelessWidget {
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.7,
                   child: const Text(
-                    'We have had the pleasure of hosting some amazing speakers from all over the world at Prometeo 23.',
+                    'We have had the pleasure of hosting some amazing speakers from all over the country at Prometeo 23.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: textColor

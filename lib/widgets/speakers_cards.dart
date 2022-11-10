@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/detials_page.dart';
 import 'package:animations/animations.dart';
+import 'package:prometeo23/widgets/position.dart';
 
 
 class SpeakersCards extends StatelessWidget {
@@ -9,8 +11,12 @@ class SpeakersCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OpenContainer(
-      transitionDuration: const Duration(milliseconds: 1100),
+      transitionDuration: const Duration(milliseconds: 900),
       openBuilder: (context, _) => const DetailsPage(),
+      closedColor: bgColor,
+      closedShape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(70.0),
+      ),
       closedBuilder: ((context, VoidCallback openContainer) => const Card()),
     );
   }
@@ -38,10 +44,10 @@ class _CardState extends State<Card> {
       Positioned(
         bottom: 0,
         height: 60,
-        width: 170,
+        width: MediaQuery.of(context).size.width * 0.5,
         child: Container(
           decoration: BoxDecoration( 
-            color: Colors.white.withOpacity(0.4),
+            color: Colors.grey.withOpacity(0.4),
             borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(70),
               bottomRight: Radius.circular(70),
@@ -49,6 +55,17 @@ class _CardState extends State<Card> {
           ),
         ),
       ),
+
+      const Positioned(
+        bottom: 40,
+        left: 20,
+        child: Text(
+          'Mr. Inderpal Bhandari',
+          style: TextStyle(  
+            color: titleColor,
+            fontSize: 15.0
+          )
+          ))
   
   
     ],);
