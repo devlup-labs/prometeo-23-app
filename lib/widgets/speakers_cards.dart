@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:prometeo23/apiCalls/speaker_api_calls.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/detials_page.dart';
 import 'package:animations/animations.dart';
 
 
+
+
 class SpeakersCards extends StatelessWidget {
-  const SpeakersCards({super.key});
+  int speakerIndex;
+  SpeakersCards({ required this.speakerIndex, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +20,14 @@ class SpeakersCards extends StatelessWidget {
       closedShape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(70.0),
       ),
-      closedBuilder: ((context, VoidCallback openContainer) => const Card()),
+      closedBuilder: ((context, VoidCallback openContainer) => Card(speakerIndex: speakerIndex,)),
     );
   }
 }
 
 class Card extends StatefulWidget {
-  const Card({super.key});
+  int speakerIndex;
+  Card({required this.speakerIndex, super.key});
 
   @override
   State<Card> createState() => _CardState();
@@ -55,11 +60,11 @@ class _CardState extends State<Card> {
         ),
       ),
 
-      const Positioned(
+      Positioned(
         bottom: 40,
         left: 20,
         child: Text(
-          'Mr. Inderpal Bhandari',
+          speakerInformation[widget.speakerIndex]['name'],
           style: TextStyle(  
             color: titleColor,
             fontSize: 15.0

@@ -1,13 +1,31 @@
+import 'dart:convert';
+import 'package:prometeo23/apiCalls/speaker_api_calls.dart';
+
+import '../apiCalls/api_call.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
+import 'package:http/http.dart' as http;
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
 import 'package:prometeo23/widgets/speakers_grid.dart';
 
-class SpeakersPage extends StatelessWidget {
+class SpeakersPage extends StatefulWidget {
   const SpeakersPage({super.key});
 
+  @override
+  State<SpeakersPage> createState() => _SpeakersPageState();
+}
+
+class _SpeakersPageState extends State<SpeakersPage> {
+  List speakerInformation = [];
+
+  @override
+  void initState() {
+    speakerInformation = fetchEvents();
+    speakerInformation = findSpeakerData(speakerInformation, 'talk');
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold( 

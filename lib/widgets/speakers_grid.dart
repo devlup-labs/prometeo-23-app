@@ -3,12 +3,12 @@ import 'package:prometeo23/widgets/speakers_cards.dart';
 
 
 class SpeakersGrid extends StatelessWidget {
-  const SpeakersGrid({super.key});
+  SpeakersGrid({ super.key});
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(  
-      itemCount: 10,
+      itemCount: 18,
       
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
@@ -17,7 +17,7 @@ class SpeakersGrid extends StatelessWidget {
         childAspectRatio: 0.75,
       ),
       itemBuilder: (context, index) {
-        return const SpeakersCards();
+        return SpeakersCards(speakerIndex: index,);
       },
     );
   }
