@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
 import 'package:prometeo23/pages/gallery.dart';
+import 'package:prometeo23/pages/preregistration.dart';
 import 'package:prometeo23/pages/sponsors.dart';
 import 'package:prometeo23/pages/updates_page.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
@@ -49,10 +50,16 @@ class _BottomNavigationState extends State<BottomNavigation> {
               );
             } else if (i != widget.currentIndex && i == 3) {
               widget.currentIndex = i;
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) => UpdatesPage(),
+              //   ),
+              // );
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => UpdatesPage(),
+                  builder: (context) => PreRegistration(),
                 ),
               );
             }
@@ -82,8 +89,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
 
           /// Profile
           SalomonBottomBarItem(
-            icon: Icon(Icons.newspaper, color: Colors.white),
-            title: Text("Updates"),
+            icon: Icon(Icons.app_registration_rounded, color: Colors.white),
+            title: Text("PreRegistration"),
             selectedColor: Colors.teal,
           ),
         ],
