@@ -3,6 +3,7 @@ import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:flutter/services.dart';
 
 class PreRegistration extends StatefulWidget {
   const PreRegistration({super.key});
@@ -17,19 +18,20 @@ class _PreRegistrationState extends State<PreRegistration> {
       _name,
       _college,
       _contact,
-      _year = 'Select-Year',
-      _state = 'Select-State';
+      _year = 'Select Year',
+      _state = 'Select State';
 
   var year_items = [
-    'Select-Year',
-    'first-year',
-    'second-year',
-    'third-year',
-    'fourth-year',
+    'Select Year',
+    'First year',
+    'Second year',
+    'Third year',
+    'Fourth year',
+    'Not Applicable'
   ];
 
   var state_items = [
-    'Select-State',
+    'Select State',
     "Andhra Pradesh",
     "Arunachal Pradesh",
     "Assam",
@@ -250,8 +252,14 @@ class _PreRegistrationState extends State<PreRegistration> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20))),
                           child: TextFormField(
+                            keyboardType: TextInputType.number,
+                            inputFormatters: <TextInputFormatter>[
+                              FilteringTextInputFormatter.digitsOnly
+                            ],
                             validator: (input) {
-                              if (input != null && input.isEmpty)
+                              if (input != null &&
+                                  input.isEmpty &&
+                                  input.length >= 10)
                                 return "Enter Phone number";
                             },
                             decoration: InputDecoration(
@@ -304,6 +312,11 @@ class _PreRegistrationState extends State<PreRegistration> {
                             ),
                           ),
                           child: DropdownButtonFormField(
+                            validator: (input) {
+                              if (input != null &&
+                                  input.isEmpty &&
+                                  input == 'Select Year') return "Enter Year";
+                            },
                             // Initial Value
                             value: _year,
 
@@ -357,6 +370,11 @@ class _PreRegistrationState extends State<PreRegistration> {
                             ),
                           ),
                           child: DropdownButtonFormField(
+                            validator: (input) {
+                              if (input != null &&
+                                  input.isEmpty &&
+                                  input == 'Select State') return "Enter State";
+                            },
                             // Initial Value
                             value: _state,
 
