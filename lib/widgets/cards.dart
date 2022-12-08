@@ -128,7 +128,7 @@ class _CardsState extends State<Cards> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
-                          "Technical Event",
+                          "Event",
                           style: TextStyle(
                             color: Colors.grey,
                             fontSize: 15.0,
