@@ -8,7 +8,7 @@ class TeamGrid extends StatelessWidget {
     return GridView.builder(
       scrollDirection: Axis.vertical,
       itemCount: 4,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, childAspectRatio: .7), 
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, childAspectRatio: .5, mainAxisSpacing: 20), 
       itemBuilder: (context, index) {
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 5),
@@ -16,7 +16,7 @@ class TeamGrid extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: 200,
+                height: MediaQuery.of(context).size.height * 0.35,
                 decoration: const BoxDecoration(  
                   image: DecorationImage(  
                     image: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1DZz18gKC3Vb5yjw6WhbeITtKPGuTF45yp6U-GeU&s'),
