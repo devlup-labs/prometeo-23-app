@@ -1,12 +1,9 @@
 import 'dart:convert';
-import 'dart:ffi';
 import 'package:http/http.dart' as http;
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/event.dart';
 
+// ignore: must_be_immutable
 class Cards extends StatefulWidget {
   String eventId;
   String title;
@@ -33,13 +30,9 @@ class _CardsState extends State<Cards> {
   void fetchSponsorLink() async {
     final response = await http.get(
       Uri.parse(
-        'https://apiv.prometeo.in/api/EventSponsors/?event=' + widget.eventId,
+        'https://apiv.prometeo.in/api/EventSponsors/?event=${widget.eventId}',
       ),
     );
-    print(Uri.parse(
-        'https://apiv.prometeo.in/api/EventSponsors/?event=' + widget.eventId));
-
-    print(response);
 
     if (response.statusCode == 200) {
       // If the server did return a 200 OK response,
@@ -64,115 +57,108 @@ class _CardsState extends State<Cards> {
   }
 
   bool like = false;
+
   @override
   void initState() {
     super.initState();
     fetchSponsorLink();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Container(
-      child: GestureDetector(
-        onTap: () {
-          Navigator.of(
-            context,
-            rootNavigator: false,
-          ).push(
-            MaterialPageRoute(
-              builder: (context) => Event(
-                eventName: widget.title,
-                eventDate: widget.prize,
-                eventTime: "4pm - 12pm",
-                eventDescription: widget.description,
-                imageLink: widget.imageLink,
-                sponsorLink: sponsorLinks,
+      decoration: BoxDecoration(
+        color: const Color(0xff1F2128),
+        borderRadius: BorderRadius.circular(25.0),
+        border: Border.all(
+          // color: const Color(0xff64ffda),
+          width: 0.5,
+        ),
+      ),
+      child: SingleChildScrollView(
+        child: GestureDetector(
+          onTap: () {
+            Navigator.of(
+              context,
+              rootNavigator: false,
+            ).push(
+              MaterialPageRoute(
+                builder: (context) => Event(
+                  eventName: widget.title,
+                  eventDate: widget.prize,
+                  eventTime: "4pm - 12pm",
+                  eventDescription: widget.description,
+                  imageLink: widget.imageLink,
+                  sponsorLink: sponsorLinks,
+                ),
               ),
-            ),
-          );
-        },
-        child: Container(
-          width: MediaQuery.of(context).size.width * 0.8,
-          height: 400,
-          padding: const EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(Radius.circular(25)),
-            // color: CupertinoColors.activeBlue
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: NetworkImage(widget.imageLink),
-            ),
-          ),
-          child: Stack(
+            );
+          },
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    FittedBox(
-                      fit: BoxFit.fitWidth,
-                      child: Text(
-                        widget.title,
-                        style: const TextStyle(
-                          fontSize: 24,
-                          color: Colors.orange,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
+                width: MediaQuery.of(context).size.width * 0.8,
+                height: MediaQuery.of(context).size.height * 0.35,
+                padding: const EdgeInsets.only(
+                  top: 10,
+                  bottom: 10,
+                  left: 10,
+                  right: 10,
+                ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15.0),
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(widget.imageLink),
                     ),
-                    // const SizedBox(
-                    //   height: 5,
-                    // ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                  ),
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.only(left: 10.0, bottom: 5.0),
+                height: 60, // check if any overflow happens.
+                // color: Color(0xff110F16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Icon(
-                          Icons.currency_rupee,
-                          color: Colors.orange,
-                          size: 18,
+                        const Text(
+                          "Event",
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 15.0,
+                          ),
                         ),
-                        const SizedBox(
-                          width: 5,
-                        ),
-                        FittedBox(
-                          fit: BoxFit.fitWidth,
-                          child: Text(
-                            "Prizes worth: " + widget.prize,
-                            style: const TextStyle(
-                              color: Colors.orange,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                            ),
+                        Text(
+                          widget.title,
+                          style: const TextStyle(
+                            color: Color(0xff64ffda),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18.0,
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
                       ],
-                    )
-                  ],
-                ),
-              ),
-              Positioned(
-                child: Align(
-                  alignment: Alignment.topRight,
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      color: CupertinoColors.systemGrey,
-                      borderRadius: BorderRadius.all(Radius.circular(12)),
                     ),
-                    child: CupertinoButton(
-                      onPressed: () {
-                        setState(() {
-                          like = !like;
-                        });
-                        print(like);
-                      },
-                      child: Icon(
-                        CupertinoIcons.heart_fill,
-                        color: like == true
-                            ? CupertinoColors.systemPink
-                            : CupertinoColors.white,
+                    GestureDetector(
+                      onTap: () => setState(() {
+                        like = !like;
+                      }),
+                      child: Container(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: Icon(
+                          Icons.favorite_rounded,
+                          size: 40.0,
+                          color: like ? Colors.pink : Colors.white,
+                        ),
                       ),
                     ),
-                  ),
+                  ],
                 ),
               ),
             ],

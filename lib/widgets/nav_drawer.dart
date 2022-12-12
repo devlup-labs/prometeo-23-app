@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
 import 'package:prometeo23/pages/gallery.dart';
+import 'package:prometeo23/pages/preregistration.dart';
 import 'package:prometeo23/pages/sponsors.dart';
 import 'package:prometeo23/pages/updates_page.dart';
 
@@ -76,6 +77,18 @@ class NavDrawer extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Sponsors()),
+              )
+            },
+          ),
+          ListTile(
+            leading:
+                Icon(Icons.app_registration_rounded, color: Colors.lightBlue),
+            title:
+                Text('PreRegistration', style: TextStyle(color: Colors.white)),
+            onTap: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => PreRegistration()),
               )
             },
           ),
