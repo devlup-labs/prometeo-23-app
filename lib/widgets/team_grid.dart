@@ -36,7 +36,7 @@ class TeamGrid extends StatelessWidget {
               const Text(
                 'Sexy Boy',
                 style: TextStyle(
-                  color: Colors.white
+                  color: Colors.grey
                 ),)
             ],
           ),
