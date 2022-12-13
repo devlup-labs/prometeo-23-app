@@ -32,7 +32,16 @@ class Prometeo extends StatelessWidget {
             ),
           ),
 
-          Container(width: double.maxFinite, color: Color(0xff273a3e), height: 50, child: Center(child: SmoothPageIndicator(controller: pageController, count: 3)))
+          Container(width: double.maxFinite, color: Color(0xff273a3e), height: 50, child: Center(child: SmoothPageIndicator(
+            controller: pageController, 
+            count: 3,
+            effect: const ExpandingDotsEffect(
+              activeDotColor: Colors.white,
+              dotColor: Colors.blueGrey,
+            ),
+            )
+           )
+          )
         ],
       )
     );
