@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prometeo23/pages/preregistration.dart';
 import 'package:prometeo23/pages/updates_page.dart';
 
 class CustomAppBar extends StatefulWidget {
@@ -23,17 +24,31 @@ class _CustomAppBarState extends State<CustomAppBar> {
               color: Color(0xffccd6f6),
             ),
           ),
+          // GestureDetector(
+          //   onTap: () => {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(
+          //         builder: (context) => UpdatesPage(),
+          //       ),
+          //     ),
+          //   },
+          //   child: Icon(
+          //     Icons.notifications,
+          //     color: Color(0xff64ffda),
+          //   ),
+          // ),
           GestureDetector(
             onTap: () => {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => UpdatesPage(),
+                  builder: (context) => PreRegistration(),
                 ),
               ),
             },
             child: Icon(
-              Icons.notifications,
+              Icons.app_registration_rounded,
               color: Color(0xff64ffda),
             ),
           ),
