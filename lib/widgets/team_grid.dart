@@ -69,7 +69,8 @@ class TeamGrid extends StatelessWidget {
                             color: Colors.white
                           ),
                           onPressed:(){},
-                        ),                      ]
+                        ),
+                      ]
                     )
                   )
                 ],
