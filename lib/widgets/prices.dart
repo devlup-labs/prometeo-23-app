@@ -32,7 +32,7 @@ class _PriceState extends State<Price> {
         color: Color(0xff575B5e),
         // color: Color(0xffC1DEAE),
         // color: Color(0xff66BFBF),
-        borderRadius: BorderRadius.circular(25),
+        borderRadius: BorderRadius.circular(15),
       ),
       child: Container(
         padding: EdgeInsets.only(

@@ -4,6 +4,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:prometeo23/Background/bg.dart';
+import 'package:prometeo23/api/fetchEvents.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/umang.dart';
 import 'package:prometeo23/widgets/app_bar.dart';
@@ -25,72 +26,22 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int activeIndex = 0;
-
-  List<Cards> TechnicalCards = [];
-
-  List<Cards> EntrepreneurialCards = [];
-
-  List SliderCards = [];
-
   bool isLoading = true;
-
-  void fetchEvents() async {
-    final response =
-        await http.get(Uri.parse('https://apiv.prometeo.in/api/events/'));
-
-    if (response.statusCode == 200) {
-      // If the server did return a 200 OK response,
-      // then parse the JSON.
-      var list = json.decode(response.body) as List;
-
-      //iterate over json and create a list of cards
-      for (var i = 0; i < list.length; i++) {
-        if (list[i]['type'] == 'technical') {
-          String imageLink =
-              "https://apiv.prometeo.in" + list[i]['image'].substring(19);
-
-          TechnicalCards.add(
-            Cards(
-              eventId: list[i]['id'].toString(),
-              title: list[i]['name'],
-              prize: list[i]['prize'],
-              imageLink: imageLink,
-              description: list[i]['description'],
-            ),
-          );
-        } else if (list[i]['type'] == 'entrepreneurial') {
-          String imageLink =
-              "https://apiv.prometeo.in" + list[i]['image'].substring(19);
-
-          EntrepreneurialCards.add(
-            Cards(
-              eventId: list[i]['id'].toString(),
-              title: list[i]['name'],
-              prize: list[i]['prize'],
-              imageLink: imageLink,
-              description: list[i]['description'],
-            ),
-          );
-        }
-      }
-    } else {
-      // If the server did not return a 200 OK response,
-      // then throw an exception.
-      throw Exception('Failed to load album');
-    }
-
-    setState(() {
-      isLoading = false;
-    });
-  }
-
   int groupValue = 0;
   @override
   void initState() {
     super.initState();
     fetchEvents();
+
+    SliderCards.add(LiveEvents);
+    SliderCards.add(Speakers);
     SliderCards.add(TechnicalCards);
     SliderCards.add(EntrepreneurialCards);
+    SliderCards.add(Exhibition);
+
+    setState(() {
+      isLoading = false;
+    });
 
     const fiveSec = const Duration(seconds: 5);
     new Timer.periodic(fiveSec, (Timer t) {
