@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
+import 'package:prometeo23/pages/technical_events_screen.dart';
 
 class EventsScreen extends StatefulWidget {
   const EventsScreen({super.key});
@@ -20,14 +21,12 @@ class _EventsScreenState extends State<EventsScreen> {
           padding: const EdgeInsets.only(bottom: 10)
         ),
         children: [
+          const TechnicalEventsScreen(),
           Container(
-            color: Colors.deepPurple[300]
+            color: Colors.deepPurple[200]
           ),
           Container(
-            color: Colors.deepPurple[300]
-          ),
-          Container(
-            color: Colors.deepPurple[300]
+            color: Colors.deepPurple[100]
           ),
         ],
       )
