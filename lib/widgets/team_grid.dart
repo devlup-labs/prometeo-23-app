@@ -15,14 +15,64 @@ class TeamGrid extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                height: MediaQuery.of(context).size.height * 0.35,
-                decoration: const BoxDecoration(  
-                  image: DecorationImage(  
-                    image: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1DZz18gKC3Vb5yjw6WhbeITtKPGuTF45yp6U-GeU&s'),
-                    fit: BoxFit.cover
+              Stack(
+                children: [
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.35,
+                    decoration: const BoxDecoration(  
+                      image: DecorationImage(  
+                        image: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1DZz18gKC3Vb5yjw6WhbeITtKPGuTF45yp6U-GeU&s'),
+                        fit: BoxFit.cover
+                      )
+                    ),
+                  ),
+
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.35,
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(  
+                        colors: [
+                          Colors.black,
+                          Colors.transparent
+                        ],
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
+                        stops: [0.0, 0.5]
+                      )
+                    )
+                  ),
+
+                  Positioned(
+                    bottom: 10,
+                    left: 10, 
+                    right: 10,
+                    child: Row(  
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        IconButton(  
+                          icon: const Icon(
+                            Icons.email,
+                            color: Colors.white,
+                          ),
+                          onPressed:(){},
+                        ),
+                        IconButton(  
+                          icon: const Icon(
+                            Icons.email,
+                            color: Colors.white
+                          ),
+                          onPressed:(){},
+                        ),
+                        IconButton(  
+                          icon: const Icon(
+                            Icons.email,
+                            color: Colors.white
+                          ),
+                          onPressed:(){},
+                        ),                      ]
+                    )
                   )
-                ),
+                ],
               ),
 
               const SizedBox(height: 10),
