@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:prometeo23/Background/bg.dart';
 import 'package:prometeo23/constants.dart';
-import 'package:prometeo23/pages/Umang.dart';
+import 'package:prometeo23/pages/umang.dart';
 import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
 import 'package:prometeo23/widgets/cards.dart';
