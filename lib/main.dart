@@ -20,10 +20,11 @@ class Prometeo extends StatelessWidget {
       // home: SplashScreen(),
       home: PageView(
         children: const [
-          TeamScreen(),
-          TeamScreen(),
-          TeamScreen(),
+          TeamScreen(position: 'Festival Chief',),
+          TeamScreen(position: 'Marketing',),
+          TeamScreen(position: 'PR'),
         ],
+
       )
     );
   }

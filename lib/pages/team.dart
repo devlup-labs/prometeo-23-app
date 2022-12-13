@@ -3,7 +3,8 @@ import 'package:prometeo23/widgets/team_grid.dart';
 
 
 class TeamScreen extends StatelessWidget {
-  const TeamScreen({super.key});
+  final String position;
+  const TeamScreen({required this.position, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +18,22 @@ class TeamScreen extends StatelessWidget {
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children:const  [
-                  Text('06',
-                  style:TextStyle(
-                    color: Colors.white
-                  )),
-                  Text('Festival Chief',
-                  style: TextStyle(color: Colors.white)
-                  ,)
+                children:[
+                  const Text(
+                    'Our Team', 
+                    style: TextStyle(  
+                      color: Colors.white,
+                      fontSize: 36,
+                    )
+                  ),
+
+                  Text(
+                    position,
+                    style: const TextStyle(  
+                      color: Colors.grey,
+                      fontSize: 16
+                    )
+                  )
                 ],
               ),
               
