@@ -147,7 +147,7 @@ class _HomePageState extends State<HomePage> {
                   child: Container(
                     alignment: Alignment.bottomLeft,
                     child: Text(
-                      "Prometeo'22 Theme",
+                      "Theme Reveal",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,

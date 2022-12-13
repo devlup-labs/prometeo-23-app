@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:prometeo23/api/fetchThemeVideo.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class ThemeVideo extends StatefulWidget {
@@ -11,39 +12,9 @@ class ThemeVideo extends StatefulWidget {
 }
 
 class _ThemeVideoState extends State<ThemeVideo> {
-  late var videoUrl = 'https://youtu.be/8lOSuBvGfjo';
+  late var videoUrl = 'https://youtu.be/GdNceDHonLU';
 
   bool isLoading = true;
-
-  Future<void> fetchThemeVideo() async {
-    final response =
-        await http.get(Uri.parse('https://apiv.prometeo.in/api/gallery/'));
-
-    if (response.statusCode == 200) {
-      // If the server did return a 200 OK response,
-      // then parse the JSON.
-      var list = json.decode(response.body) as List;
-
-      //iterate over json and create a list of cards
-      for (var i = 0; i < list.length; i++) {
-        String videoLink = list[i]['video'];
-        if (list[i]['name'] != "Prometeo-23-logo" &&
-            list[i]['type'] == "video") {
-          setState(() {
-            videoUrl = videoLink;
-          });
-        }
-      }
-    } else {
-      // If the server did not return a 200 OK response,
-      // then throw an exception.
-      throw Exception('Failed to load album');
-    }
-
-    setState(() {
-      isLoading = false;
-    });
-  }
 
   late YoutubePlayerController _controller;
 
@@ -51,6 +22,9 @@ class _ThemeVideoState extends State<ThemeVideo> {
   void initState() {
     super.initState();
     fetchThemeVideo();
+    setState(() {
+      isLoading = false;
+    });
     final videoId = YoutubePlayer.convertUrlToId(videoUrl);
     _controller = YoutubePlayerController(
         initialVideoId: videoId!,

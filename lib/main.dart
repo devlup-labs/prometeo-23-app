@@ -15,17 +15,16 @@ class Prometeo extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: SplashScreen(),
-      home: PageView(
-        children: const [
-          TeamScreen(position: 'Festival Chief',),
-          TeamScreen(position: 'Marketing',),
-          TeamScreen(position: 'PR'),
-        ],
-
-      )
+      home: SplashScreen(),
+      // home: PageView(
+      //   children: const [
+      //     TeamScreen(position: 'Festival Chief',),
+      //     TeamScreen(position: 'Marketing',),
+      //     TeamScreen(position: 'PR'),
+      //   ],
+      // )
     );
   }
 }
