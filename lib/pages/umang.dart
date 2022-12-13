@@ -3,18 +3,17 @@ import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
 import 'package:prometeo23/widgets/nav_drawer.dart';
-import 'package:prometeo23/widgets/theme_video.dart';
 
-class ThemeRevealPage extends StatefulWidget {
-  const ThemeRevealPage({super.key});
+class Umang extends StatefulWidget {
+  const Umang({super.key});
 
   @override
-  State<ThemeRevealPage> createState() => _ThemeRevealPageState();
+  State<Umang> createState() => _UmangState();
 }
 
-class _ThemeRevealPageState extends State<ThemeRevealPage> {
-  String themeDescription =
-      "Technology has been the heart of the development of the human race from the very beginning and is speculated to be its heart till infinity. The theme of Prometeo 2023, “Origin to Infinity” is centered around the same thought where we explore what technology has been in the past, what it is now and what it can be in the future. This year we are going to explore the past and future of technological and entrepreneurial developments through a wide range of ideas developed and presented during the course of Prometeo'23. How did it all start? How did technology and economics reach where it is today? What will it look like in the future? Will we ever reach a saturation point? We, the team of Prometeo'23 invites you all to join us and participate in Prometeo'23 and explore the answers to all these questions through your participation, ideation and dedication.";
+class _UmangState extends State<Umang> {
+  String umangDescription =
+      "Prometeo's vision is to raise awareness in society through social upliftment activities. We believe that it is the societal responsibility of the forefront of the nation to balance and empower those who are less fortunate. In post, we organized blood donation drives and year-long problem statements related to sustainability with big prize money, Continuing this legacy, In this edition of Prometeo, we aim to acquaint underprivileged women to new technologies and raise awareness about the heights they can achieve with the help of it. We plan to collaborate with several NGOs ond hold workshops for indigent children which will instigate their interest towards several domains of technology and inspire to pursue them.";
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -38,33 +37,43 @@ class _ThemeRevealPageState extends State<ThemeRevealPage> {
                 height: 20,
               ),
               const Text(
-                "Prometeo'23 Theme",
+                "Social Initiatives",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 26,
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              const SizedBox(
-                height: 30,
-              ),
-              ThemeVideo(),
-              const SizedBox(
-                height: 30,
+              Container(
+                height: size.height * 0.3,
+                width: size.width,
+                padding: EdgeInsets.only(
+                  left: 20,
+                  right: 20,
+                  top: 20,
+                  bottom: 20,
+                ),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
+                      "assets/umang.png",
+                    ),
+                  ),
+                ),
               ),
               Text(
-                "Origin to Infinity",
+                "Umang",
                 style: TextStyle(
-                  color: Colors.purple[300],
+                  color: Colors.amber[300],
                   fontSize: 32,
                   fontWeight: FontWeight.w600,
                 ),
               ),
               const SizedBox(
-                height: 30,
+                height: 20,
               ),
               Text(
-                themeDescription,
+                umangDescription,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,

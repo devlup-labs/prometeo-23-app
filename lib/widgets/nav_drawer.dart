@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prometeo23/pages/Umang.dart';
 import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
 import 'package:prometeo23/pages/gallery.dart';
 import 'package:prometeo23/pages/preregistration.dart';
@@ -42,7 +43,7 @@ class NavDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.favorite_border, color: Colors.pink),
+            leading: Icon(Icons.photo, color: Colors.pink),
             title: Text('Gallery', style: TextStyle(color: Colors.white)),
             onTap: () => {
               Navigator.push(
@@ -91,6 +92,17 @@ class NavDrawer extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => ThemeRevealPage()),
+              )
+            },
+          ),
+          ListTile(
+            leading:
+                Icon(Icons.favorite_outline_outlined, color: Colors.amber[300]),
+            title: Text('Umang', style: TextStyle(color: Colors.white)),
+            onTap: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Umang()),
               )
             },
           ),
