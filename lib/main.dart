@@ -19,13 +19,6 @@ class Prometeo extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
-      // home: PageView(
-      //   children: const [
-      //     TeamScreen(position: 'Festival Chief',),
-      //     TeamScreen(position: 'Marketing',),
-      //     TeamScreen(position: 'PR'),
-      //   ],
-      // )
     );
   }
 }
