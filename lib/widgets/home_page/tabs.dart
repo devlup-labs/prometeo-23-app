@@ -18,8 +18,11 @@ class Tabs extends StatefulWidget {
 class _TabsState extends State<Tabs> {
   int activeIndex = 0;
   List headings = [
+    'Registration Open',
+    'Past Speakers',
     'Technical Events',
     'Entrepreneurship Events',
+    'Exhibition',
     // 'Workshops',
     // 'Speakers'
   ];

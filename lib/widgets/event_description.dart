@@ -21,18 +21,8 @@ class _EventDescriptionState extends State<EventDescription> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "Description",
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
           ReadMoreText(
+            textAlign: TextAlign.justify,
             widget.eventDescription,
             trimLines: 4,
             colorClickableText: Color(0xff64ffda),

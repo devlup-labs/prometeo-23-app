@@ -29,11 +29,11 @@ class _EventCardState extends State<EventCard> {
           ),
           Container(
             padding: EdgeInsets.only(
-              top: MediaQuery.of(context).size.height * 0.05,
+              top: size.height * 0.05,
             ),
             child: Container(
               padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width * 0.05,
+                left: size.width * 0.05,
               ),
               child: GestureDetector(
                 onTap: () {
@@ -43,88 +43,6 @@ class _EventCardState extends State<EventCard> {
                   Icons.arrow_back_ios,
                   color: Colors.orange,
                   size: 24,
-                ),
-              ),
-            ),
-          ),
-          Positioned.fill(
-            child: Align(
-              alignment: Alignment.bottomLeft,
-              child: Container(
-                padding: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width * 0.05,
-                  right: MediaQuery.of(context).size.width * 0.1,
-                  // bottom: MediaQuery.of(context).size.height * 0.02,
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    FittedBox(
-                      fit: BoxFit.fitWidth,
-                      child: Text(
-                        widget.eventName,
-                        style: const TextStyle(
-                          fontSize: 30,
-                          color: Colors.orange,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    // Row(
-                    //   crossAxisAlignment: CrossAxisAlignment.start,
-                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //   children: [
-                    //     Row(
-                    //       children: [
-                    //         Icon(
-                    //           Icons.currency_rupee,
-                    //           color: Colors.orange,
-                    //           size: 18,
-                    //         ),
-                    //         const SizedBox(
-                    //           width: 5,
-                    //         ),
-                    //         FittedBox(
-                    //           fit: BoxFit.fitWidth,
-                    //           child: Text(
-                    //             "Prizes Worth " + widget.eventDate,
-                    //             style: const TextStyle(
-                    //               color: Colors.orange,
-                    //               fontSize: 14,
-                    //             ),
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     Row(
-                    //       children: [
-                    //         Icon(
-                    //           Icons.alarm,
-                    //           color: Color(0xff64ffda),
-                    //           size: 18,
-                    //         ),
-                    //         const SizedBox(
-                    //           width: 5,
-                    //         ),
-                    //         FittedBox(
-                    //           fit: BoxFit.fitWidth,
-                    //           child: Text(
-                    //             widget.eventTime,
-                    //             style: const TextStyle(
-                    //               color: Colors.orange,
-                    //               fontSize: 14,
-                    //             ),
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //   ],
-                    // )
-                  ],
                 ),
               ),
             ),

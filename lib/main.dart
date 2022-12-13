@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:prometeo23/pages/events_screen.dart';
+import 'package:prometeo23/api/fetchEvents.dart';
+import 'package:prometeo23/pages/team.dart';
 import 'package:prometeo23/widgets/splash_screen.dart';
 
+
+
 void main() {
+  fetchEvents();
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const Prometeo());
@@ -17,7 +21,7 @@ class Prometeo extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: EventsScreen(),
+      home: SplashScreen()
     );
   }
 }
