@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:prometeo23/pages/Umang.dart';
 import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
 import 'package:prometeo23/pages/gallery.dart';
 import 'package:prometeo23/pages/preregistration.dart';
 import 'package:prometeo23/pages/sponsors.dart';
+import 'package:prometeo23/pages/theme_reveal.dart';
 import 'package:prometeo23/pages/updates_page.dart';
 
 class NavDrawer extends StatelessWidget {
@@ -40,28 +42,8 @@ class NavDrawer extends StatelessWidget {
               )
             },
           ),
-          // ListTile(
-          //   leading: Icon(Icons.event, color: Color(0xff64ffda)),
-          //   title: Text('Events', style: TextStyle(color: Colors.white)),
-          //   onTap: () => {},
-          // ),
-          // ListTile(
-          //   leading: Icon(Icons.settings, color: Color(0xff64ffda)),
-          //   title: Text('Settings', style: TextStyle(color: Colors.white)),
-          //   onTap: () => {},
-          // ),
-          // ListTile(
-          //   leading: Icon(Icons.verified_user, color: Color(0xff64ffda)),
-          //   title: Text('Profile', style: TextStyle(color: Colors.white)),
-          //   onTap: () => {},
-          // ),
-          // ListTile(
-          //   leading: Icon(Icons.exit_to_app, color: Color(0xff64ffda)),
-          //   title: Text('Back', style: TextStyle(color: Colors.white)),
-          //   onTap: () => {Navigator.of(context).pop()},
-          // ),
           ListTile(
-            leading: Icon(Icons.favorite_border, color: Colors.pink),
+            leading: Icon(Icons.photo, color: Colors.pink),
             title: Text('Gallery', style: TextStyle(color: Colors.white)),
             onTap: () => {
               Navigator.push(
@@ -100,6 +82,27 @@ class NavDrawer extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => UpdatesPage()),
+              )
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.video_collection, color: Colors.purple[300]),
+            title: Text('Theme Reveal', style: TextStyle(color: Colors.white)),
+            onTap: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ThemeRevealPage()),
+              )
+            },
+          ),
+          ListTile(
+            leading:
+                Icon(Icons.favorite_outline_outlined, color: Colors.amber[300]),
+            title: Text('Umang', style: TextStyle(color: Colors.white)),
+            onTap: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Umang()),
               )
             },
           ),

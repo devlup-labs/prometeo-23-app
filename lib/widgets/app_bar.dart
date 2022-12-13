@@ -49,7 +49,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
             },
             child: Icon(
               Icons.app_registration_rounded,
-              color: Color(0xff64ffda),
+              color: Colors.white,
             ),
           ),
         ],

@@ -4,6 +4,8 @@ import 'package:animate_do/animate_do.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:prometeo23/Background/bg.dart';
+import 'package:prometeo23/constants.dart';
+import 'package:prometeo23/pages/umang.dart';
 import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
 import 'package:prometeo23/widgets/cards.dart';
@@ -97,9 +99,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       drawer: NavDrawer(),
-      backgroundColor: Color(0xff110F16),
+      backgroundColor: bgColor,
       body: Container(
         padding: EdgeInsets.only(
           top: 40,
@@ -167,6 +170,38 @@ class _HomePageState extends State<HomePage> {
                   height: 20,
                 ),
 
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Social Initiative: ",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "UMANG",
+                      style: TextStyle(
+                        color: Colors.amber[300],
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+
+                const SizedBox(
+                  height: 20,
+                ),
+
+                UmangImage(size: size),
+
+                const SizedBox(
+                  height: 20,
+                ),
                 SlideInLeft(
                   child: Container(
                     alignment: Alignment.bottomLeft,
@@ -193,6 +228,46 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomNavigationBar: BottomNavigation(
         currentIndex: 0,
+      ),
+    );
+  }
+}
+
+class UmangImage extends StatelessWidget {
+  const UmangImage({
+    Key? key,
+    required this.size,
+  }) : super(key: key);
+
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Umang(),
+          ),
+        );
+      },
+      child: Container(
+        height: size.height * 0.3,
+        width: size.width,
+        padding: EdgeInsets.only(
+          left: 20,
+          right: 20,
+          top: 20,
+          bottom: 20,
+        ),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+              "assets/umang.png",
+            ),
+          ),
+        ),
       ),
     );
   }
