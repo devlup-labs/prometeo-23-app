@@ -22,6 +22,7 @@ class Prometeo extends StatelessWidget {
         children: [
           Expanded(
             child: PageView(
+              controller: pageController,
               children:  const [
                 TeamScreen(position: 'Festival Chief',),
                 TeamScreen(position: 'Marketing',),
