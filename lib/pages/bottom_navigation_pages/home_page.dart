@@ -42,11 +42,6 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       isLoading = false;
     });
-
-    const fiveSec = const Duration(seconds: 5);
-    new Timer.periodic(fiveSec, (Timer t) {
-      fetchEvents();
-    });
   }
 
   Widget build(BuildContext context) {
