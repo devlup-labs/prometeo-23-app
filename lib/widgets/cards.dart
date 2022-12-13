@@ -10,6 +10,12 @@ class Cards extends StatefulWidget {
   String prize;
   String imageLink;
   String description;
+  String eventType;
+  String ruleBookLink;
+  bool isSpeaker;
+  String unstopLink;
+  String eventLocation;
+  String eventDate;
 
   Cards({
     required this.eventId,
@@ -17,6 +23,12 @@ class Cards extends StatefulWidget {
     required this.prize,
     required this.title,
     required this.description,
+    required this.isSpeaker,
+    required this.eventType,
+    required this.ruleBookLink,
+    required this.unstopLink,
+    required this.eventLocation,
+    required this.eventDate,
     super.key,
   });
 
@@ -85,11 +97,16 @@ class _CardsState extends State<Cards> {
               MaterialPageRoute(
                 builder: (context) => Event(
                   eventName: widget.title,
-                  eventDate: widget.prize,
+                  eventDate: widget.eventDate,
                   eventTime: "4pm - 12pm",
                   eventDescription: widget.description,
                   imageLink: widget.imageLink,
                   sponsorLink: sponsorLinks,
+                  isSpeaker: widget.isSpeaker,
+                  ruleBookLink: widget.ruleBookLink,
+                  unstopLink: widget.unstopLink,
+                  eventLocation: widget.eventLocation,
+                  eventPrize: widget.prize,
                 ),
               ),
             );
@@ -127,8 +144,8 @@ class _CardsState extends State<Cards> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          "Event",
+                        Text(
+                          widget.eventType,
                           style: TextStyle(
                             color: Colors.grey,
                             fontSize: 15.0,
