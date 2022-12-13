@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
-import 'package:prometeo23/pages/landing_page.dart';
+import 'package:prometeo23/pages/team.dart';
 import 'package:prometeo23/widgets/splash_screen.dart';
 
 void main() {
@@ -16,9 +15,17 @@ class Prometeo extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      // home: SplashScreen(),
+      home: PageView(
+        children: const [
+          TeamScreen(position: 'Festival Chief',),
+          TeamScreen(position: 'Marketing',),
+          TeamScreen(position: 'PR'),
+        ],
+
+      )
     );
   }
 }
