@@ -149,7 +149,7 @@ class _HomePageState extends State<HomePage> {
                 SlideInLeft(
                   child: Container(
                     alignment: Alignment.bottomLeft,
-                    child: Text(
+                    child: const Text(
                       "Theme Reveal",
                       style: TextStyle(
                         color: Colors.white,
@@ -164,7 +164,7 @@ class _HomePageState extends State<HomePage> {
                   height: 20,
                 ),
 
-                SlideInLeft(child: ThemeVideo()),
+                SlideInLeft(child: const ThemeVideo()),
 
                 const SizedBox(
                   height: 20,
@@ -174,7 +174,7 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "Social Initiative: ",
                       style: TextStyle(
                         color: Colors.white,
@@ -205,7 +205,7 @@ class _HomePageState extends State<HomePage> {
                 SlideInLeft(
                   child: Container(
                     alignment: Alignment.bottomLeft,
-                    child: Text(
+                    child: const Text(
                       "Follow Us On",
                       style: TextStyle(
                         color: Colors.white,
@@ -255,13 +255,13 @@ class UmangImage extends StatelessWidget {
       child: Container(
         height: size.height * 0.3,
         width: size.width,
-        padding: EdgeInsets.only(
+        padding: const EdgeInsets.only(
           left: 20,
           right: 20,
           top: 20,
           bottom: 20,
         ),
-        decoration: BoxDecoration(
+        decoration:const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
               "assets/umang.png",
@@ -285,13 +285,13 @@ class LocationDate extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Row(
-            children: [
+            children: const [
               Icon(
                 Icons.location_pin,
                 color: Colors.red,
                 size: 24,
               ),
-              const SizedBox(
+              SizedBox(
                 width: 5,
               ),
               Text(
@@ -304,13 +304,13 @@ class LocationDate extends StatelessWidget {
             ],
           ),
           Row(
-            children: [
+            children: const [
               Icon(
                 Icons.edit_calendar,
                 color: Colors.blue,
                 size: 24,
               ),
-              const SizedBox(
+              SizedBox(
                 width: 5,
               ),
               Text(
