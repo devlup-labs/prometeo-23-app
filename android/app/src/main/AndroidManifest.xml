@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.prometeo23.android.prometeo23">
+    package="com.prometeo23.android.prometeo23"
+    android:versionCode="2"
+    android:versionName="1.1"
+>
     <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="Prometeo23"
