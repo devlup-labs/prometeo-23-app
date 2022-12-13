@@ -14,20 +14,19 @@ class _EventsScreenState extends State<EventsScreen> {
     return Scaffold(
       backgroundColor: Colors.deepPurple,
       body: CarouselSlider(  
+        slideTransform: const CubeTransform(),
+        unlimitedMode: true,
+        slideIndicator: CircularSlideIndicator(
+          padding: const EdgeInsets.only(bottom: 10)
+        ),
         children: [
           Container(
-            height: MediaQuery.of(context).size.height * 0.9,
-            width: MediaQuery.of(context).size.width, 
             color: Colors.deepPurple[300]
           ),
           Container(
-            height: MediaQuery.of(context).size.height * 0.9,
-            width: MediaQuery.of(context).size.width, 
             color: Colors.deepPurple[300]
           ),
           Container(
-            height: MediaQuery.of(context).size.height * 0.9,
-            width: MediaQuery.of(context).size.width, 
             color: Colors.deepPurple[300]
           ),
         ],
