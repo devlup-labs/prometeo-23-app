@@ -4,6 +4,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:prometeo23/Background/bg.dart';
+import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
 import 'package:prometeo23/widgets/cards.dart';
@@ -99,7 +100,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: NavDrawer(),
-      backgroundColor: Color(0xff110F16),
+      backgroundColor: bgColor,
       body: Container(
         padding: EdgeInsets.only(
           top: 40,
