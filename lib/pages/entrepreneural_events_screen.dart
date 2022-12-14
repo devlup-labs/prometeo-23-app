@@ -14,11 +14,7 @@ class EntrepreneuralEventsScreen extends StatelessWidget {
             pinned: true,
             expandedHeight: MediaQuery.of(context).size.height * 0.3,
             flexibleSpace: FlexibleSpaceBar(  
-              background: Image.asset(
-                'assets/Rectangle 62.png',
-                width: double.maxFinite,
-                fit: BoxFit.cover
-              ),
+              background: Container(color: Colors.pink)
             ),
           ),
           SliverList(
@@ -26,11 +22,16 @@ class EntrepreneuralEventsScreen extends StatelessWidget {
               childCount: 100,
               (context, index){
                 return Container( 
-                  padding: const EdgeInsets.symmetric(horizontal: 10), 
-                  height: 50,
+                  color: Colors.blue,
+                  margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10), 
                   child: Row(  
                     children: [  
-                      Icon(Icons.home),
+                      Image.network(
+                        'https://img.freepik.com/free-vector/robot-android-realistic-3d-composition-with-artificial-support-agent-cybernetic-anthropomorphous-machine-with-feminine-apperance_1284-28638.jpg?w=740&t=st=1671022118~exp=1671022718~hmac=8f4201ccec37f2245e044c4da950ed5c7ced41121d765f0f267a68c7817bf143',
+                        width: 100,
+                        fit: BoxFit.cover
+                      ),
                       const SizedBox(width: 15),
                       Column(  
                         children: [  
