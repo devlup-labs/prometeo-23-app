@@ -19,10 +19,14 @@ class _EventsScreenState extends State<EventsScreen> {
         slideTransform: const CubeTransform(),
         unlimitedMode: true,
         slideIndicator: CircularSlideIndicator(
-          padding: const EdgeInsets.only(bottom: 10)
+          padding: const EdgeInsets.only(bottom: 10),
+          currentIndicatorColor: Colors.white
         ),
         children: const  [
-          TechnicalEventsScreen(),
+          EventsPage(),
+          EventsPage(),
+          EventsPage(),
+          EventsPage(),
         ],
       )
     );
