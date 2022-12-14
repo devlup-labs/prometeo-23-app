@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:prometeo23/api/fetchEvents.dart';
 import 'package:prometeo23/api/fetchImages.dart';
-import 'package:prometeo23/pages/team.dart';
+import 'package:prometeo23/pages/entrepreneural_events_screen.dart';
+import 'package:prometeo23/pages/events_screen.dart';
 import 'package:prometeo23/widgets/splash_screen.dart';
 
 
@@ -23,7 +24,7 @@ class Prometeo extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen()
+      home: EntrepreneuralEventsScreen()
     );
   }
 }
