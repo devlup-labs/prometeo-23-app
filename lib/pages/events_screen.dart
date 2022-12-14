@@ -23,7 +23,6 @@ class _EventsScreenState extends State<EventsScreen> {
         ),
         children: const  [
           TechnicalEventsScreen(),
-          EntrepreneuralEventsScreen(),
         ],
       )
     );
