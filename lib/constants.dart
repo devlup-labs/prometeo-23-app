@@ -8,3 +8,4 @@ const textColor = Color(0xff8892b0);
 
 const bgColor = const Color(0xff061417);
 const sliderCardColor = const Color(0xff062428);
+Color newsCardColor = Color(0xff096B65).withOpacity(0.6);

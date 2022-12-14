@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
+import 'package:prometeo23/widgets/nav_drawer.dart';
 import 'package:prometeo23/widgets/news_card.dart';
 import 'package:prometeo23/widgets/news_day.dart';
 import 'package:prometeo23/widgets/search_bar.dart';
@@ -20,27 +22,43 @@ class _UpdatesPageState extends State<UpdatesPage> {
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      drawer: NavDrawer(),
       backgroundColor: bgColor,
-      body: Container(
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.only(
+            top: size.height * 0.05,
+            left: size.width * 0.05,
+            right: size.width * 0.05,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              NewsOfDayCard(),
+              CustomAppBar(),
               const SizedBox(
                 height: 20,
               ),
-              Container(
-                padding: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width * 0.05,
+              NewsOfDayWidget(),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                "First Version of Prometeo'23 App released on Play Store",
+                style: GoogleFonts.poppins(
+                  color: Colors.grey,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w400,
                 ),
-                child: Text(
-                  "Latest updates",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 26,
-                    fontWeight: FontWeight.w400,
-                  ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                "Latest updates",
+                style: GoogleFonts.poppins(
+                  color: Colors.white,
+                  fontSize: 26,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
               const SizedBox(
@@ -49,16 +67,72 @@ class _UpdatesPageState extends State<UpdatesPage> {
               NewsCard(
                 news:
                     "Your one stop destination to get all the latest updates about the fest.",
-                date: "10/11/2022",
-                imageLink:
-                    "https://i.postimg.cc/sgBFfbkY/audience-on-music-notes-background-0610-min.jpg",
               ),
-              const SizedBox(height: 20),
             ],
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigation(currentIndex: 3),
+      bottomNavigationBar: BottomNavigation(currentIndex: -1),
+    );
+  }
+}
+
+class NewsOfDayWidget extends StatelessWidget {
+  const NewsOfDayWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+          width: MediaQuery.of(context).size.width * 0.9,
+          height: MediaQuery.of(context).size.height * 0.35,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            image: DecorationImage(
+              image: AssetImage(
+                "assets/updates-image.png",
+              ),
+              // fit: BoxFit.cover,
+            ),
+          ),
+        ),
+        Container(
+          width: MediaQuery.of(context).size.width * 0.9,
+          height: MediaQuery.of(context).size.height * 0.35,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: bgColor.withOpacity(0.5),
+          ),
+        ),
+        Positioned.fill(
+          child: Align(
+            alignment: Alignment(-0.8, 0.8),
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.6,
+              height: MediaQuery.of(context).size.height * 0.06,
+              decoration: BoxDecoration(
+                //glassmorphism
+                color: bgColor.withOpacity(0.6),
+
+                borderRadius: BorderRadius.circular(25),
+              ),
+              child: Center(
+                child: Text(
+                  "News of the Day",
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
