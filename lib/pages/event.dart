@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
@@ -54,7 +55,7 @@ class _EventState extends State<Event> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color(0xff110F16),
+      backgroundColor: bgColor,
       body: Container(
         child: SingleChildScrollView(
           child: Container(
@@ -80,7 +81,7 @@ class _EventState extends State<Event> {
                     widget.eventName,
                     style: TextStyle(
                       fontSize: 28,
-                      color: Colors.orange,
+                      color: Colors.white,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -170,9 +171,9 @@ class PrizesWorth extends StatelessWidget {
       ),
       child: Text(
         widget.eventPrize,
-        style: TextStyle(
+        style: GoogleFonts.poppins(
           fontSize: 20,
-          color: Colors.white,
+          color: Colors.grey,
           fontWeight: FontWeight.w600,
         ),
       ),

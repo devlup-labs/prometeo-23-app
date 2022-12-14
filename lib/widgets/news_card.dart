@@ -3,14 +3,11 @@ import 'package:prometeo23/constants.dart';
 
 class NewsCard extends StatefulWidget {
   String news;
-  String date;
-  String imageLink;
 
-  NewsCard(
-      {super.key,
-      required this.news,
-      required this.date,
-      required this.imageLink});
+  NewsCard({
+    super.key,
+    required this.news,
+  });
 
   @override
   State<NewsCard> createState() => NewsCardState();
@@ -21,81 +18,43 @@ class NewsCardState extends State<NewsCard> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Container(
-      padding: EdgeInsets.only(
-        left: MediaQuery.of(context).size.width * 0.05,
+      height: size.height * 0.1,
+      width: size.width * 0.9,
+      decoration: BoxDecoration(
+        color: newsCardColor,
+        borderRadius: BorderRadius.circular(20),
       ),
-      child: Container(
-        width: MediaQuery.of(context).size.width * 0.9,
-        height: 100,
-        padding: EdgeInsets.only(
-          top: 10,
-          bottom: 10,
-          left: 10,
-          right: 10,
-        ),
-        decoration: BoxDecoration(
-          // color: Color(0xff8892b0),
-          color: Color(0xff575B5e),
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Container(
-              height: 80,
-              width: 80,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                image: DecorationImage(
-                  image: NetworkImage(
-                    widget.imageLink,
+      child: Center(
+        child: Container(
+          padding: EdgeInsets.only(
+            left: size.width * 0.05,
+            right: size.width * 0.05,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Icon(
+                Icons.newspaper,
+                size: 40,
+                color: Colors.white,
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Container(
+                width: size.width * 0.6,
+                child: Text(
+                  widget.news,
+                  maxLines: 2,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 14,
                   ),
+                  textAlign: TextAlign.justify,
                 ),
               ),
-            ),
-            const SizedBox(
-              width: 20,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: size.width * 0.6,
-                  child: Text(
-                    widget.news,
-                    maxLines: 2,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.edit_calendar,
-                      color: cyan,
-                      size: 14,
-                    ),
-                    const SizedBox(
-                      width: 5,
-                    ),
-                    Text(
-                      widget.date,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

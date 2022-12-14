@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:prometeo23/api/fetchEvents.dart';
+import 'package:prometeo23/api/fetchImages.dart';
 import 'package:prometeo23/pages/team.dart';
 import 'package:prometeo23/widgets/splash_screen.dart';
 
@@ -8,6 +9,7 @@ import 'package:prometeo23/widgets/splash_screen.dart';
 
 void main() {
   fetchEvents();
+  fetchImages();
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const Prometeo());

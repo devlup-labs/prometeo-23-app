@@ -60,7 +60,7 @@ class _UnstopRegistrationState extends State<UnstopRegistration> {
               right: MediaQuery.of(context).size.width * 0.05,
             ),
             decoration: BoxDecoration(
-              color: Color(0xff575B5e),
+              color: newsCardColor,
               borderRadius: BorderRadius.circular(15),
             ),
             child: Center(

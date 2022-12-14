@@ -16,12 +16,33 @@ class _GalleryCardState extends State<GalleryCard> {
       width: MediaQuery.of(context).size.width * 0.9,
       height: MediaQuery.of(context).size.height * 0.3,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        image: DecorationImage(
-          image: NetworkImage(
-            widget.imageLink,
+        //glassmorphism
+        color: Colors.white.withOpacity(0.1),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.white.withOpacity(0.1),
+            blurRadius: 20,
+            spreadRadius: -10,
+            offset: Offset(-5, -5),
           ),
-          fit: BoxFit.cover,
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 20,
+            spreadRadius: -10,
+            offset: Offset(7, 7),
+          ),
+        ],
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Container(
+        margin: EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage(
+              widget.imageLink,
+            ),
+            // fit: BoxFit.cover,
+          ),
         ),
       ),
     );

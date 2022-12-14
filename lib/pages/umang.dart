@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
@@ -36,9 +37,9 @@ class _UmangState extends State<Umang> {
               const SizedBox(
                 height: 20,
               ),
-              const Text(
+              Text(
                 "Social Initiatives",
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   color: Colors.white,
                   fontSize: 26,
                   fontWeight: FontWeight.w600,
@@ -63,7 +64,7 @@ class _UmangState extends State<Umang> {
               ),
               Text(
                 "Umang",
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   color: Colors.amber[300],
                   fontSize: 32,
                   fontWeight: FontWeight.w600,
@@ -74,7 +75,7 @@ class _UmangState extends State<Umang> {
               ),
               Text(
                 umangDescription,
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   color: Colors.white,
                   fontSize: 16,
                 ),
