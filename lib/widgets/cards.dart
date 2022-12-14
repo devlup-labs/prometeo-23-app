@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/event.dart';
 
 // ignore: must_be_immutable
@@ -80,10 +81,9 @@ class _CardsState extends State<Cards> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: const Color(0xff1F2128),
+        color: sliderCardColor,
         borderRadius: BorderRadius.circular(25.0),
         border: Border.all(
-          // color: const Color(0xff64ffda),
           width: 0.5,
         ),
       ),
@@ -154,7 +154,7 @@ class _CardsState extends State<Cards> {
                         Text(
                           widget.title,
                           style: const TextStyle(
-                            color: Color(0xff64ffda),
+                            color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 18.0,
                             overflow: TextOverflow.ellipsis,

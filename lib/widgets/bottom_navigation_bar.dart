@@ -20,7 +20,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xff110F16),
+      color: bgColor,
       child: SalomonBottomBar(
         currentIndex: widget.currentIndex,
         onTap: (i) => setState(

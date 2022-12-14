@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prometeo23/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class RuleBookWidget extends StatefulWidget {
@@ -59,7 +60,7 @@ class _RuleBookWidgetState extends State<RuleBookWidget> {
               right: MediaQuery.of(context).size.width * 0.05,
             ),
             decoration: BoxDecoration(
-              color: Color(0xff575B5e),
+              color: newsCardColor,
               borderRadius: BorderRadius.circular(15),
             ),
             child: Center(

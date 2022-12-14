@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/widgets/cards.dart';
 import 'package:prometeo23/widgets/home_page/cards_list.dart';
 import 'package:prometeo23/widgets/home_page/slider_headings.dart';
@@ -49,14 +50,13 @@ class _TabsState extends State<Tabs> {
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
                   margin: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 2,
-                        color: index == activeIndex
-                            ? const Color(0xff64ffda)
-                            : const Color(0x00000000),
-                      ),
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(20))),
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                    color: index == activeIndex
+                        ? const Color(0xff166461)
+                        : sliderCardColor,
+                  ),
                   child: TextButton(
                     onPressed: () {
                       setState(() {

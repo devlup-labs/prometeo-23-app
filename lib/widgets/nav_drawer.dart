@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/Umang.dart';
 import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
 import 'package:prometeo23/pages/gallery.dart';
@@ -11,13 +12,12 @@ class NavDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Color(0xff110F16),
+      backgroundColor: bgColor,
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
           const DrawerHeader(
             decoration: BoxDecoration(
-              color: Color(0xff110F16),
               image: DecorationImage(
                 image: AssetImage(
                   "assets/prometeo_home_page.png",
