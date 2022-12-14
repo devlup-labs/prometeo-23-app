@@ -14,9 +14,7 @@ class SliderHeading extends StatelessWidget {
       ),
       const Icon(
         Icons.flag_circle,
-        color: Color(
-          0xff64ffda,
-        ),
+        color: Color(0xff166461),
       )
     ]);
   }
