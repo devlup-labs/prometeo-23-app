@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:prometeo23/api/fetchImages.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
@@ -17,46 +18,13 @@ class Gallery extends StatefulWidget {
 }
 
 class _GalleryState extends State<Gallery> {
-  List<GalleryCard> SliderCards = [];
   bool isLoading = true;
-
-  Future<void> fetchImages() async {
-    final response =
-        await http.get(Uri.parse('https://apiv.prometeo.in/api/gallery/'));
-
-    if (response.statusCode == 200) {
-      // If the server did return a 200 OK response,
-      // then parse the JSON.
-      var list = json.decode(response.body) as List;
-
-      //iterate over json and create a list of cards
-      for (var i = 0; i < list.length; i++) {
-        String imageLink =
-            "https://apiv.prometeo.in" + list[i]['image'].substring(19);
-        if (list[i]['name'] != "Prometeo-23-logo" &&
-            list[i]['type'] == "image") {
-          SliderCards.add(
-            GalleryCard(
-              imageLink: imageLink,
-            ),
-          );
-        }
-      }
-    } else {
-      // If the server did not return a 200 OK response,
-      // then throw an exception.
-      throw Exception('Failed to load album');
-    }
-
-    setState(() {
-      isLoading = false;
-    });
-  }
-
   @override
   void initState() {
     super.initState();
-    fetchImages();
+    setState(() {
+      isLoading = false;
+    });
   }
 
   Widget build(BuildContext context) {
