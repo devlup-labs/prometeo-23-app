@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
 import 'package:http/http.dart' as http;
@@ -165,11 +166,10 @@ class _PreRegistrationState extends State<PreRegistration> {
           ),
         ),
       ),
-      backgroundColor: Color(0xff110F16),
+      backgroundColor: bgColor,
       body: SingleChildScrollView(
         child: Container(
           width: size.width,
-          // height: size.height,
           padding: EdgeInsets.only(
               left: 20,
               right: 20,
@@ -420,7 +420,7 @@ class _PreRegistrationState extends State<PreRegistration> {
                 height: size.height * 0.07,
                 width: size.width * 0.9,
                 decoration: BoxDecoration(
-                  color: Color(0xff575B5e),
+                  color: Color(0xff096B65),
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: TextButton(
