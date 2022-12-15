@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/events_banner.dart';
 
 class EventsPage extends StatefulWidget {
@@ -19,12 +20,16 @@ class _EventsPageState extends State<EventsPage> {
             pinned: true,
             backgroundColor: Colors.black,
             expandedHeight: MediaQuery.of(context).size.height * 0.35,
+            title: const Padding(  
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              child: CustomAppBar()
+            ),
             flexibleSpace: const FlexibleSpaceBar(  
               background: EventBanner()
             ),
             bottom: PreferredSize(
               
-              preferredSize: const Size.fromHeight(10),
+              preferredSize: const Size.fromHeight(45),
               child: Container(
                 alignment: Alignment.centerLeft,
                 padding: const EdgeInsets.only(left: 15),
