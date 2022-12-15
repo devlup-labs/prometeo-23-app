@@ -5,9 +5,6 @@ import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
 import 'package:prometeo23/widgets/nav_drawer.dart';
 import 'package:prometeo23/widgets/news_card.dart';
-import 'package:prometeo23/widgets/news_day.dart';
-import 'package:prometeo23/widgets/search_bar.dart';
-import 'package:readmore/readmore.dart';
 
 class UpdatesPage extends StatefulWidget {
   const UpdatesPage({super.key});
@@ -34,11 +31,11 @@ class _UpdatesPageState extends State<UpdatesPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomAppBar(),
+              const CustomAppBar(),
               const SizedBox(
                 height: 20,
               ),
-              NewsOfDayWidget(),
+              const NewsOfDayWidget(),
               const SizedBox(
                 height: 10,
               ),
@@ -91,7 +88,7 @@ class NewsOfDayWidget extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.35,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25),
-            image: DecorationImage(
+            image: const  DecorationImage(
               image: AssetImage(
                 "assets/updates-image.png",
               ),
@@ -109,14 +106,12 @@ class NewsOfDayWidget extends StatelessWidget {
         ),
         Positioned.fill(
           child: Align(
-            alignment: Alignment(-0.8, 0.8),
+            alignment: const Alignment(-0.8, 0.8),
             child: Container(
               width: MediaQuery.of(context).size.width * 0.6,
               height: MediaQuery.of(context).size.height * 0.06,
               decoration: BoxDecoration(
-                //glassmorphism
                 color: bgColor.withOpacity(0.6),
-
                 borderRadius: BorderRadius.circular(25),
               ),
               child: Center(
