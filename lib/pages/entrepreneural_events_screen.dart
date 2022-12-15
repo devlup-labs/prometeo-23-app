@@ -20,16 +20,16 @@ class _EventsPageState extends State<EventsPage> {
             pinned: true,
             backgroundColor: Colors.black,
             expandedHeight: MediaQuery.of(context).size.height * 0.35,
-            title: const Padding(  
-              padding: EdgeInsets.symmetric(horizontal: 15),
-              child: CustomAppBar()
+            title: Padding(  
+              padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height * 0.016),
+              child: const CustomAppBar()
             ),
             flexibleSpace: const FlexibleSpaceBar(  
               background: EventBanner()
             ),
             bottom: PreferredSize(
               
-              preferredSize: const Size.fromHeight(45),
+              preferredSize: Size.fromHeight(MediaQuery.of(context).size.height * 0.05),
               child: Container(
                 alignment: Alignment.centerLeft,
                 padding: const EdgeInsets.only(left: 15),
