@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:prometeo23/widgets/events_banner.dart';
 
 class EventsPage extends StatefulWidget {
@@ -17,12 +15,49 @@ class _EventsPageState extends State<EventsPage> {
       backgroundColor: const Color(0xff061417),
       body: CustomScrollView(  
         slivers: [
-          const SliverAppBar(
+          SliverAppBar(
             pinned: true,
             backgroundColor: Colors.black,
-            expandedHeight: 300,
-            flexibleSpace: FlexibleSpaceBar(  
+            expandedHeight: MediaQuery.of(context).size.height * 0.35,
+            flexibleSpace: const FlexibleSpaceBar(  
               background: EventBanner()
+            ),
+            bottom: PreferredSize(
+              
+              preferredSize: const Size.fromHeight(10),
+              child: Container(
+                alignment: Alignment.centerLeft,
+                padding: const EdgeInsets.only(left: 15),
+                child: Container( 
+                  margin: const EdgeInsets.only(bottom: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10), 
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.3),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.white.withOpacity(0.1),
+                        blurRadius: 20,
+                        spreadRadius: -10,
+                        offset: const Offset(-5, -5),
+                      ),
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        blurRadius: 20,
+                        spreadRadius: -10,
+                        offset: const Offset(7, 7),
+                      ),
+                    ],
+                borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: const Text(  
+                'Technical Events',
+                style: TextStyle(  
+                  fontSize: 20,
+                  color: Colors.white
+                )
+                          )
+                        ),
+              )
             )
           ),
     
