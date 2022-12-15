@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -23,24 +24,6 @@ class _RuleBookWidgetState extends State<RuleBookWidget> {
         const SizedBox(
           height: 30,
         ),
-        Container(
-          alignment: Alignment.centerLeft,
-          padding: EdgeInsets.only(
-            left: size.width * 0.05,
-            right: size.width * 0.05,
-          ),
-          child: Text(
-            "Rule Book",
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ),
-        const SizedBox(
-          height: 30,
-        ),
         GestureDetector(
           onTap: () async {
             Uri url = Uri.parse(widget.ruleBookLink);
@@ -60,13 +43,14 @@ class _RuleBookWidgetState extends State<RuleBookWidget> {
               right: MediaQuery.of(context).size.width * 0.05,
             ),
             decoration: BoxDecoration(
-              color: newsCardColor,
+              // color: Color.fromARGB(150, 101, 191, 45),
+              color: Color(0xff003959),
               borderRadius: BorderRadius.circular(15),
             ),
             child: Center(
               child: Text(
                 "Open Rule Book",
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   color: Colors.white,
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
