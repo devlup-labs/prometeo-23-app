@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -25,13 +26,9 @@ class _UnstopRegistrationState extends State<UnstopRegistration> {
         ),
         Container(
           alignment: Alignment.centerLeft,
-          padding: EdgeInsets.only(
-            left: size.width * 0.05,
-            right: size.width * 0.05,
-          ),
           child: Text(
             "Registration",
-            style: TextStyle(
+            style: GoogleFonts.poppins(
               fontSize: 20,
               color: Colors.white,
               fontWeight: FontWeight.w600,
@@ -60,13 +57,13 @@ class _UnstopRegistrationState extends State<UnstopRegistration> {
               right: MediaQuery.of(context).size.width * 0.05,
             ),
             decoration: BoxDecoration(
-              color: newsCardColor,
+              color: Color(0xff003959),
               borderRadius: BorderRadius.circular(15),
             ),
             child: Center(
               child: Text(
                 "Register at Unstop",
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   color: Colors.white,
                   fontSize: 20,
                   fontWeight: FontWeight.w600,

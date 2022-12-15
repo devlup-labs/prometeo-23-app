@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:animate_do/animate_do.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:prometeo23/Background/bg.dart';
@@ -95,9 +96,9 @@ class _HomePageState extends State<HomePage> {
                 SlideInLeft(
                   child: Container(
                     alignment: Alignment.bottomLeft,
-                    child: const Text(
+                    child: Text(
                       "Theme Reveal",
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                         color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -120,9 +121,9 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Text(
+                    Text(
                       "Social Initiative: ",
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                         color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -130,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Text(
                       "UMANG",
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                         color: Colors.amber[300],
                         fontSize: 26,
                         fontWeight: FontWeight.bold,
@@ -151,9 +152,9 @@ class _HomePageState extends State<HomePage> {
                 SlideInLeft(
                   child: Container(
                     alignment: Alignment.bottomLeft,
-                    child: const Text(
+                    child: Text(
                       "Follow Us On",
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                         color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -207,7 +208,7 @@ class UmangImage extends StatelessWidget {
           top: 20,
           bottom: 20,
         ),
-        decoration:const BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
               "assets/umang.png",
@@ -220,10 +221,6 @@ class UmangImage extends StatelessWidget {
 }
 
 class LocationDate extends StatelessWidget {
-  const LocationDate({
-    Key? key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -231,7 +228,7 @@ class LocationDate extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Row(
-            children: const [
+            children: [
               Icon(
                 Icons.location_pin,
                 color: Colors.red,
@@ -242,7 +239,7 @@ class LocationDate extends StatelessWidget {
               ),
               Text(
                 "IIT Jodhpur",
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   color: Colors.white,
                   fontSize: 14,
                 ),
@@ -250,7 +247,7 @@ class LocationDate extends StatelessWidget {
             ],
           ),
           Row(
-            children: const [
+            children: [
               Icon(
                 Icons.edit_calendar,
                 color: Colors.blue,
@@ -261,7 +258,7 @@ class LocationDate extends StatelessWidget {
               ),
               Text(
                 "20th - 22nd Jan",
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   color: Colors.white,
                   fontSize: 14,
                 ),

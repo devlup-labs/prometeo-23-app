@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:readmore/readmore.dart';
 
 class EventDescription extends StatefulWidget {
@@ -14,10 +15,6 @@ class _EventDescriptionState extends State<EventDescription> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(
-        left: MediaQuery.of(context).size.width * 0.05,
-        right: MediaQuery.of(context).size.width * 0.05,
-      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -29,15 +26,15 @@ class _EventDescriptionState extends State<EventDescription> {
             trimMode: TrimMode.Line,
             trimCollapsedText: ' Read more',
             trimExpandedText: ' Read less',
-            moreStyle: TextStyle(
+            moreStyle: GoogleFonts.poppins(
               fontSize: 12,
               color: Color(0xff64ffda),
             ),
-            style: TextStyle(
+            style: GoogleFonts.poppins(
               fontSize: 16,
               color: Colors.white,
             ),
-            lessStyle: TextStyle(
+            lessStyle: GoogleFonts.poppins(
               fontSize: 12,
               color: Color(0xff64ffda),
             ),
