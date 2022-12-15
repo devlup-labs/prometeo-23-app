@@ -10,16 +10,14 @@ void fetchData() async {
   var jsonResponse = await jsonDecode(response.body) as List;
 
   if (response.statusCode == 200) {
-    print(jsonResponse);
-    // for (var event in jsonResponse) {
-    //   var technicalEvent = TechnicalEvent(
-    //       name: event['name'],
-    //       image: event['image'],
-    //       description: event['description'],
-    //       prizeMoney: event['prizeMoney'],
-    //       date: event['date']);
-    //   technicalEventList.add(technicalEvent);
-    // }
+    for (var event in jsonResponse) {
+      var technicalEvent = TechnicalEvent(
+          name: event['name'],
+          image: event['image'],
+          description: event['description'],
+          prizeMoney: event['prizeMoney'],
+          date: event['date']);
+      technicalEventList.add(technicalEvent);
+    }
   }
-  print(technicalEventList);
 }
