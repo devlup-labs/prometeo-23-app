@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:prometeo23/api/fetchEvent.dart';
 import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/events_banner.dart';
+import 'package:prometeo23/widgets/new_event_card.dart';
 
 class EventsPage extends StatefulWidget {
   const EventsPage({super.key});
@@ -68,14 +70,13 @@ class _EventsPageState extends State<EventsPage> {
     
           SliverList(  
             delegate: SliverChildBuilderDelegate( 
-              childCount: 10, 
+              childCount: technicalEventList.length, 
               (context, index) {
-                return Container(
-                  margin: const EdgeInsets.all(12),
-                  width: double.maxFinite,
-                  height: 200,
-                  color: Colors.blueGrey,
-                  );
+                return NewEventCard(
+                  eventName: technicalEventList[index].name, 
+                  eventDate: technicalEventList[index].date, 
+                  eventPrize: technicalEventList[index].prizeMoney, 
+                  imageLink: technicalEventList[index].image);
               }
             )
           )

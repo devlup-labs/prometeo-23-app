@@ -2,18 +2,24 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:prometeo23/models/Events.dart';
 
+List<TechnicalEvent> technicalEventList = [];
 
-List TechnicalEventList = [];
+void fetchData() async {
+  var response =
+      await http.get(Uri.parse('http://apiv.prometeo.in/api/events'));
+  var jsonResponse = await jsonDecode(response.body) as List;
 
-void fetchEvent() async{
-  final response = await http.get(Uri.parse('https://apiv.prometeo.in/api/events/'));
-  
-  if (response.statusCode == 200){
-    var givenEvents = json.decode(response.body) as List;
-    for(var event in givenEvents){
-      var technicalevent = TechnicalEvent(event.name, event.image, event.description, event.prize);
-      TechnicalEventList.add(technicalevent);
-    }
+  if (response.statusCode == 200) {
+    print(jsonResponse);
+    // for (var event in jsonResponse) {
+    //   var technicalEvent = TechnicalEvent(
+    //       name: event['name'],
+    //       image: event['image'],
+    //       description: event['description'],
+    //       prizeMoney: event['prizeMoney'],
+    //       date: event['date']);
+    //   technicalEventList.add(technicalEvent);
+    // }
   }
-
+  print(technicalEventList);
 }

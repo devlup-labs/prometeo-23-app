@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:prometeo23/constants.dart';
 
+// ignore: must_be_immutable
 class NewEventCard extends StatefulWidget {
   String eventName;
   String eventDate;
   String eventPrize;
   String imageLink;
 
-  NewEventCard({
+  NewEventCard({super.key, 
     required this.eventName,
     required this.eventDate,
     required this.eventPrize,
@@ -26,13 +26,13 @@ class _NewEventCardState extends State<NewEventCard> {
     return Container(
       height: 350,
       width: size.width * 0.9,
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         // color: Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
             height: 300,
@@ -42,7 +42,7 @@ class _NewEventCardState extends State<NewEventCard> {
                 image: NetworkImage(
                   widget.imageLink,
                 ),
-                fit: BoxFit.fill,
+                fit: BoxFit.cover,
               ),
               borderRadius: BorderRadius.circular(20),
               border: Border.all(
@@ -76,7 +76,7 @@ class _NewEventCardState extends State<NewEventCard> {
               Container(
                 width: size.width * 0.35,
                 child: Text(
-                  "INR: " + widget.eventPrize,
+                  "INR: ${widget.eventPrize}",
                   maxLines: 3,
                   style: GoogleFonts.poppins(
                     color: Colors.white,
@@ -92,7 +92,7 @@ class _NewEventCardState extends State<NewEventCard> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.calendar_month,
                     color: Colors.white,
                     size: 22,
