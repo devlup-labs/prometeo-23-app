@@ -3,6 +3,9 @@ import 'package:http/http.dart' as http;
 import 'package:prometeo23/models/Events.dart';
 
 List<TechnicalEvent> technicalEventList = [];
+List entrepreneuralEventsList = [];
+List speakersList = [];
+
 
 void fetchData() async {
   var response =
@@ -11,6 +14,7 @@ void fetchData() async {
 
   if (response.statusCode == 200) {
     for (var event in jsonResponse) {
+      if(event['type'] == 'technical'){
       var technicalEvent = TechnicalEvent(
           name: event['name'],
           image: event['image'],
@@ -18,6 +22,7 @@ void fetchData() async {
           prizeMoney: event['prizeMoney'],
           date: event['date']);
       technicalEventList.add(technicalEvent);
+      }
     }
   }
 }
