@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
+import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
-import 'package:prometeo23/widgets/event_card.dart';
 import 'package:prometeo23/widgets/event_description.dart';
 import 'package:prometeo23/widgets/event_sponsor.dart';
+import 'package:prometeo23/widgets/nav_drawer.dart';
 import 'package:prometeo23/widgets/prices.dart';
 import 'package:prometeo23/widgets/register_button.dart';
 import 'package:prometeo23/widgets/rule_book.dart';
@@ -56,30 +57,44 @@ class _EventState extends State<Event> {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: bgColor,
+      drawer: NavDrawer(),
       body: Container(
+        padding: EdgeInsets.only(
+          top: size.height * 0.06,
+          left: size.width * 0.05,
+          right: size.width * 0.05,
+        ),
         child: SingleChildScrollView(
           child: Container(
             width: size.width,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                EventCard(
-                  eventName: widget.eventName,
-                  eventDate: widget.eventDate,
-                  eventTime: widget.eventTime,
-                  ImageLink: widget.imageLink,
-                ),
+                CustomAppBar(),
                 const SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 Container(
-                  alignment: Alignment.centerLeft,
-                  padding: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width * 0.05,
-                    right: MediaQuery.of(context).size.width * 0.05,
+                  width: size.width * 0.9,
+                  height: size.height * 0.4,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                        widget.imageLink,
+                      ),
+                      fit: BoxFit.fill,
+                    ),
                   ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  alignment: Alignment.center,
                   child: Text(
                     widget.eventName,
-                    style: TextStyle(
+                    style: GoogleFonts.poppins(
                       fontSize: 28,
                       color: Colors.white,
                       fontWeight: FontWeight.w600,
@@ -89,7 +104,7 @@ class _EventState extends State<Event> {
                 const SizedBox(
                   height: 10,
                 ),
-                !widget.isSpeaker ? PrizesWorth(widget: widget) : Container(),
+                PrizeAndDate(size: size, widget: widget),
                 const SizedBox(
                   height: 10,
                 ),
@@ -107,22 +122,16 @@ class _EventState extends State<Event> {
                       )
                     : Container(),
                 const SizedBox(
-                  height: 30,
+                  height: 20,
                 ),
                 Container(
-                  padding: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width * 0.05,
-                    right: MediaQuery.of(context).size.width * 0.05,
-                  ),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Sponsored By",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                      ),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Sponsored By",
+                    style: GoogleFonts.poppins(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
@@ -153,6 +162,65 @@ class _EventState extends State<Event> {
   }
 }
 
+class PrizeAndDate extends StatelessWidget {
+  const PrizeAndDate({
+    Key? key,
+    required this.size,
+    required this.widget,
+  }) : super(key: key);
+
+  final Size size;
+  final Event widget;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        !widget.isSpeaker
+            ? Container(
+                height: 50,
+                width: size.width * 0.4,
+                decoration: BoxDecoration(
+                  color: Color(0xff496B8B),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Center(
+                  child: Text(
+                    widget.eventPrize,
+                    style: GoogleFonts.poppins(
+                      fontSize: 18,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              )
+            : Container(),
+        !widget.isSpeaker ? Spacer() : Container(),
+        Container(
+          height: 50,
+          width: size.width * 0.4,
+          decoration: BoxDecoration(
+            color: Color(0xff496B8B),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Center(
+            child: Text(
+              widget.eventDate,
+              style: GoogleFonts.poppins(
+                fontSize: 18,
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
 class PrizesWorth extends StatelessWidget {
   const PrizesWorth({
     Key? key,
@@ -165,10 +233,6 @@ class PrizesWorth extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.centerLeft,
-      padding: EdgeInsets.only(
-        left: MediaQuery.of(context).size.width * 0.05,
-        right: MediaQuery.of(context).size.width * 0.05,
-      ),
       child: Text(
         widget.eventPrize,
         style: GoogleFonts.poppins(
