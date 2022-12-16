@@ -28,94 +28,42 @@ void fetchEvents() async {
       String imageLink = "https://apiv.prometeo.in/${event['image'].substring(19)}" ;
 
 
-  
 
-      if (event['registration_open'] == true) {
-        LiveEvents.add(
-          Cards(
+      Cards eventCard = Cards(
             eventId:event['id'].toString(),
             title: event['name'],
-            prize: event['prize'],
+            prize: event['prize'] ?? ' ',
             imageLink: imageLink,
-            description: event['description'],
+            description: event['description'] ?? ' ',
             isSpeaker: (event['type'] == 'talk'),
             eventType: event['type'],
-            ruleBookLink: event['rulebook_link'],
-            unstopLink: event["external_link"],
-            eventLocation: event["venue"],
-            eventDate: event["date"],
-          ),
-        );
+            ruleBookLink: event['rulebook_link'] ?? '',
+            unstopLink: event["external_link"]?? ' ' ,
+            eventLocation: event["venue"] ?? '',
+            eventDate: event["date"] ?? '',
+          );
+
+      if (event['registration_open'] == true) {
+        LiveEvents.add(eventCard);
       }
 
       if (event['type'] == 'technical') {
         TechnicalCards.add(
-          Cards(
-            eventId: event['id'].toString(),
-            title: event['name'],
-            prize: event['prize'],
-            imageLink: imageLink,
-            description: event['description'],
-            isSpeaker: false,
-            eventType: "Technical EventDetail",
-            ruleBookLink: event['rulebook_link'],
-            unstopLink: event["external_link"],
-            eventLocation: event["venue"],
-            eventDate: event["date"],
-          ),
+  eventCard
         );
       }
       if (event['type'] == 'entrepreneurial') {
         EntrepreneurialCards.add(
-          Cards(
-            eventId: event['id'].toString(),
-            title: event['name'],
-            prize: event['prize'],
-            imageLink: imageLink,
-            description: event['description'],
-            isSpeaker: false,
-            eventType: "Entrepreneurial EventDetail",
-            ruleBookLink: event['rulebook_link'],
-            unstopLink: event["external_link"],
-            eventLocation: event["venue"],
-            eventDate: event["date"],
-          ),
+eventCard
         );
       }
 
       if (event['type'] == 'exhibition') {
-        Exhibition.add(
-          Cards(
-            eventId: event['id'].toString(),
-            title: event['name'],
-            prize: event['prize'],
-            imageLink: imageLink,
-            description: event['description'],
-            isSpeaker: false,
-            eventType: "Exhibition",
-            ruleBookLink: event['rulebook_link'],
-            unstopLink: event["external_link"],
-            eventLocation: event["venue"],
-            eventDate: event["date"],
-          ),
+        Exhibition.add(eventCard
         );
 
       if (event['type'] == 'talk') {
-        Speakers.add(
-          Cards(
-            eventId: event['id'].toString(),
-            title: event['name'],
-            prize: event['prize'],
-            imageLink: imageLink,
-            description: event['description'],
-            isSpeaker: true,
-            eventType: "Talk Session",
-            ruleBookLink: event['rulebook_link'],
-            unstopLink: event["external_link"],
-            eventLocation: event["venue"],
-            eventDate: event["date"],
-          ),
-        );
+        Speakers.add(eventCard);
       }
     }
   }
@@ -141,4 +89,9 @@ void fetchEvents() async {
     }
 
   }
+  print('checking for the length');
+  print(LiveEvents.length);
+
 }
+
+
