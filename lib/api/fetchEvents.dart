@@ -4,172 +4,153 @@ import 'package:prometeo23/models/event.dart';
 import 'package:prometeo23/widgets/cards.dart';
 
 List<Cards> TechnicalCards = [];
-
 List<Cards> EntrepreneurialCards = [];
-
 List<Cards> Exhibition = [];
-
 List<Cards> Speakers = [];
-
 List<Cards> LiveEvents = [];
-
 List SliderCards = [];
 
-List<EventDetail> technicalEventsList = [];
-List<EventDetail> entrepreneuralEventsList = [];
-List<EventDetail> speakersList = [];
-List<EventDetail> exhibitions = [];
-List<EventDetail> workshops = [];
-List<EventDetail> informalEventList = [];
+List <EventDetail> eventList = [];
+List <EventDetail> technicalEvents = [];
+List <EventDetail> enterperneuralEvents = [];
+List <EventDetail> speakers = [];
+List <EventDetail> exhibitions = [];
+List <EventDetail> informals = [];
+
 
 void fetchEvents() async {
-  final response =
-      await http.get(Uri.parse('https://apiv.prometeo.in/api/events/'));
+  final response = await http.get(Uri.parse('https://apiv.prometeo.in/api/events/'));
 
   if (response.statusCode == 200) {
     var list = json.decode(response.body) as List;
-    for (var i = 0; i < list.length; i++) {
-      String imageLink =
-          "https://apiv.prometeo.in" + list[i]['image'].substring(19);
-      String ruleBookLink = "https://apiv.prometeo.in" +
-          ((list[i]['rulebook'] != null)
-              ? list[i]['rulebook'].substring(19)
-              : "");
-      String upStopLink =
-          list[i]['external_link'] == null ? '' : list[i]['exteranal'];
-      if (list[i]['registration_open'] == true) {
+    
+    
+    for (var event in list) {
+      String imageLink = "https://apiv.prometeo.in/${event['image'].substring(19)}" ;
+
+      eventList.add(EventDetail(
+        name: event['name'],
+        date: event['date'] ?? '12th may',
+        image: event['image'],
+        description: event['description'] ?? '', 
+        prizeMoney: event['prizeMoney'] ?? 'NA',
+        eventLocation: event['venue'] ?? 'None',
+        eventType: event['type'],
+        unstopLink: event['external_link'] ?? '',
+        rulebookLink: event['rulebook_link'] ?? '',
+        isSpeaker: event['isSpeaker'] ?? false
+
+        ));
+  
+
+      if (event['registration_open'] == true) {
         LiveEvents.add(
           Cards(
-            eventId: list[i]['id'].toString(),
-            title: list[i]['name'],
-            prize: list[i]['prize'],
+            eventId:event['id'].toString(),
+            title: event['name'],
+            prize: event['prize'],
             imageLink: imageLink,
-            description: list[i]['description'],
-            isSpeaker: (list[i]['type'] == 'talk'),
-            eventType: list[i]['type'],
-            ruleBookLink: ruleBookLink,
-            unstopLink: list[i]["external_link"],
-            eventLocation: list[i]["venue"],
-            eventDate: list[i]["date"],
+            description: event['description'],
+            isSpeaker: (event['type'] == 'talk'),
+            eventType: event['type'],
+            ruleBookLink: event['rulebook_link'],
+            unstopLink: event["external_link"],
+            eventLocation: event["venue"],
+            eventDate: event["date"],
           ),
         );
       }
-      if (list[i]['type'] == 'technical') {
+
+      if (event['type'] == 'technical') {
         TechnicalCards.add(
           Cards(
-            eventId: list[i]['id'].toString(),
-            title: list[i]['name'],
-            prize: list[i]['prize'],
+            eventId: event['id'].toString(),
+            title: event['name'],
+            prize: event['prize'],
             imageLink: imageLink,
-            description: list[i]['description'],
+            description: event['description'],
             isSpeaker: false,
             eventType: "Technical EventDetail",
-            ruleBookLink: ruleBookLink,
-            unstopLink: list[i]["external_link"],
-            eventLocation: list[i]["venue"],
-            eventDate: list[i]["date"],
+            ruleBookLink: event['rulebook_link'],
+            unstopLink: event["external_link"],
+            eventLocation: event["venue"],
+            eventDate: event["date"],
           ),
         );
 
-        technicalEventsList.add(EventDetail(
-            name: list[i]['name'],
-            image: imageLink,
-            description: list[i]['description'],
-            prizeMoney: list[i]['prize'],
-            date: list[i]['date'],
-            isSpeaker: false,
-            unstopLink: list[i]['external_link'],
-            eventLocation: list[i]['eventLocation'],
-            eventType: 'Technical EventDetail',
-            rulebookLink: ruleBookLink));
-        print(
-            'This is the length of the technical list ${TechnicalCards.length} ');
-      }
-      if (list[i]['type'] == 'entrepreneurial') {
+      if (event['type'] == 'entrepreneurial') {
         EntrepreneurialCards.add(
           Cards(
-            eventId: list[i]['id'].toString(),
-            title: list[i]['name'],
-            prize: list[i]['prize'],
+            eventId: event['id'].toString(),
+            title: event['name'],
+            prize: event['prize'],
             imageLink: imageLink,
-            description: list[i]['description'],
+            description: event['description'],
             isSpeaker: false,
             eventType: "Entrepreneurial EventDetail",
-            ruleBookLink: ruleBookLink,
-            unstopLink: list[i]["external_link"],
-            eventLocation: list[i]["venue"],
-            eventDate: list[i]["date"],
+            ruleBookLink: event['rulebook_link'],
+            unstopLink: event["external_link"],
+            eventLocation: event["venue"],
+            eventDate: event["date"],
           ),
         );
-        entrepreneuralEventsList.add(EventDetail(
-            name: list[i]['name'],
-            image: imageLink,
-            description: list[i]['description'],
-            prizeMoney: list[i]['prize'],
-            date: list[i]['date'],
-            isSpeaker: false,
-            unstopLink: list[i]['external_link'],
-            eventLocation: list[i]['eventLocation'],
-            eventType: 'Etrepreneural Events',
-            rulebookLink: ruleBookLink));
       }
-      if (list[i]['type'] == 'exhibition') {
+      if (event['type'] == 'exhibition') {
         Exhibition.add(
           Cards(
-            eventId: list[i]['id'].toString(),
-            title: list[i]['name'],
-            prize: list[i]['prize'],
+            eventId: event['id'].toString(),
+            title: event['name'],
+            prize: event['prize'],
             imageLink: imageLink,
-            description: list[i]['description'],
+            description: event['description'],
             isSpeaker: false,
             eventType: "Exhibition",
-            ruleBookLink: ruleBookLink,
-            unstopLink: list[i]["external_link"],
-            eventLocation: list[i]["venue"],
-            eventDate: list[i]["date"],
-          ),
-        );
-        speakersList.add(EventDetail(
-            name: list[i]['name'],
-            image: imageLink,
-            description: list[i]['description'],
-            prizeMoney: list[i]['prize'],
-            date: list[i]['date'],
-            isSpeaker: false,
-            unstopLink: list[i]['external_link'],
-            eventLocation: list[i]['eventLocation'],
-            eventType: list[i]['type'],
-            rulebookLink: ruleBookLink));
-      }
-      if (list[i]['type'] == 'talk') {
-        Speakers.add(
-          Cards(
-            eventId: list[i]['id'].toString(),
-            title: list[i]['name'],
-            prize: list[i]['prize'],
-            imageLink: imageLink,
-            description: list[i]['description'],
-            isSpeaker: true,
-            eventType: "Talk Session",
-            ruleBookLink: ruleBookLink,
-            unstopLink: list[i]["external_link"],
-            eventLocation: list[i]["venue"],
-            eventDate: list[i]["date"],
+            ruleBookLink: event['rulebook_link'],
+            unstopLink: event["external_link"],
+            eventLocation: event["venue"],
+            eventDate: event["date"],
           ),
         );
 
-        speakersList.add(EventDetail(
-            name: list[i]['name'],
-            image: imageLink,
-            description: list[i]['description'],
-            prizeMoney: list[i]['prize'],
-            date: list[i]['date'],
-            isSpeaker: false,
-            unstopLink: list[i]['external_link'],
-            eventLocation: list[i]['eventLocation'],
-            eventType: 'Talk',
-            rulebookLink: ruleBookLink));
+      if (event['type'] == 'talk') {
+        Speakers.add(
+          Cards(
+            eventId: event['id'].toString(),
+            title: event['name'],
+            prize: event['prize'],
+            imageLink: imageLink,
+            description: event['description'],
+            isSpeaker: true,
+            eventType: "Talk Session",
+            ruleBookLink: event['rulebook_link'],
+            unstopLink: event["external_link"],
+            eventLocation: event["venue"],
+            eventDate: event["date"],
+          ),
+        );
       }
     }
+  }
+
+  }
+}
+
+  for(var event in eventList){
+    if(event.eventType == 'technical'){
+      technicalEvents.add(event);
+    }
+    else if(event.eventType == ''){
+      enterperneuralEvents.add(event);
+    }
+    else if(event.eventType == 'talk'){
+      speakers.add(event);
+    }
+    else if(event.eventType == 'exhibition'){
+      exhibitions.add(event);
+    }
+    else if(event.eventType == 'informals'){
+      informals.add(event);
+    }
+
   }
 }
