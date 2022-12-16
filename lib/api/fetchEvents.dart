@@ -23,24 +23,11 @@ void fetchEvents() async {
 
   if (response.statusCode == 200) {
     var list = json.decode(response.body) as List;
-    
-    
+
     for (var event in list) {
       String imageLink = "https://apiv.prometeo.in/${event['image'].substring(19)}" ;
 
-      eventList.add(EventDetail(
-        name: event['name'],
-        date: event['date'] ?? '12th may',
-        image: event['image'],
-        description: event['description'] ?? '', 
-        prizeMoney: event['prizeMoney'] ?? 'NA',
-        eventLocation: event['venue'] ?? 'None',
-        eventType: event['type'],
-        unstopLink: event['external_link'] ?? '',
-        rulebookLink: event['rulebook_link'] ?? '',
-        isSpeaker: event['isSpeaker'] ?? false
 
-        ));
   
 
       if (event['registration_open'] == true) {

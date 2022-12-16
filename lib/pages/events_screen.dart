@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
-import 'package:prometeo23/api/fetchEvents.dart';
+import 'package:prometeo23/api/fetchEvent.dart';
 import 'package:prometeo23/pages/eventsPage.dart';
 
 
