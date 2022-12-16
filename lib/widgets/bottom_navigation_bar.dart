@@ -68,29 +68,29 @@ class _BottomNavigationState extends State<BottomNavigation> {
         items: [
           /// Home
           SalomonBottomBarItem(
-            icon: Icon(Icons.home, color: Colors.white),
-            title: Text("Home"),
+            icon: const Icon(Icons.home, color: Colors.white),
+            title: const Text("Home"),
             selectedColor: cyan,
           ),
 
           /// Likes
           SalomonBottomBarItem(
-            icon: Icon(Icons.favorite_border, color: Colors.white),
-            title: Text("Gallery"),
+            icon: const Icon(Icons.group, color: Colors.white),
+            title: const Text("Events"),
             selectedColor: Colors.pink,
           ),
 
           /// Search
           SalomonBottomBarItem(
-            icon: Icon(Icons.currency_rupee, color: Colors.white),
-            title: Text("Sponsors"),
+            icon: const Icon(Icons.currency_rupee, color: Colors.white),
+            title: const Text("Sponsors"),
             selectedColor: Colors.orange,
           ),
 
           /// Profile
           SalomonBottomBarItem(
-            icon: Icon(Icons.app_registration_rounded, color: Colors.white),
-            title: Text("PreRegistration"),
+            icon: const Icon(Icons.app_registration_rounded, color: Colors.white),
+            title: const Text("PreRegistration"),
             selectedColor: Colors.teal,
           ),
         ],
