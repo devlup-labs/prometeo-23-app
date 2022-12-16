@@ -3,11 +3,10 @@ import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/events_banner.dart';
 import 'package:prometeo23/widgets/new_event_card.dart';
 
-import '../api/fetchEvents.dart';
-
 class EventsPage extends StatefulWidget {
   final List eventList;
-  const EventsPage({required this.eventList, super.key});
+  final String eventType;
+  const EventsPage({required this.eventType, required this.eventList, super.key});
 
   @override
   State<EventsPage> createState() => _EventsPageState();
@@ -56,8 +55,13 @@ class _EventsPageState extends State<EventsPage> {
                         ],
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: const Text('Technical Events',
-                          style: TextStyle(fontSize: 20, color: Colors.white))),
+                      child: Text(
+                        widget.eventType,
+                        style: const TextStyle(
+                          fontSize: 20, 
+                          color: Colors.white)
+                          )
+                        ),
                 ))),
         SliverList(
             delegate: SliverChildBuilderDelegate(
