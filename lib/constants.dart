@@ -10,3 +10,10 @@ const bgColor = const Color(0xff061417);
 const sliderCardColor = const Color(0xff062428);
 Color newsCardColor = Color(0xff096B65).withOpacity(0.6);
 Color unStopRegistration = Color(0xff1B88C6).withOpacity(0.6);
+
+// padding
+EdgeInsets universalPadding = const EdgeInsets.only(
+  left: 20,
+  right: 20,
+  top: 50,
+);
