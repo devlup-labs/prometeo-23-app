@@ -50,126 +50,121 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       drawer: NavDrawer(),
       backgroundColor: bgColor,
-      body: Container(
-        padding: EdgeInsets.only(
-          top: 40,
-        ),
-        child: SingleChildScrollView(
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            padding: const EdgeInsets.all(15),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                SlideInDown(
-                  child: CustomAppBar(),
+      body: SingleChildScrollView(
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          padding: universalPadding,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              SlideInDown(
+                child: CustomAppBar(),
+              ),
+              // search bar
+              // const SearchBar(),
+              SlideInDown(
+                child: Container(
+                  child: Image.asset(
+                    // "https://apiv.prometeo.in/media/gallery/images/prometeo_logo_23-min.png",
+                    "assets/prometeo_home_page.png",
+                  ),
                 ),
-                // search bar
-                // const SearchBar(),
-                SlideInDown(
-                  child: Container(
-                    child: Image.asset(
-                      // "https://apiv.prometeo.in/media/gallery/images/prometeo_logo_23-min.png",
-                      "assets/prometeo_home_page.png",
+              ),
+              SlideInDown(child: LocationDate()),
+              const SizedBox(
+                height: 30,
+              ),
+              // tabs
+              SlideInDown(
+                child: Center(
+                  child: isLoading
+                      ? CircularProgressIndicator()
+                      : Tabs(
+                          SliderCards: SliderCards,
+                        ),
+                ),
+              ),
+
+              const SizedBox(
+                height: 30,
+              ),
+
+              SlideInLeft(
+                child: Container(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    "Theme Reveal",
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-                SlideInDown(child: LocationDate()),
-                const SizedBox(
-                  height: 30,
-                ),
-                // tabs
-                SlideInDown(
-                  child: Center(
-                    child: isLoading
-                        ? CircularProgressIndicator()
-                        : Tabs(
-                            SliderCards: SliderCards,
-                          ),
-                  ),
-                ),
+              ),
 
-                const SizedBox(
-                  height: 30,
-                ),
+              const SizedBox(
+                height: 20,
+              ),
 
-                SlideInLeft(
-                  child: Container(
-                    alignment: Alignment.bottomLeft,
-                    child: Text(
-                      "Theme Reveal",
-                      style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
+              SlideInLeft(child: const ThemeVideo()),
+
+              const SizedBox(
+                height: 20,
+              ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "Social Initiative: ",
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                ),
-
-                const SizedBox(
-                  height: 20,
-                ),
-
-                SlideInLeft(child: const ThemeVideo()),
-
-                const SizedBox(
-                  height: 20,
-                ),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Social Initiative: ",
-                      style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  Text(
+                    "UMANG",
+                    style: GoogleFonts.poppins(
+                      color: Colors.amber[300],
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold,
                     ),
-                    Text(
-                      "UMANG",
-                      style: GoogleFonts.poppins(
-                        color: Colors.amber[300],
-                        fontSize: 26,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
+              ),
 
-                const SizedBox(
-                  height: 20,
-                ),
+              const SizedBox(
+                height: 20,
+              ),
 
-                UmangImage(size: size),
+              UmangImage(size: size),
 
-                const SizedBox(
-                  height: 20,
-                ),
-                SlideInLeft(
-                  child: Container(
-                    alignment: Alignment.bottomLeft,
-                    child: Text(
-                      "Follow Us On",
-                      style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
+              const SizedBox(
+                height: 20,
+              ),
+              SlideInLeft(
+                child: Container(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    "Follow Us On",
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
+              ),
 
-                const SizedBox(
-                  height: 20,
-                ),
+              const SizedBox(
+                height: 20,
+              ),
 
-                SlideInLeft(child: Socials()),
-              ],
-            ),
+              SlideInLeft(child: Socials()),
+            ],
           ),
         ),
       ),
