@@ -4,6 +4,8 @@ import 'package:prometeo23/api/fetchEvents.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/eventsPage.dart';
 
+import '../api/fetchEvent.dart';
+
 class EventsScreen extends StatefulWidget {
   const EventsScreen({super.key});
 
@@ -25,7 +27,7 @@ class _EventsScreenState extends State<EventsScreen> {
         ),
         children: [
           EventsPage(eventList: informalEventList, eventType: 'Informals',),
-          EventsPage(eventList: speakersList, eventType: 'Speaker Talk'),
+          EventsPage(eventList: newspeakersList, eventType: 'Speaker Talk'),
           EventsPage(eventList: technicalEventsList, eventType: 'Technical Event'),
           EventsPage(eventList: entrepreneuralEventsList, eventType: 'Entrepreneural Event'),
         ],
