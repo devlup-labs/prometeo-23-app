@@ -1,4 +1,4 @@
-class Event {
+class EventDetail {
   final String name;
   final String image;
   final String description;
@@ -10,7 +10,7 @@ class Event {
   final String unstopLink;
   final String eventLocation;
 
-  Event(
+  EventDetail(
       {required this.name,
       required this.image,
       required this.description,

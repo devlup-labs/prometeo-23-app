@@ -15,12 +15,12 @@ List<Cards> LiveEvents = [];
 
 List SliderCards = [];
 
-List<Event> technicalEventsList = [];
-List<Event> entrepreneuralEventsList = [];
-List<Event> speakersList = [];
-List<Event> exhibitions = [];
-List<Event> workshops = [];
-List<Event> informalEventList = [];
+List<EventDetail> technicalEventsList = [];
+List<EventDetail> entrepreneuralEventsList = [];
+List<EventDetail> speakersList = [];
+List<EventDetail> exhibitions = [];
+List<EventDetail> workshops = [];
+List<EventDetail> informalEventList = [];
 
 void fetchEvents() async {
   final response =
@@ -35,6 +35,8 @@ void fetchEvents() async {
           ((list[i]['rulebook'] != null)
               ? list[i]['rulebook'].substring(19)
               : "");
+      String upStopLink =
+          list[i]['external_link'] == null ? '' : list[i]['exteranal'];
       if (list[i]['registration_open'] == true) {
         LiveEvents.add(
           Cards(
@@ -51,7 +53,8 @@ void fetchEvents() async {
             eventDate: list[i]["date"],
           ),
         );
-      } else if (list[i]['type'] == 'technical') {
+      }
+      if (list[i]['type'] == 'technical') {
         TechnicalCards.add(
           Cards(
             eventId: list[i]['id'].toString(),
@@ -60,7 +63,7 @@ void fetchEvents() async {
             imageLink: imageLink,
             description: list[i]['description'],
             isSpeaker: false,
-            eventType: "Technical Event",
+            eventType: "Technical EventDetail",
             ruleBookLink: ruleBookLink,
             unstopLink: list[i]["external_link"],
             eventLocation: list[i]["venue"],
@@ -68,7 +71,7 @@ void fetchEvents() async {
           ),
         );
 
-        technicalEventsList.add(Event(
+        technicalEventsList.add(EventDetail(
             name: list[i]['name'],
             image: imageLink,
             description: list[i]['description'],
@@ -77,9 +80,12 @@ void fetchEvents() async {
             isSpeaker: false,
             unstopLink: list[i]['external_link'],
             eventLocation: list[i]['eventLocation'],
-            eventType: 'Technical Event',
+            eventType: 'Technical EventDetail',
             rulebookLink: ruleBookLink));
-      } else if (list[i]['type'] == 'entrepreneurial') {
+        print(
+            'This is the length of the technical list ${TechnicalCards.length} ');
+      }
+      if (list[i]['type'] == 'entrepreneurial') {
         EntrepreneurialCards.add(
           Cards(
             eventId: list[i]['id'].toString(),
@@ -88,14 +94,14 @@ void fetchEvents() async {
             imageLink: imageLink,
             description: list[i]['description'],
             isSpeaker: false,
-            eventType: "Entrepreneurial Event",
+            eventType: "Entrepreneurial EventDetail",
             ruleBookLink: ruleBookLink,
             unstopLink: list[i]["external_link"],
             eventLocation: list[i]["venue"],
             eventDate: list[i]["date"],
           ),
         );
-        entrepreneuralEventsList.add(Event(
+        entrepreneuralEventsList.add(EventDetail(
             name: list[i]['name'],
             image: imageLink,
             description: list[i]['description'],
@@ -106,7 +112,8 @@ void fetchEvents() async {
             eventLocation: list[i]['eventLocation'],
             eventType: 'Etrepreneural Events',
             rulebookLink: ruleBookLink));
-      } else if (list[i]['type'] == 'exhibition') {
+      }
+      if (list[i]['type'] == 'exhibition') {
         Exhibition.add(
           Cards(
             eventId: list[i]['id'].toString(),
@@ -122,7 +129,7 @@ void fetchEvents() async {
             eventDate: list[i]["date"],
           ),
         );
-        speakersList.add(Event(
+        speakersList.add(EventDetail(
             name: list[i]['name'],
             image: imageLink,
             description: list[i]['description'],
@@ -133,7 +140,8 @@ void fetchEvents() async {
             eventLocation: list[i]['eventLocation'],
             eventType: list[i]['type'],
             rulebookLink: ruleBookLink));
-      } else if (list[i]['type'] == 'talk') {
+      }
+      if (list[i]['type'] == 'talk') {
         Speakers.add(
           Cards(
             eventId: list[i]['id'].toString(),
@@ -150,7 +158,7 @@ void fetchEvents() async {
           ),
         );
 
-        speakersList.add(Event(
+        speakersList.add(EventDetail(
             name: list[i]['name'],
             image: imageLink,
             description: list[i]['description'],

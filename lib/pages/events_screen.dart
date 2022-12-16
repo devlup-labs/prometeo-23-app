@@ -15,7 +15,7 @@ class _EventsScreenState extends State<EventsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bgColor,
+      backgroundColor: Colors.blueGrey,
       body: CarouselSlider(  
         slideTransform: const CubeTransform(),
         unlimitedMode: true,

@@ -61,20 +61,36 @@ class _EventsPageState extends State<EventsPage> {
                           style: const TextStyle(
                               fontSize: 20, color: Colors.white))),
                 ))),
-        SliverList(
-            delegate: SliverChildBuilderDelegate(
-                childCount: widget.eventList.length, (context, index) {
-          return GestureDetector(
-            onTap: ()=> MaterialPageRoute(   
-              builder: (context) => Event(eventName: widget.eventList[index].name, eventDate: widget.eventList[index].date, eventTime: widget.eventList[index].time, eventDescription: widget.eventList[index].description, imageLink: widget.eventList[index].image, sponsorLink: widget.eventList[index].sponsor, isSpeaker: widget.eventList[index].isSpeaker, ruleBookLink: widget.eventList[index].rulebookLink, unstopLink: widget.eventList[index].unstopLink, eventLocation: widget.eventList[index].venue, eventPrize: widget.eventList[index].pprize)
-            ),
-            child: NewEventCard(
-                eventName: widget.eventList[index].name,
-                eventDate: widget.eventList[index].date,
-                eventPrize: widget.eventList[index].prizeMoney,
-                imageLink: widget.eventList[index].image),
-          );
-        }))
+                SliverFillRemaining(  
+                  child: TextButton(  
+                    onPressed: () => print(widget.eventList.length),
+                    child: Text('kya bakchodi hai ye')
+                  )
+                )
+        // SliverList(
+        //     delegate: SliverChildBuilderDelegate(
+        //         childCount: widget.eventList.length, (context, index) {
+        //   return GestureDetector(
+        //     onTap: () => MaterialPageRoute(
+        //         builder: (context) => Event(
+        //             eventName: widget.eventList[index].name,
+        //             eventDate: widget.eventList[index].date,
+        //             eventTime: widget.eventList[index].time,
+        //             eventDescription: widget.eventList[index].description,
+        //             imageLink: widget.eventList[index].image,
+        //             sponsorLink: widget.eventList[index].sponsor,
+        //             isSpeaker: widget.eventList[index].isSpeaker,
+        //             ruleBookLink: widget.eventList[index].rulebookLink,
+        //             unstopLink: widget.eventList[index].unstopLink,
+        //             eventLocation: widget.eventList[index].venue,
+        //             eventPrize: widget.eventList[index].pprize)),
+        //     child: NewEventCard(
+        //         eventName: widget.eventList[index].name,
+        //         eventDate: widget.eventList[index].date,
+        //         eventPrize: widget.eventList[index].prizeMoney,
+        //         imageLink: widget.eventList[index].image),
+        //   );
+        // }))
       ]),
     );
   }
