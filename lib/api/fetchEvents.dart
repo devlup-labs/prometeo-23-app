@@ -77,7 +77,7 @@ void fetchEvents() async {
             eventDate: event["date"],
           ),
         );
-
+      }
       if (event['type'] == 'entrepreneurial') {
         EntrepreneurialCards.add(
           Cards(
@@ -95,6 +95,7 @@ void fetchEvents() async {
           ),
         );
       }
+
       if (event['type'] == 'exhibition') {
         Exhibition.add(
           Cards(
@@ -133,7 +134,7 @@ void fetchEvents() async {
   }
 
   }
-}
+
 
   for(var event in eventList){
     if(event.eventType == 'technical'){
