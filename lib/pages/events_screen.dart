@@ -28,6 +28,7 @@ class _EventsScreenState extends State<EventsScreen> {
           EventsPage(eventList: speakers, eventType: 'Speaker Talk'),
           EventsPage(eventList: technicalEvents, eventType: 'Technical Event'),
           EventsPage(eventList: enterperneuralEvents, eventType: 'Entrepreneural Event'),
+          EventsPage(eventList: exhibitions, eventType: 'Exhibitions'),
         ],
       )
     );
