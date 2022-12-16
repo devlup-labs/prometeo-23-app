@@ -34,7 +34,7 @@ class _SignUp2State extends State<SignUp2> {
       _current_year = "Select Year",
       _college,
       _state = "Select State";
-  bool isProcessing = true;
+  bool isProcessing = false;
 
   var gender_items = [
     "Gender",
@@ -90,6 +90,9 @@ class _SignUp2State extends State<SignUp2> {
   ];
 
   register() async {
+    setState(() {
+      isProcessing = true;
+    });
     if (_formKey != null &&
         _formKey.currentState != null &&
         _formKey.currentState!.validate()) {
@@ -110,31 +113,7 @@ class _SignUp2State extends State<SignUp2> {
       };
 
       var url = Uri.parse('https://apiv.prometeo.in/api/signup/');
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: isProcessing
-                ? Center(child: CircularProgressIndicator())
-                : Text('SUCCESS'),
-            actions: <Widget>[
-              isProcessing
-                  ? Container()
-                  : TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => HomePage()),
-                        );
-                      },
-                      child: Text(
-                        'OK',
-                      ),
-                    ),
-            ],
-          );
-        },
-      );
+
       var response = await http.post(
         url,
         body: jsonEncode(requestPayload),
@@ -149,6 +128,27 @@ class _SignUp2State extends State<SignUp2> {
         setState(() {
           isProcessing = false;
         });
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('SUCCESS'),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    );
+                  },
+                  child: Text(
+                    'OK',
+                  ),
+                ),
+              ],
+            );
+          },
+        );
       } else {
         setState(() {
           isProcessing = false;
@@ -464,23 +464,21 @@ class _SignUp2State extends State<SignUp2> {
                   color: Color(0xff003959),
                   borderRadius: BorderRadius.circular(15),
                 ),
-                child: TextButton(
-                  onPressed: register,
-                  child: Text(
-                    "Register",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
+                child: GestureDetector(
+                  onTap: register,
+                  child: Center(
+                    child: isProcessing
+                        ? CircularProgressIndicator()
+                        : Text(
+                            "Register",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
+                          ),
                   ),
                 ),
               ),
-              // RegisterButton(
-              //   text: "Register",
-              //   size: size,
-              //   // onPressed: () {},
-              //   // onPressed: register,
-              // ),
             ],
           ),
         ),
