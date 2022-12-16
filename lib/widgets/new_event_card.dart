@@ -76,7 +76,7 @@ class _NewEventCardState extends State<NewEventCard> {
               Container(
                 width: size.width * 0.35,
                 child: Text(
-                  "INR: ${widget.eventPrize}",
+                  widget.eventPrize,
                   maxLines: 3,
                   style: GoogleFonts.poppins(
                     color: Colors.white,
