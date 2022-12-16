@@ -120,6 +120,7 @@ import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
 import 'package:prometeo23/pages/events_screen.dart';
 import 'package:prometeo23/pages/gallery.dart';
 import 'package:prometeo23/pages/preregistration.dart';
+import 'package:prometeo23/pages/signup1.dart';
 import 'package:prometeo23/pages/sponsors.dart';
 import 'package:prometeo23/pages/theme_reveal.dart';
 import 'package:prometeo23/pages/updates_page.dart';
@@ -268,7 +269,22 @@ class NavDrawer extends StatelessWidget {
                   onTap: () => {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const Umang()),
+                      MaterialPageRoute(
+                        builder: (context) => const Umang(),
+                      ),
+                    )
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.login, color: Colors.white),
+                  title: const Text('Login/Signup',
+                      style: TextStyle(color: Colors.white)),
+                  onTap: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SignUp1(),
+                      ),
                     )
                   },
                 ),
