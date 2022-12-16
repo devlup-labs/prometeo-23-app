@@ -19,6 +19,37 @@ class _SignUp1State extends State<SignUp1> with TickerProviderStateMixin {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String? _email, _firstName, _lastName, _password, _confirmPassword;
   late FlutterGifController controller1;
+
+  next() {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+      if (_password != _confirmPassword) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: bgColor,
+            content: Text(
+              'Passwords do not match',
+              style: GoogleFonts.poppins(fontSize: 18, color: Colors.white),
+            ),
+          ),
+        );
+        return;
+      } else {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => SignUp2(
+              firstName: _firstName!,
+              lastName: _lastName!,
+              email: _email!,
+              password: _password!,
+            ),
+          ),
+        );
+      }
+    }
+  }
+
   @override
   void initState() {
     controller1 = FlutterGifController(
@@ -202,27 +233,7 @@ class _SignUp1State extends State<SignUp1> with TickerProviderStateMixin {
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: TextButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      _formKey.currentState!.save();
-                      print(_firstName);
-                      print(_lastName);
-                      print(_email);
-                      print(_password);
-                      print(_confirmPassword);
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SignUp2(
-                            firstName: _firstName!,
-                            lastName: _lastName!,
-                            email: _email!,
-                            password: _password!,
-                          ),
-                        ),
-                      );
-                    }
-                  },
+                  onPressed: next,
                   child: Text(
                     "Next",
                     style: TextStyle(
@@ -232,30 +243,6 @@ class _SignUp1State extends State<SignUp1> with TickerProviderStateMixin {
                   ),
                 ),
               ),
-              // RegisterButton(
-              //     text: "Next",
-              //     size: size,
-              //     onPressed: () {
-              //       if (_formKey.currentState!.validate()) {
-              //         _formKey.currentState!.save();
-              //         print(_firstName);
-              //         print(_lastName);
-              //         print(_email);
-              //         print(_password);
-              //         print(_confirmPassword);
-              //         Navigator.push(
-              //           context,
-              //           MaterialPageRoute(
-              //             builder: (context) => SignUp2(
-              //               firstName: _firstName!,
-              //               lastName: _lastName!,
-              //               email: _email!,
-              //               password: _password!,
-              //             ),
-              //           ),
-              //         );
-              //       }
-              //     }),
             ],
           ),
         ),
