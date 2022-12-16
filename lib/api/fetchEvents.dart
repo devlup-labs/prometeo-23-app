@@ -15,7 +15,13 @@ List<Cards> LiveEvents = [];
 
 List SliderCards = [];
 
-List<Event> technicalEventList = [];
+List<Event> technicalEventsList = [];
+List<Event> entrepreneuralEventsList = [];
+List<Event> speakersList = [];
+List<Event> exhibitions = [];
+List<Event> workshops = [];
+List<Event> informalEventList = [];
+
 
 void fetchEvents() async {
   final response =
@@ -64,7 +70,7 @@ void fetchEvents() async {
           ),
         );
 
-        technicalEventList.add(Event(
+        technicalEventsList.add(Event(
             name: list[i]['name'],
             image: imageLink,
             description: list[i]['description'],
@@ -76,7 +82,7 @@ void fetchEvents() async {
             eventType: 'Technical Event',
             rulebookLink: ruleBookLink));
 
-        print(technicalEventList);
+        print(technicalEventsList);
       } else if (list[i]['type'] == 'entrepreneurial') {
         EntrepreneurialCards.add(
           Cards(
@@ -93,38 +99,51 @@ void fetchEvents() async {
             eventDate: list[i]["date"],
           ),
         );
-      } else if (list[i]['type'] == 'exhibition') {
-        Exhibition.add(
-          Cards(
-            eventId: list[i]['id'].toString(),
-            title: list[i]['name'],
-            prize: list[i]['prize'],
-            imageLink: imageLink,
-            description: list[i]['description'],
-            isSpeaker: false,
-            eventType: "Exhibition",
-            ruleBookLink: ruleBookLink,
-            unstopLink: list[i]["external_link"],
-            eventLocation: list[i]["venue"],
-            eventDate: list[i]["date"],
-          ),
-        );
-      } else if (list[i]['type'] == 'talk') {
-        Speakers.add(
-          Cards(
-            eventId: list[i]['id'].toString(),
-            title: list[i]['name'],
-            prize: list[i]['prize'],
-            imageLink: imageLink,
-            description: list[i]['description'],
-            isSpeaker: true,
-            eventType: "Talk Session",
-            ruleBookLink: ruleBookLink,
-            unstopLink: list[i]["external_link"],
-            eventLocation: list[i]["venue"],
-            eventDate: list[i]["date"],
-          ),
-        );
+        if (list[i]['type'] == 'exhibition') {
+          Exhibition.add(
+            Cards(
+              eventId: list[i]['id'].toString(),
+              title: list[i]['name'],
+              prize: list[i]['prize'],
+              imageLink: imageLink,
+              description: list[i]['description'],
+              isSpeaker: false,
+              eventType: "Exhibition",
+              ruleBookLink: ruleBookLink,
+              unstopLink: list[i]["external_link"],
+              eventLocation: list[i]["venue"],
+              eventDate: list[i]["date"],
+            ),
+          );
+        } else if (list[i]['type'] == 'talk') {
+          Speakers.add(
+            Cards(
+              eventId: list[i]['id'].toString(),
+              title: list[i]['name'],
+              prize: list[i]['prize'],
+              imageLink: imageLink,
+              description: list[i]['description'],
+              isSpeaker: true,
+              eventType: "Talk Session",
+              ruleBookLink: ruleBookLink,
+              unstopLink: list[i]["external_link"],
+              eventLocation: list[i]["venue"],
+              eventDate: list[i]["date"],
+            ),
+          );
+
+          speakersList.add(Event(
+              name: list[i]['name'],
+              image: imageLink,
+              description: list[i]['description'],
+              prizeMoney: list[i]['prize'],
+              date: list[i]['date'],
+              isSpeaker: false,
+              unstopLink: list[i]['external_link'],
+              eventLocation: list[i]['eventLocation'],
+              eventType: 'Talk',
+              rulebookLink: ruleBookLink));
+        }
       }
     }
   }
