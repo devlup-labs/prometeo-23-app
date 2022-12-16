@@ -1,6 +1,6 @@
-import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:prometeo23/models/event.dart';
 import 'package:prometeo23/widgets/cards.dart';
 
 List<Cards> TechnicalCards = [];
@@ -14,6 +14,8 @@ List<Cards> Speakers = [];
 List<Cards> LiveEvents = [];
 
 List SliderCards = [];
+
+List<Event> technicalEventList = [];
 
 void fetchEvents() async {
   final response =
@@ -61,6 +63,20 @@ void fetchEvents() async {
             eventDate: list[i]["date"],
           ),
         );
+
+        technicalEventList.add(Event(
+            name: list[i]['name'],
+            image: imageLink,
+            description: list[i]['description'],
+            prizeMoney: list[i]['prize'],
+            date: list[i]['date'],
+            isSpeaker: false,
+            unstopLink: list[i]['external_link'],
+            eventLocation: list[i]['eventLocation'],
+            eventType: 'Technical Event',
+            rulebookLink: ruleBookLink));
+
+        print(technicalEventList);
       } else if (list[i]['type'] == 'entrepreneurial') {
         EntrepreneurialCards.add(
           Cards(

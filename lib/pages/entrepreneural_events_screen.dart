@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:prometeo23/api/fetchEvent.dart';
 import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/events_banner.dart';
 import 'package:prometeo23/widgets/new_event_card.dart';
+
+import '../api/fetchEvents.dart';
 
 class EventsPage extends StatefulWidget {
   const EventsPage({super.key});
