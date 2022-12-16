@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
 import 'package:prometeo23/api/fetchEvent.dart';
 import 'package:prometeo23/pages/eventsPage.dart';
+import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
 
 
 class EventsScreen extends StatefulWidget {
@@ -15,6 +16,7 @@ class _EventsScreenState extends State<EventsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNavigation(currentIndex: 1),
       backgroundColor: Colors.blueGrey,
       body: CarouselSlider(  
         slideTransform: const CubeTransform(),

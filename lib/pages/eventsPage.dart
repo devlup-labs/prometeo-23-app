@@ -69,7 +69,7 @@ class _EventsPageState extends State<EventsPage> {
             child: NewEventCard(
                 eventName: widget.eventList[index].name,
                 eventDate: widget.eventList[index].date,
-                eventPrize: '10k ',
+                eventPrize: widget.eventList[index].prizeMoney,
                 imageLink: widget.eventList[index].image),
           );
         }))
