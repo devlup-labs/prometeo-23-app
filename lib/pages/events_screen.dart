@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
 import 'package:prometeo23/api/fetchEvents.dart';
 import 'package:prometeo23/constants.dart';
-import 'package:prometeo23/pages/entrepreneural_events_screen.dart';
+import 'package:prometeo23/pages/eventsPage.dart';
 
 class EventsScreen extends StatefulWidget {
   const EventsScreen({super.key});

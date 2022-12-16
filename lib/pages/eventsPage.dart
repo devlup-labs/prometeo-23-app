@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prometeo23/pages/event.dart';
 import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/events_banner.dart';
 import 'package:prometeo23/widgets/new_event_card.dart';
@@ -6,7 +7,8 @@ import 'package:prometeo23/widgets/new_event_card.dart';
 class EventsPage extends StatefulWidget {
   final List eventList;
   final String eventType;
-  const EventsPage({required this.eventType, required this.eventList, super.key});
+  const EventsPage(
+      {required this.eventType, required this.eventList, super.key});
 
   @override
   State<EventsPage> createState() => _EventsPageState();
@@ -55,22 +57,23 @@ class _EventsPageState extends State<EventsPage> {
                         ],
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: Text(
-                        widget.eventType,
-                        style: const TextStyle(
-                          fontSize: 20, 
-                          color: Colors.white)
-                          )
-                        ),
+                      child: Text(widget.eventType,
+                          style: const TextStyle(
+                              fontSize: 20, color: Colors.white))),
                 ))),
         SliverList(
             delegate: SliverChildBuilderDelegate(
                 childCount: widget.eventList.length, (context, index) {
-          return NewEventCard(
-              eventName: widget.eventList[index].name,
-              eventDate: widget.eventList[index].date,
-              eventPrize: widget.eventList[index].prizeMoney,
-              imageLink: widget.eventList[index].image);
+          return GestureDetector(
+            onTap: ()=> MaterialPageRoute(   
+              builder: (context) => Event(eventName: widget.eventList[index].name, eventDate: widget.eventList[index].date, eventTime: widget.eventList[index].time, eventDescription: widget.eventList[index].description, imageLink: widget.eventList[index].image, sponsorLink: widget.eventList[index].sponsor, isSpeaker: widget.eventList[index].isSpeaker, ruleBookLink: widget.eventList[index].rulebookLink, unstopLink: widget.eventList[index].unstopLink, eventLocation: widget.eventList[index].venue, eventPrize: widget.eventList[index].pprize)
+            ),
+            child: NewEventCard(
+                eventName: widget.eventList[index].name,
+                eventDate: widget.eventList[index].date,
+                eventPrize: widget.eventList[index].prizeMoney,
+                imageLink: widget.eventList[index].image),
+          );
         }))
       ]),
     );
