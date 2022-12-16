@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
+import 'package:prometeo23/pages/events_screen.dart';
 import 'package:prometeo23/pages/gallery.dart';
 import 'package:prometeo23/pages/preregistration.dart';
-import 'package:prometeo23/pages/sponsors.dart';
-import 'package:prometeo23/pages/updates_page.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
+// ignore: must_be_immutable
 class BottomNavigation extends StatefulWidget {
-  var currentIndex;
-  BottomNavigation({required this.currentIndex});
+  int currentIndex;
+  BottomNavigation({super.key, required this.currentIndex});
 
   @override
   State<BottomNavigation> createState() => _BottomNavigationState();
@@ -30,14 +30,14 @@ class _BottomNavigationState extends State<BottomNavigation> {
               widget.currentIndex = i;
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => HomePage()),
+                MaterialPageRoute(builder: (context) => const HomePage()),
               );
             } else if (i != widget.currentIndex && i == 1) {
               widget.currentIndex = i;
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Gallery(),
+                  builder: (context) => const Gallery(),
                 ),
               );
             } else if (i != widget.currentIndex && i == 2) {
@@ -45,21 +45,15 @@ class _BottomNavigationState extends State<BottomNavigation> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Sponsors(),
+                  builder: (context) => const EventsScreen(),
                 ),
               );
             } else if (i != widget.currentIndex && i == 3) {
               widget.currentIndex = i;
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => UpdatesPage(),
-              //   ),
-              // );
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => PreRegistration(),
+                  builder: (context) => const PreRegistration(),
                 ),
               );
             }
