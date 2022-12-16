@@ -1,33 +1,34 @@
 import 'package:flutter/material.dart';
 
-class RegisterButton extends StatefulWidget {
-  const RegisterButton({super.key});
+class RegisterButton extends StatelessWidget {
+  Function onPressed;
+  String text;
+  RegisterButton({
+    Key? key,
+    required this.size,
+    required this.onPressed,
+    required this.text,
+  }) : super(key: key);
 
-  @override
-  State<RegisterButton> createState() => _RegisterButtonState();
-}
+  final Size size;
 
-class _RegisterButtonState extends State<RegisterButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.9,
-      height: MediaQuery.of(context).size.height / 14,
-      padding: EdgeInsets.only(
-        left: MediaQuery.of(context).size.width * 0.1,
-        right: MediaQuery.of(context).size.width * 0.1,
-      ),
+      height: size.height * 0.07,
+      width: size.width * 0.9,
       decoration: BoxDecoration(
-        color: Color(0xff64ffda),
-        borderRadius: BorderRadius.circular(25),
+        // color: Color(0xff096B65),
+        color: Color(0xff003959),
+        borderRadius: BorderRadius.circular(15),
       ),
-      child: Center(
+      child: TextButton(
+        onPressed: onPressed as Future<dynamic> Function()?,
         child: Text(
-          "Register",
+          text,
           style: TextStyle(
-            fontSize: 22,
-            color: Colors.black,
-            fontWeight: FontWeight.w600,
+            color: Colors.white,
+            fontSize: 20,
           ),
         ),
       ),
