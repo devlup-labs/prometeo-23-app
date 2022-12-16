@@ -75,7 +75,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
 
           /// Likes
           SalomonBottomBarItem(
-            icon: const Icon(Icons.group, color: Colors.white),
+            icon: const Icon(Icons.groups_rounded, color: Colors.white),
             title: const Text("Events"),
             selectedColor: Colors.pink,
           ),
