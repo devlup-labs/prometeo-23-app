@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:prometeo23/api/fetchEvent.dart';
 import 'package:prometeo23/api/fetchEvents.dart';
 import 'package:prometeo23/api/fetchImages.dart';
 import 'package:prometeo23/widgets/splash_screen.dart';
 
 void main() {
-  fetchData();
   fetchEvents();
   fetchImages();
   WidgetsFlutterBinding.ensureInitialized();

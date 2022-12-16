@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
 import 'package:prometeo23/pages/events_screen.dart';
-import 'package:prometeo23/pages/gallery.dart';
 import 'package:prometeo23/pages/preregistration.dart';
+import 'package:prometeo23/pages/sponsors.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 // ignore: must_be_immutable
@@ -37,7 +37,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const Gallery(),
+                  builder: (context) => const EventsScreen(),
                 ),
               );
             } else if (i != widget.currentIndex && i == 2) {
@@ -45,7 +45,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const EventsScreen(),
+                  builder: (context) => const Sponsors(),
                 ),
               );
             } else if (i != widget.currentIndex && i == 3) {
