@@ -14,6 +14,7 @@ import 'package:prometeo23/widgets/cards.dart';
 import 'package:prometeo23/widgets/home_page/slider_headings.dart';
 import 'package:prometeo23/widgets/home_page/tabs.dart';
 import 'package:prometeo23/widgets/nav_drawer.dart';
+import 'package:prometeo23/widgets/promete_dates.dart';
 import 'package:prometeo23/widgets/slider.dart';
 import 'package:prometeo23/widgets/socials.dart';
 import 'package:prometeo23/widgets/theme_video.dart';
@@ -47,7 +48,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
-      drawer: NavDrawer(),
+      drawer: const NavDrawer(),
       backgroundColor: bgColor,
       body: SingleChildScrollView(
         child: Container(
@@ -57,18 +58,9 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               SlideInDown(
-                child: CustomAppBar(),
+                child: const CustomAppBar(),
               ),
-              // search bar
-              // const SearchBar(),
-              SlideInDown(
-                child: Container(
-                  child: Image.asset(
-                    // "https://apiv.prometeo.in/media/gallery/images/prometeo_logo_23-min.png",
-                    "assets/prometeo_home_page.png",
-                  ),
-                ),
-              ),
+              const PrometeoDates(),
               SlideInDown(child: LocationDate()),
               const SizedBox(
                 height: 30,
