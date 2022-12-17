@@ -115,7 +115,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:prometeo23/constants.dart';
-import 'package:prometeo23/pages/Umang.dart';
+import 'package:prometeo23/pages/umang.dart';
 import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
 import 'package:prometeo23/pages/events_screen.dart';
 import 'package:prometeo23/pages/gallery.dart';
