@@ -169,6 +169,22 @@ class NavDrawer extends StatelessWidget {
                   ),
                   child: Text(""),
                 ),
+                ListTile(
+                  leading: const Icon(
+                    Icons.home,
+                    color: Colors.white,
+                  ),
+                  title: const Text(
+                    'Home',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onTap: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    )
+                  },
+                ),
                 ListTile(  
                   leading: const Icon(
                     Icons.groups_rounded,
@@ -185,22 +201,6 @@ class NavDrawer extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => const EventsScreen())
                   )
 
-                ),
-                ListTile(
-                  leading: const Icon(
-                    Icons.home,
-                    color: Colors.white,
-                  ),
-                  title: const Text(
-                    'Home',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onTap: () => {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomePage()),
-                    )
-                  },
                 ),
                 ListTile(
                   leading: const Icon(Icons.photo, color: Colors.white),
