@@ -110,7 +110,7 @@ class _GalleryState extends State<Gallery> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigation(currentIndex: 1),
+      bottomNavigationBar: BottomNavigation(currentIndex: -1),
     );
   }
 }
