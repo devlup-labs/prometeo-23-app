@@ -32,7 +32,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    fetchEvents();
 
     SliderCards.add(LiveEvents);
     SliderCards.add(Speakers);

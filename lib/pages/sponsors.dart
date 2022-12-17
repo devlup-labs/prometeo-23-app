@@ -135,7 +135,7 @@ class _SponsorsState extends State<Sponsors> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: NavDrawer(),
+      drawer: const NavDrawer(),
       backgroundColor: bgColor,
       body: Container(
         padding: EdgeInsets.only(
@@ -146,11 +146,11 @@ class _SponsorsState extends State<Sponsors> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              CustomAppBar(),
+              const CustomAppBar(),
               const SizedBox(
                 height: 20,
               ),
-              Text(
+              const Text(
                 "Past Sponsors",
                 style: TextStyle(
                   color: Colors.white,

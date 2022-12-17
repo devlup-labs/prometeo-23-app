@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prometeo23/pages/login_signup.dart';
 import 'package:prometeo23/pages/preregistration.dart';
 
 class CustomAppBar extends StatefulWidget {
@@ -28,7 +29,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => PreRegistration(),
+                  builder: (context) => LoginSignUp(),
                 ),
               ),
             },
