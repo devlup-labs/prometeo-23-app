@@ -186,23 +186,19 @@ class NavDrawer extends StatelessWidget {
                     )
                   },
                 ),
-                ListTile(  
-                  leading: const Icon(
-                    Icons.groups_rounded,
-                    color: Colors.white,
-                  ),
-                  title: const Text(  
-                    'Events',
-                    style: TextStyle(  
+                ListTile(
+                    leading: const Icon(
+                      Icons.groups_rounded,
                       color: Colors.white,
-                    )
-                  ),
-                  onTap: () => Navigator.push(  
-                    context, 
-                    MaterialPageRoute(builder: (context) => const EventsScreen())
-                  )
-
-                ),
+                    ),
+                    title: const Text('Events',
+                        style: TextStyle(
+                          color: Colors.white,
+                        )),
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const EventsScreen()))),
                 ListTile(
                   leading: const Icon(Icons.photo, color: Colors.white),
                   title: const Text('Gallery',
@@ -226,19 +222,19 @@ class NavDrawer extends StatelessWidget {
                     )
                   },
                 ),
-                ListTile(
-                  leading: const Icon(Icons.app_registration_rounded,
-                      color: Colors.white),
-                  title: const Text('PreRegistration',
-                      style: TextStyle(color: Colors.white)),
-                  onTap: () => {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => PreRegistration()),
-                    )
-                  },
-                ),
+                // ListTile(
+                //   leading: const Icon(Icons.app_registration_rounded,
+                //       color: Colors.white),
+                //   title: const Text('PreRegistration',
+                //       style: TextStyle(color: Colors.white)),
+                //   onTap: () => {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(
+                //           builder: (context) => PreRegistration()),
+                //     )
+                //   },
+                // ),
                 ListTile(
                   leading: const Icon(Icons.newspaper, color: Colors.white),
                   title: const Text('News & Updates',
