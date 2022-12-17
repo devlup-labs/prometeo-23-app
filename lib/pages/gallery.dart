@@ -49,17 +49,17 @@ class _GalleryState extends State<Gallery> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Prometeo\'22',
-                      style: TextStyle(
-                        color: Colors.pink,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
+                    // const Text(
+                    //   'Prometeo\'22',
+                    //   style: TextStyle(
+                    //     color: Colors.pink,
+                    //     fontSize: 24,
+                    //     fontWeight: FontWeight.bold,
+                    //   ),
+                    // ),
+                    // const SizedBox(
+                    //   height: 5,
+                    // ),
                     const Text(
                       'Gallery ',
                       style: TextStyle(
