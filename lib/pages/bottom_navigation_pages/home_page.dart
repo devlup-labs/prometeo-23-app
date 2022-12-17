@@ -1,21 +1,14 @@
-import 'dart:async';
-import 'dart:convert';
 import 'package:animate_do/animate_do.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:prometeo23/Background/bg.dart';
 import 'package:prometeo23/api/fetchEvents.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/umang.dart';
 import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
-import 'package:prometeo23/widgets/cards.dart';
-import 'package:prometeo23/widgets/home_page/slider_headings.dart';
 import 'package:prometeo23/widgets/home_page/tabs.dart';
 import 'package:prometeo23/widgets/nav_drawer.dart';
 import 'package:prometeo23/widgets/promete_dates.dart';
-import 'package:prometeo23/widgets/slider.dart';
 import 'package:prometeo23/widgets/socials.dart';
 import 'package:prometeo23/widgets/theme_video.dart';
 
@@ -71,7 +64,7 @@ class _HomePageState extends State<HomePage> {
               SlideInDown(
                 child: Center(
                   child: isLoading
-                      ? CircularProgressIndicator()
+                      ? const CircularProgressIndicator()
                       : Tabs(
                           SliderCards: SliderCards,
                         ),

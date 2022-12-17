@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prometeo23/pages/login_signup.dart';
 import 'package:prometeo23/pages/preregistration.dart';
+import 'package:prometeo23/widgets/custom_icon.dart';
 
 class CustomAppBar extends StatefulWidget {
   const CustomAppBar({super.key});
@@ -33,10 +34,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 ),
               ),
             },
-            child: const Icon(
-              Icons.app_registration_rounded,
-              color: Colors.white,
-            ),
+            child: const CustomIcon()
           ),
         ],
       ),
