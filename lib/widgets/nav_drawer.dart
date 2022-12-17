@@ -117,6 +117,7 @@ import 'package:flutter/material.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/Umang.dart';
 import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
+import 'package:prometeo23/pages/events_screen.dart';
 import 'package:prometeo23/pages/gallery.dart';
 import 'package:prometeo23/pages/preregistration.dart';
 import 'package:prometeo23/pages/signup1.dart';
@@ -167,6 +168,23 @@ class NavDrawer extends StatelessWidget {
                     ),
                   ),
                   child: Text(""),
+                ),
+                ListTile(  
+                  leading: const Icon(
+                    Icons.groups_rounded,
+                    color: Colors.white,
+                  ),
+                  title: const Text(  
+                    'Events',
+                    style: TextStyle(  
+                      color: Colors.white,
+                    )
+                  ),
+                  onTap: () => Navigator.push(  
+                    context, 
+                    MaterialPageRoute(builder: (context) => const EventsScreen())
+                  )
+
                 ),
                 ListTile(
                   leading: const Icon(

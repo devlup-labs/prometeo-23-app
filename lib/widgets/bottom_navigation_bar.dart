@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
-import 'package:prometeo23/pages/gallery.dart';
+import 'package:prometeo23/pages/events_screen.dart';
 import 'package:prometeo23/pages/preregistration.dart';
 import 'package:prometeo23/pages/sponsors.dart';
-import 'package:prometeo23/pages/updates_page.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
+// ignore: must_be_immutable
 class BottomNavigation extends StatefulWidget {
-  var currentIndex;
-  BottomNavigation({required this.currentIndex});
+  int currentIndex;
+  BottomNavigation({super.key, required this.currentIndex});
 
   @override
   State<BottomNavigation> createState() => _BottomNavigationState();
@@ -30,14 +30,14 @@ class _BottomNavigationState extends State<BottomNavigation> {
               widget.currentIndex = i;
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => HomePage()),
+                MaterialPageRoute(builder: (context) => const HomePage()),
               );
             } else if (i != widget.currentIndex && i == 1) {
               widget.currentIndex = i;
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Gallery(),
+                  builder: (context) => const EventsScreen(),
                 ),
               );
             } else if (i != widget.currentIndex && i == 2) {
@@ -45,21 +45,15 @@ class _BottomNavigationState extends State<BottomNavigation> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Sponsors(),
+                  builder: (context) => const Sponsors(),
                 ),
               );
             } else if (i != widget.currentIndex && i == 3) {
               widget.currentIndex = i;
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => UpdatesPage(),
-              //   ),
-              // );
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => PreRegistration(),
+                  builder: (context) => const PreRegistration(),
                 ),
               );
             }
@@ -68,29 +62,29 @@ class _BottomNavigationState extends State<BottomNavigation> {
         items: [
           /// Home
           SalomonBottomBarItem(
-            icon: Icon(Icons.home, color: Colors.white),
-            title: Text("Home"),
+            icon: const Icon(Icons.home, color: Colors.white),
+            title: const Text("Home"),
             selectedColor: cyan,
           ),
 
           /// Likes
           SalomonBottomBarItem(
-            icon: Icon(Icons.favorite_border, color: Colors.white),
-            title: Text("Gallery"),
+            icon: const Icon(Icons.groups_rounded, color: Colors.white),
+            title: const Text("Events"),
             selectedColor: Colors.pink,
           ),
 
           /// Search
           SalomonBottomBarItem(
-            icon: Icon(Icons.currency_rupee, color: Colors.white),
-            title: Text("Sponsors"),
+            icon: const Icon(Icons.currency_rupee, color: Colors.white),
+            title: const Text("Sponsors"),
             selectedColor: Colors.orange,
           ),
 
           /// Profile
           SalomonBottomBarItem(
-            icon: Icon(Icons.app_registration_rounded, color: Colors.white),
-            title: Text("PreRegistration"),
+            icon: const Icon(Icons.app_registration_rounded, color: Colors.white),
+            title: const Text("PreRegistration"),
             selectedColor: Colors.teal,
           ),
         ],

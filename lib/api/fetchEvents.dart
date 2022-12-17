@@ -1,114 +1,78 @@
-import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:prometeo23/models/event.dart';
 import 'package:prometeo23/widgets/cards.dart';
 
 List<Cards> TechnicalCards = [];
-
 List<Cards> EntrepreneurialCards = [];
-
 List<Cards> Exhibition = [];
-
 List<Cards> Speakers = [];
-
 List<Cards> LiveEvents = [];
-
 List SliderCards = [];
 
-void fetchEvents() async {
-  final response =
-      await http.get(Uri.parse('https://apiv.prometeo.in/api/events/'));
 
-  if (response.statusCode == 200) {
-    var list = json.decode(response.body) as List;
-    for (var i = 0; i < list.length; i++) {
-      String imageLink =
-          "https://apiv.prometeo.in" + list[i]['image'].substring(19);
-      String ruleBookLink = "https://apiv.prometeo.in" +
-          ((list[i]['rulebook'] != null)
-              ? list[i]['rulebook'].substring(19)
-              : "");
-      if (list[i]['registration_open'] == true) {
-        LiveEvents.add(
-          Cards(
-            eventId: list[i]['id'].toString(),
-            title: list[i]['name'],
-            prize: list[i]['prize'],
+List <EventDetail> technicalEvents = [];
+List <EventDetail> entrepreneurialEvents = [];
+List <EventDetail> speakers = [];
+List <EventDetail> exhibitions = [];
+List <EventDetail> informals = [];
+
+void fetchEvents() async{
+  var response = await http.get(Uri.https('apiv.prometeo.in','/api/events/'));
+  
+  if(response.statusCode == 200){
+    var jsonResponse = jsonDecode(response.body) as List;
+    
+    for(var event in jsonResponse){
+      String imageLink = "https://apiv.prometeo.in/${event['image'].substring(19)}";
+      Cards eventCard = Cards(
+            eventId:event['id'].toString(),
+            title: event['name'],
+            prize: event['prize'] ?? ' ',
             imageLink: imageLink,
-            description: list[i]['description'],
-            isSpeaker: (list[i]['type'] == 'talk'),
-            eventType: list[i]['type'],
-            ruleBookLink: ruleBookLink,
-            unstopLink: list[i]["external_link"],
-            eventLocation: list[i]["venue"],
-            eventDate: list[i]["date"],
-          ),
-        );
+            description: event['description'] ?? ' ',
+            isSpeaker: (event['type'] == 'talk'),
+            eventType: event['type'],
+            ruleBookLink: event['rulebook_link'] ?? '',
+            unstopLink: event["external_link"]?? ' ' ,
+            eventLocation: event["venue"] ?? '',
+            eventDate: event["date"] ?? '',
+          );
+      EventDetail eventDetail = EventDetail(
+        name: event['name'], 
+        image: imageLink, 
+        description: event['description'] ?? '', 
+        prizeMoney: event['prize'] ?? 'NA', 
+        date: event['date'] ?? '', 
+        isSpeaker: event['isSpeaker'] ?? false, 
+        unstopLink: event['external_link'] ?? '', 
+        eventLocation: event['venue'] ?? '', 
+        eventType: event['type'], 
+        rulebookLink: event['rulebook_link'] ?? '');
+      
+      
+      
+      if(event['registration_open'] == true){
+        LiveEvents.add(eventCard);
       }
-      if (list[i]['type'] == 'technical') {
-        TechnicalCards.add(
-          Cards(
-            eventId: list[i]['id'].toString(),
-            title: list[i]['name'],
-            prize: list[i]['prize'],
-            imageLink: imageLink,
-            description: list[i]['description'],
-            isSpeaker: false,
-            eventType: "Technical Event",
-            ruleBookLink: ruleBookLink,
-            unstopLink: list[i]["external_link"],
-            eventLocation: list[i]["venue"],
-            eventDate: list[i]["date"],
-          ),
-        );
-      } else if (list[i]['type'] == 'entrepreneurial') {
-        EntrepreneurialCards.add(
-          Cards(
-            eventId: list[i]['id'].toString(),
-            title: list[i]['name'],
-            prize: list[i]['prize'],
-            imageLink: imageLink,
-            description: list[i]['description'],
-            isSpeaker: false,
-            eventType: "Entrepreneurial Event",
-            ruleBookLink: ruleBookLink,
-            unstopLink: list[i]["external_link"],
-            eventLocation: list[i]["venue"],
-            eventDate: list[i]["date"],
-          ),
-        );
-      } else if (list[i]['type'] == 'exhibition') {
-        Exhibition.add(
-          Cards(
-            eventId: list[i]['id'].toString(),
-            title: list[i]['name'],
-            prize: list[i]['prize'],
-            imageLink: imageLink,
-            description: list[i]['description'],
-            isSpeaker: false,
-            eventType: "Exhibition",
-            ruleBookLink: ruleBookLink,
-            unstopLink: list[i]["external_link"],
-            eventLocation: list[i]["venue"],
-            eventDate: list[i]["date"],
-          ),
-        );
-      } else if (list[i]['type'] == 'talk') {
-        Speakers.add(
-          Cards(
-            eventId: list[i]['id'].toString(),
-            title: list[i]['name'],
-            prize: list[i]['prize'],
-            imageLink: imageLink,
-            description: list[i]['description'],
-            isSpeaker: true,
-            eventType: "Talk Session",
-            ruleBookLink: ruleBookLink,
-            unstopLink: list[i]["external_link"],
-            eventLocation: list[i]["venue"],
-            eventDate: list[i]["date"],
-          ),
-        );
+      if(event['type'] == 'technical'){
+        TechnicalCards.add(eventCard);
+        technicalEvents.add(eventDetail);
+      }    
+      else if(event['type'] == 'entrepreneurial'){
+        EntrepreneurialCards.add(eventCard);
+        entrepreneurialEvents.add(eventDetail);
+      }
+      else if(event['type'] == 'talk'){
+        Speakers.add(eventCard);
+        speakers.add(eventDetail);
+      }
+      else if(event['type'] == 'exhibition'){
+        Exhibition.add(eventCard);
+        exhibitions.add(eventDetail);
+      }
+      else if(event['type'] == 'informal'){
+        informals.add(eventDetail);
       }
     }
   }

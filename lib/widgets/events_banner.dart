@@ -7,11 +7,16 @@ class EventBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(  
       children: [  
-        Image.asset(  
-          'assets/Rectangle 62.png',
-          width: double.maxFinite,
-          height: double.maxFinite, 
-          fit: BoxFit.cover
+        Container(
+          decoration: const BoxDecoration(  
+            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(45), bottomRight: Radius.circular(45))
+          ),
+          child: Image.asset(  
+            'assets/Rectangle 62.png',
+            width: double.maxFinite,
+            height: double.maxFinite, 
+            fit: BoxFit.cover
+          ),
         ),
       ]
     );
