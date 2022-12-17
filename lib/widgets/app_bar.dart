@@ -20,10 +20,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
         children: [
           GestureDetector(
             onTap: () => Scaffold.of(context).openDrawer(),
-            child: const Icon(
-              Icons.menu,
-              color: Color(0xffccd6f6),
-            ),
+            child: const CustomIcon(icon: Icons.menu)
           ),
           GestureDetector(
             onTap: () => {
@@ -34,7 +31,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 ),
               ),
             },
-            child: const CustomIcon()
+            child: const CustomIcon(icon: Icons.app_registration_rounded,)
           ),
         ],
       ),
