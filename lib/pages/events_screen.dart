@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
-import 'package:prometeo23/api/fetchEvent.dart';
 import 'package:prometeo23/pages/eventsPage.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
+import '../api/fetchEvents.dart';
 
 
 class EventsScreen extends StatefulWidget {
@@ -16,7 +16,6 @@ class _EventsScreenState extends State<EventsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigation(currentIndex: 1),
       backgroundColor: Colors.blueGrey,
       body: CarouselSlider(  
         slideTransform: const CubeTransform(),
@@ -29,7 +28,7 @@ class _EventsScreenState extends State<EventsScreen> {
           EventsPage(eventList: informals, eventType: 'Informals',),
           EventsPage(eventList: speakers, eventType: 'Speaker Talk'),
           EventsPage(eventList: technicalEvents, eventType: 'Technical Event'),
-          EventsPage(eventList: enterperneuralEvents, eventType: 'Entrepreneural Event'),
+          EventsPage(eventList: entrepreneurialEvents, eventType: 'Entrepreneural Event'),
           EventsPage(eventList: exhibitions, eventType: 'Exhibitions'),
         ],
       )

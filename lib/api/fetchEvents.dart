@@ -50,6 +50,8 @@ void fetchEvents() async{
         eventType: event['type'], 
         rulebookLink: event['rulebook_link'] ?? '');
       
+      
+      
       if(event['registration_open'] == true){
         LiveEvents.add(eventCard);
       }
