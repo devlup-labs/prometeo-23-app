@@ -60,8 +60,10 @@ class _HomePageState extends State<HomePage> {
               SlideInDown(
                 child: const CustomAppBar(),
               ),
+              const SizedBox(  
+                height: 30
+              ),
               const PrometeoDates(),
-              SlideInDown(child: LocationDate()),
               const SizedBox(
                 height: 30,
               ),
