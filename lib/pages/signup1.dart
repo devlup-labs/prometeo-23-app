@@ -74,31 +74,10 @@ class _SignUp1State extends State<SignUp1> with TickerProviderStateMixin {
                 height: 20,
               ),
               Text(
-                "Welcome!",
+                "Signup",
                 style: GoogleFonts.poppins(
                   fontSize: 30,
                   color: Colors.white,
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Center(
-                child: Container(
-                  height: size.height * 0.25,
-                  // width: size.width / 2,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/prometeo.png'),
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                  // child: GifImage(
-                  //   controller: controller1,
-                  //   image: const AssetImage(
-                  //     "assets/prometeo-gif.gif",
-                  //   ),
-                  // ),
                 ),
               ),
               const SizedBox(

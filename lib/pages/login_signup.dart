@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:prometeo23/constants.dart';
+import 'package:prometeo23/pages/login.dart';
 import 'package:prometeo23/pages/signup1.dart';
 import 'package:prometeo23/pages/signup2.dart';
 import 'package:prometeo23/widgets/app_bar.dart';
@@ -73,7 +74,7 @@ class _LoginSignUpState extends State<LoginSignUp>
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              CustomAppBar(),
+              Positioned(top: 0, child: CustomAppBar()),
               Text(
                 "Welcome!",
                 style: GoogleFonts.poppins(
@@ -82,7 +83,7 @@ class _LoginSignUpState extends State<LoginSignUp>
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 40,
               ),
               Center(
                 child: Container(
@@ -106,54 +107,58 @@ class _LoginSignUpState extends State<LoginSignUp>
                 height: 20,
               ),
               const SizedBox(height: 10),
-              Container(
-                height: size.height * 0.07,
-                width: size.width * 0.9,
-                decoration: BoxDecoration(
-                  // color: Color(0xff096B65),
-                  color: Color(0xff003959),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SignUp1()),
-                    );
-                  },
-                  child: Text(
-                    "Login",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
+              Column(
+                children: [
+                  Container(
+                    height: size.height * 0.07,
+                    width: size.width * 0.9,
+                    decoration: BoxDecoration(
+                      // color: Color(0xff096B65),
+                      color: Color(0xff003959),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginPage()),
+                        );
+                      },
+                      child: Text(
+                        "Login",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
-              const SizedBox(height: 10),
-              Container(
-                height: size.height * 0.07,
-                width: size.width * 0.9,
-                decoration: BoxDecoration(
-                  color: Color(0xff096B65),
-                  // color: Color(0xff003959),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SignUp1()),
-                    );
-                  },
-                  child: Text(
-                    "SignUp",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
+                  const SizedBox(height: 30),
+                  Container(
+                    height: size.height * 0.07,
+                    width: size.width * 0.9,
+                    decoration: BoxDecoration(
+                      color: Color(0xff096B65),
+                      // color: Color(0xff003959),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SignUp1()),
+                        );
+                      },
+                      child: Text(
+                        "SignUp",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                ],
               ),
             ],
           ),
