@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:prometeo23/pages/login_signup.dart';
-import 'package:prometeo23/pages/preregistration.dart';
 import 'package:prometeo23/widgets/custom_icon.dart';
 
 class CustomAppBar extends StatefulWidget {
@@ -22,12 +21,21 @@ class _CustomAppBarState extends State<CustomAppBar> {
             onTap: () => Scaffold.of(context).openDrawer(),
             child: const CustomIcon(icon: Icons.menu)
           ),
+          Flexible(
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Image.asset(
+                'assets/prometeo_home_page.png',
+                fit: BoxFit.contain
+              ),
+            )
+          ),
           GestureDetector(
             onTap: () => {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => LoginSignUp(),
+                  builder: (context) => const LoginSignUp(),
                 ),
               ),
             },
