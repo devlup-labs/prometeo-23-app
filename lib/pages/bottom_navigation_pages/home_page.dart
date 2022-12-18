@@ -53,12 +53,12 @@ class _HomePageState extends State<HomePage> {
               SlideInDown(
                 child: const CustomAppBar(),
               ),
-              const SizedBox(  
-                height: 30
+              SizedBox(  
+                height: MediaQuery.of(context).size.height * 0.0375
               ),
-              const PrometeoDates(),
-              const SizedBox(
-                height: 30,
+              SlideInDown(child: const PrometeoDates()),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.0375
               ),
               // tabs
               SlideInDown(
@@ -71,8 +71,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
 
-              const SizedBox(
-                height: 30,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.0375
               ),
 
               SlideInLeft(
@@ -89,14 +89,14 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
 
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.025
               ),
 
               SlideInLeft(child: const ThemeVideo()),
 
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.025
               ),
 
               Row(
@@ -122,15 +122,16 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
 
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.025
               ),
 
               UmangImage(size: size),
 
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.025
               ),
+
               SlideInLeft(
                 child: Container(
                   alignment: Alignment.bottomLeft,
@@ -145,11 +146,15 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
 
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.025
               ),
 
               SlideInLeft(child: Socials()),
+              
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.025
+              )
             ],
           ),
         ),
@@ -215,7 +220,7 @@ class LocationDate extends StatelessWidget {
                 color: Colors.red,
                 size: 24,
               ),
-              SizedBox(
+SizedBox(
                 width: 5,
               ),
               Text(
@@ -234,7 +239,7 @@ class LocationDate extends StatelessWidget {
                 color: Colors.blue,
                 size: 24,
               ),
-              SizedBox(
+SizedBox(
                 width: 5,
               ),
               Text(
