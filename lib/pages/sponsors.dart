@@ -146,7 +146,7 @@ class _SponsorsState extends State<Sponsors> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const CustomAppBar(),
+              CustomAppBar(),
               const SizedBox(
                 height: 20,
               ),

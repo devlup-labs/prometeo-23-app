@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               SlideInDown(
-                child: const CustomAppBar(),
+                child: CustomAppBar(isHomePage: true,),
               ),
               SizedBox(  
                 height: MediaQuery.of(context).size.height * 0.0375

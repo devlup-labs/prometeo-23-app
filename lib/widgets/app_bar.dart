@@ -3,7 +3,8 @@ import 'package:prometeo23/pages/login_signup.dart';
 import 'package:prometeo23/widgets/custom_icon.dart';
 
 class CustomAppBar extends StatefulWidget {
-  const CustomAppBar({super.key});
+  bool isHomePage;
+  CustomAppBar({this.isHomePage = false, super.key});
 
   @override
   State<CustomAppBar> createState() => _CustomAppBarState();
@@ -24,10 +25,10 @@ class _CustomAppBarState extends State<CustomAppBar> {
           Flexible(
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Image.asset(
+              child: widget.isHomePage ? Image.asset(
                 'assets/prometeo_home_page.png',
                 fit: BoxFit.contain
-              ),
+              ) : Container(),
             )
           ),
           GestureDetector(
