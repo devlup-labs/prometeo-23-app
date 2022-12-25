@@ -1,20 +1,14 @@
-import 'dart:async';
-import 'dart:convert';
 import 'package:animate_do/animate_do.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:prometeo23/Background/bg.dart';
 import 'package:prometeo23/api/fetchEvents.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/umang.dart';
 import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
-import 'package:prometeo23/widgets/cards.dart';
-import 'package:prometeo23/widgets/home_page/slider_headings.dart';
 import 'package:prometeo23/widgets/home_page/tabs.dart';
 import 'package:prometeo23/widgets/nav_drawer.dart';
-import 'package:prometeo23/widgets/slider.dart';
+import 'package:prometeo23/widgets/promete_dates.dart';
 import 'package:prometeo23/widgets/socials.dart';
 import 'package:prometeo23/widgets/theme_video.dart';
 
@@ -32,7 +26,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    fetchEvents();
 
     SliderCards.add(LiveEvents);
     SliderCards.add(Speakers);
@@ -48,7 +41,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
-      drawer: NavDrawer(),
+      drawer: const NavDrawer(),
       backgroundColor: bgColor,
       body: SingleChildScrollView(
         child: Container(
@@ -58,35 +51,28 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               SlideInDown(
-                child: CustomAppBar(),
+                child: CustomAppBar(isHomePage: true,),
               ),
-              // search bar
-              // const SearchBar(),
-              SlideInDown(
-                child: Container(
-                  child: Image.asset(
-                    // "https://apiv.prometeo.in/media/gallery/images/prometeo_logo_23-min.png",
-                    "assets/prometeo_home_page.png",
-                  ),
-                ),
+              SizedBox(  
+                height: MediaQuery.of(context).size.height * 0.0375
               ),
-              SlideInDown(child: LocationDate()),
-              const SizedBox(
-                height: 30,
+              SlideInDown(child: const PrometeoDates()),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.0375
               ),
               // tabs
               SlideInDown(
                 child: Center(
                   child: isLoading
-                      ? CircularProgressIndicator()
+                      ? const CircularProgressIndicator()
                       : Tabs(
                           SliderCards: SliderCards,
                         ),
                 ),
               ),
 
-              const SizedBox(
-                height: 30,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.0375
               ),
 
               SlideInLeft(
@@ -103,14 +89,14 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
 
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.025
               ),
 
               SlideInLeft(child: const ThemeVideo()),
 
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.025
               ),
 
               Row(
@@ -136,15 +122,16 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
 
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.025
               ),
 
               UmangImage(size: size),
 
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.025
               ),
+
               SlideInLeft(
                 child: Container(
                   alignment: Alignment.bottomLeft,
@@ -159,11 +146,15 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
 
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.025
               ),
 
               SlideInLeft(child: Socials()),
+              
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.025
+              )
             ],
           ),
         ),
@@ -229,7 +220,7 @@ class LocationDate extends StatelessWidget {
                 color: Colors.red,
                 size: 24,
               ),
-              SizedBox(
+SizedBox(
                 width: 5,
               ),
               Text(
@@ -248,7 +239,7 @@ class LocationDate extends StatelessWidget {
                 color: Colors.blue,
                 size: 24,
               ),
-              SizedBox(
+SizedBox(
                 width: 5,
               ),
               Text(

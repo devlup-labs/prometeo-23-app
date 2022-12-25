@@ -13,9 +13,9 @@ class _ScheduleState extends State<Schedule> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        CircularParticleScreen(),
+        const CircularParticleScreen(),
         Container(
-          child: Center(
+          child: const Center(
             child: Text(
               'profile',
             ),

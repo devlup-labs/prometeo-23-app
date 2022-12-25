@@ -31,7 +31,7 @@ class _UpdatesPageState extends State<UpdatesPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CustomAppBar(),
+              CustomAppBar(),
               const SizedBox(
                 height: 20,
               ),
