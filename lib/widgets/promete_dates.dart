@@ -1,0 +1,71 @@
+import 'package:flutter/material.dart';
+
+class PrometeoDates extends StatelessWidget {
+  const PrometeoDates({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.maxFinite, 
+      child: Row(  
+        children: [
+          Flexible(
+            child: Container(
+              height: 66,
+              padding: const EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                color: const Color(0xff179F97).withOpacity(0.5),
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(15), 
+                  bottomLeft: Radius.circular(15))
+              ),
+              child: Center(  
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(Icons.location_on, color: Colors.white),
+                    SizedBox(width: 5),
+                    Text(  
+                      'IIT Jodhpur',
+                      style: TextStyle(  
+                        color: Colors.white,
+                        fontSize: 18
+                      )
+                    ),
+                  ],
+                )
+              )
+            ),
+          ),
+          Flexible(
+            child: Container(  
+              height: 66,
+              padding: const EdgeInsets.all(15),
+              decoration:  BoxDecoration( 
+                color: const Color(0xff96FFDF).withOpacity(0.1), 
+                borderRadius: const BorderRadius.only(  
+                  bottomRight: Radius.circular(15),
+                  topRight: Radius.circular(15)
+                )
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,  
+                children: const [  
+                  Icon(Icons.calendar_month, color: Colors.white),
+                  SizedBox(width: 5),
+                  Text(
+                    '20th - 22nd Jan',
+                    style: TextStyle(  
+                        color: Colors.white,
+                        fontSize: 18
+                      )
+                    )
+                ]
+              )
+            ),
+          )
+        ]
+      )
+    );
+  }
+}
