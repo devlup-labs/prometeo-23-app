@@ -15,35 +15,37 @@ class _EventsScreenState extends State<EventsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.blueGrey,
-        body: CarouselSlider(
-          slideTransform: const CubeTransform(),
-          unlimitedMode: true,
-          slideIndicator: CircularSlideIndicator(
-              padding: const EdgeInsets.only(bottom: 10),
-              currentIndicatorColor: Colors.white),
-          children: [
-            EventsPage(
-              eventList: exhibitions,
-              eventType: 'Exhibitions',
-            ),
-            EventsPage(
-              eventList: speakers,
-              eventType: 'Speaker Talk',
-            ),
-            EventsPage(
-              eventList: technicalEvents,
-              eventType: 'Technical Event',
-            ),
-            EventsPage(
-              eventList: entrepreneurialEvents,
-              eventType: 'Entrepreneurial Event',
-            ),
-            EventsPage(
-              eventList: informals,
-              eventType: 'Informals',
-            ),
-          ],
-        ));
+      backgroundColor: Colors.blueGrey,
+      body: CarouselSlider(
+        slideTransform: const CubeTransform(),
+        unlimitedMode: true,
+        slideIndicator: CircularSlideIndicator(
+            padding: const EdgeInsets.only(bottom: 10),
+            currentIndicatorColor: Colors.white),
+        children: [
+          EventsPage(
+            eventList: exhibitions,
+            eventType: 'Exhibitions',
+          ),
+          EventsPage(
+            eventList: speakers,
+            eventType: 'Speaker Talk',
+          ),
+          EventsPage(
+            eventList: technicalEvents,
+            eventType: 'Technical Event',
+          ),
+          EventsPage(
+            eventList: entrepreneurialEvents,
+            eventType: 'Entrepreneurial Event',
+          ),
+          EventsPage(
+            eventList: informals,
+            eventType: 'Informals',
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigation(currentIndex: 1),
+    );
   }
 }
