@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
-      drawer: const NavDrawer(),
+      drawer: NavDrawer(),
       backgroundColor: bgColor,
       body: SingleChildScrollView(
         child: Container(
@@ -51,15 +51,13 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               SlideInDown(
-                child: CustomAppBar(isHomePage: true,),
+                child: CustomAppBar(
+                  isHomePage: true,
+                ),
               ),
-              SizedBox(  
-                height: MediaQuery.of(context).size.height * 0.0375
-              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.0375),
               SlideInDown(child: const PrometeoDates()),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.0375
-              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.0375),
               // tabs
               SlideInDown(
                 child: Center(
@@ -71,9 +69,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
 
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.0375
-              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.0375),
 
               SlideInLeft(
                 child: Container(
@@ -89,15 +85,11 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
 
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.025
-              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.025),
 
               SlideInLeft(child: const ThemeVideo()),
 
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.025
-              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.025),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -122,15 +114,11 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
 
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.025
-              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.025),
 
               UmangImage(size: size),
 
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.025
-              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.025),
 
               SlideInLeft(
                 child: Container(
@@ -146,15 +134,11 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
 
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.025
-              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.025),
 
               SlideInLeft(child: Socials()),
-              
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.025
-              )
+
+              SizedBox(height: MediaQuery.of(context).size.height * 0.025)
             ],
           ),
         ),
@@ -220,7 +204,7 @@ class LocationDate extends StatelessWidget {
                 color: Colors.red,
                 size: 24,
               ),
-SizedBox(
+              SizedBox(
                 width: 5,
               ),
               Text(
@@ -239,7 +223,7 @@ SizedBox(
                 color: Colors.blue,
                 size: 24,
               ),
-SizedBox(
+              SizedBox(
                 width: 5,
               ),
               Text(
