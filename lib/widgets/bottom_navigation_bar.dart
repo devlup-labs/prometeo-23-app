@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:prometeo23/api/fetchUser.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
 import 'package:prometeo23/pages/events_screen.dart';
+import 'package:prometeo23/pages/login_signup.dart';
 import 'package:prometeo23/pages/preregistration.dart';
 import 'package:prometeo23/pages/sponsors.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
@@ -50,12 +52,22 @@ class _BottomNavigationState extends State<BottomNavigation> {
               );
             } else if (i != widget.currentIndex && i == 3) {
               widget.currentIndex = i;
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const PreRegistration(),
-                ),
-              );
+              if (email == "") {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const LoginSignUp(),
+                  ),
+                );
+              } else {
+                logout();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const HomePage(),
+                  ),
+                );
+              }
             }
           },
         ),
@@ -71,21 +83,24 @@ class _BottomNavigationState extends State<BottomNavigation> {
           SalomonBottomBarItem(
             icon: const Icon(Icons.groups_rounded, color: Colors.white),
             title: const Text("Events"),
-            selectedColor: Colors.pink,
+            selectedColor: cyan,
           ),
 
           /// Search
           SalomonBottomBarItem(
             icon: const Icon(Icons.currency_rupee, color: Colors.white),
             title: const Text("Sponsors"),
-            selectedColor: Colors.orange,
+            selectedColor: cyan,
           ),
 
           /// Profile
           SalomonBottomBarItem(
-            icon: const Icon(Icons.app_registration_rounded, color: Colors.white),
-            title: const Text("PreRegistration"),
-            selectedColor: Colors.teal,
+            icon: email == ""
+                ? const Icon(Icons.login, color: Colors.white)
+                : const Icon(Icons.logout, color: Colors.white),
+            title:
+                email == "" ? const Text("Login/Signup") : const Text("Logout"),
+            selectedColor: cyan,
           ),
         ],
       ),
