@@ -17,7 +17,7 @@ class _EventsPageState extends State<EventsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const NavDrawer(),
+      drawer: NavDrawer(),
       backgroundColor: const Color(0xff061417),
       body: CustomScrollView(slivers: [
         SliverAppBar(
@@ -62,21 +62,19 @@ class _EventsPageState extends State<EventsPage> {
             ),
           ),
         ),
-        SliverGrid(  
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, 
-            childAspectRatio: 0.8,
-          ),
-          delegate: SliverChildBuilderDelegate(
-            childCount: widget.eventList.length,
-            (context, index) => NewEventCard(
-              imageLink: widget.eventList[index].image,
-              eventName: widget.eventList[index].name,
-              eventDate: widget.eventList[index].date,
-              eventPrize: widget.eventList[index].prizeMoney,
-            )
-          )
-        )
+        SliverGrid(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 0.8,
+            ),
+            delegate: SliverChildBuilderDelegate(
+                childCount: widget.eventList.length,
+                (context, index) => NewEventCard(
+                      imageLink: widget.eventList[index].image,
+                      eventName: widget.eventList[index].name,
+                      eventDate: widget.eventList[index].date,
+                      eventPrize: widget.eventList[index].prizeMoney,
+                    )))
       ]),
     );
   }
