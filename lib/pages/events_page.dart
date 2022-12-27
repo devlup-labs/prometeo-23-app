@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/events_banner.dart';
 import 'package:prometeo23/widgets/nav_drawer.dart';
 import 'package:prometeo23/widgets/new_event_card.dart';
@@ -63,18 +62,25 @@ class _EventsPageState extends State<EventsPage> {
             ),
           ),
         ),
-        SliverList(
+        SliverGrid(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 0.8,
+          ),
           delegate: SliverChildBuilderDelegate(
             childCount: widget.eventList.length,
-            (context, index) {
-              return GestureDetector(
-                child: NewEventCard(
-                    eventName: widget.eventList[index].name,
-                    eventDate: widget.eventList[index].date,
-                    eventPrize: widget.eventList[index].prizeMoney,
-                    imageLink: widget.eventList[index].image),
-              );
-            },
+            (context, index) => NewEventCard(
+              imageLink: widget.eventList[index].image,
+              eventName: widget.eventList[index].name,
+              eventDate: widget.eventList[index].date,
+              eventPrize: widget.eventList[index].prizeMoney,
+              eventDescription: widget.eventList[index].description,
+              isSpeaker: widget.eventList[index].isSpeaker,
+              ruleBookLink: widget.eventList[index].rulebookLink,
+              unStopLink: widget.eventList[index].unstopLink,
+              eventLocation: widget.eventList[index].eventLocation,
+              sponsorLinks: widget.eventList[index].sponsorLinks,
+            ),
           ),
         )
       ]),

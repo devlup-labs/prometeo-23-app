@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:prometeo23/api/fetchSponsor.dart';
 import 'package:prometeo23/models/event.dart';
 import 'package:prometeo23/widgets/cards.dart';
 
@@ -25,6 +26,7 @@ void fetchEvents() async {
     for (var event in jsonResponse) {
       String imageLink =
           "https://apiv.prometeo.in/${event['image'].substring(19)}";
+      fetchSponsorLink(event['id'].toString());
       Cards eventCard = Cards(
         eventId: event['id'].toString(),
         title: event['name'],
@@ -37,18 +39,22 @@ void fetchEvents() async {
         unstopLink: event["external_link"] ?? ' ',
         eventLocation: event["venue"] ?? '',
         eventDate: event["date"] ?? '',
+        sponsorLinks: sponsorLinks,
       );
       EventDetail eventDetail = EventDetail(
-          name: event['name'],
-          image: imageLink,
-          description: event['description'] ?? '',
-          prizeMoney: event['prize'] ?? 'NA',
-          date: event['date'] ?? '',
-          isSpeaker: event['isSpeaker'] ?? false,
-          unstopLink: event['external_link'] ?? '',
-          eventLocation: event['venue'] ?? '',
-          eventType: event['type'],
-          rulebookLink: event['rulebook_link'] ?? '');
+        eventId: event['id'].toString(),
+        name: event['name'],
+        image: imageLink,
+        description: event['description'] ?? '',
+        prizeMoney: event['prize'] ?? 'NA',
+        date: event['date'] ?? '',
+        isSpeaker: event['isSpeaker'] ?? false,
+        unstopLink: event['external_link'] ?? '',
+        eventLocation: event['venue'] ?? '',
+        eventType: event['type'],
+        rulebookLink: event['rulebook_link'] ?? '',
+        sponsorLinks: sponsorLinks,
+      );
 
       if (event['registration_open'] == true) {
         LiveEvents.add(eventCard);

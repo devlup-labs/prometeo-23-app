@@ -1,144 +1,156 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:glassmorphism/glassmorphism.dart';
+import 'package:prometeo23/pages/event.dart';
 
-// ignore: must_be_immutable
-class NewEventCard extends StatefulWidget {
-  String eventName;
-  String eventDate;
-  String eventPrize;
-  String imageLink;
+class NewEventCard extends StatelessWidget {
+  final String imageLink;
+  final String eventName;
+  final String eventPrize;
+  final String eventDate;
+  final String eventDescription;
+  final bool isSpeaker;
+  final String ruleBookLink;
+  final String unStopLink;
+  final String eventLocation;
+  final List<String> sponsorLinks;
 
-  NewEventCard({super.key, 
-    required this.eventName,
-    required this.eventDate,
-    required this.eventPrize,
-    required this.imageLink,
-  });
 
-  @override
-  State<NewEventCard> createState() => _NewEventCardState();
-}
+  const NewEventCard(
+      {required this.imageLink,
+      required this.eventName,
+      required this.eventDate,
+      required this.eventPrize,
+      required this.eventDescription,
+      required this.isSpeaker,
+      required this.ruleBookLink,
+      required this.unStopLink,
+      required this.eventLocation,
+      required this.sponsorLinks,
+      super.key});
 
-class _NewEventCardState extends State<NewEventCard> {
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
     return Container(
-      height: 350,
-      width: size.width * 0.9,
-      padding: const EdgeInsets.all(20),
+      margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        // color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.all(
+          Radius.circular(20),
+        ),
+        image: DecorationImage(
+          image: NetworkImage(imageLink),
+          fit: BoxFit.cover,
+          opacity: 0.5,
+        ),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Stack(
         children: [
           Container(
-            height: 300,
-            width: size.width * 0.5,
-            decoration: BoxDecoration(
-              //linear gradient
-              image: DecorationImage(
-                image: NetworkImage(
-                  widget.imageLink,
-                ),
-                fit: BoxFit.cover,
-              ),
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(
-                color: Colors.white,
-                width: 0.5,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Colors.transparent, Colors.black],
               ),
             ),
           ),
-          const SizedBox(
-            width: 20,
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                width: size.width * 0.35,
+          Positioned(
+            left: 0,
+            top: 30,
+            child: Container(
+              color: Colors.blue.withOpacity(0.4),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              child: Center(
                 child: Text(
-                  widget.eventName,
-                  maxLines: 3,
-                  style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400,
-                  ),
+                  eventName,
+                  style: const TextStyle(color: Colors.white, fontSize: 16),
                 ),
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              Container(
-                width: size.width * 0.35,
-                child: Text(
-                  widget.eventPrize,
-                  maxLines: 3,
-                  style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Icon(
-                    Icons.calendar_month,
-                    color: Colors.white,
-                    size: 22,
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    widget.eventDate,
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 50,
-              ),
-              GestureDetector(
-                onTap: () {
-                  //Push to event description page.
-                },
-                child: Container(
-                  height: 50,
-                  width: 120,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Read More",
-                      style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
+          Container(
+            alignment: Alignment.bottomCenter,
+            margin: EdgeInsets.only(
+              bottom: 10,
+            ),
+            child: Column(
+              children: [
+                const Spacer(),
+                Row(
+                  children: [
+                    const Spacer(),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        (eventPrize != "NA")
+                            ? Text(
+                                eventPrize,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )
+                            : Container(),
+                        const SizedBox(height: 5),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(
+                              Icons.calendar_month_rounded,
+                              color: Colors.white,
+                            ),
+                            const SizedBox(width: 5),
+                            Text(
+                              eventDate,
+                              style: const TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 5),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(
+                              context,
+                              rootNavigator: false,
+                            ).push(
+                              MaterialPageRoute(
+                                builder: (context) => Event(
+                                  eventName: eventName,
+                                  eventDate: eventDate,
+                                  eventTime: "4pm - 12pm",
+                                  eventDescription: eventDescription,
+                                  imageLink: imageLink,
+                                  sponsorLink: sponsorLinks,
+                                  isSpeaker: isSpeaker,
+                                  ruleBookLink: ruleBookLink,
+                                  unstopLink: unStopLink,
+                                  eventLocation: eventLocation,
+                                  eventPrize: eventPrize,
+                                ),
+                              ),
+                            );
+                          },
+                          style: TextButton.styleFrom(
+                            backgroundColor: const Color(0xff003959),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                          child: const Text(
+                            'Read More',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        )
+                      ],
+                    ),
+                    const Spacer(),
+                  ],
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );

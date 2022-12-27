@@ -17,6 +17,7 @@ class Cards extends StatefulWidget {
   String unstopLink;
   String eventLocation;
   String eventDate;
+  List<String> sponsorLinks;
 
   Cards({
     required this.eventId,
@@ -30,6 +31,7 @@ class Cards extends StatefulWidget {
     required this.unstopLink,
     required this.eventLocation,
     required this.eventDate,
+    required this.sponsorLinks,
     super.key,
   });
 
@@ -38,44 +40,8 @@ class Cards extends StatefulWidget {
 }
 
 class _CardsState extends State<Cards> {
-  List<String> sponsorLinks = [];
-  bool isLoading = true;
-  void fetchSponsorLink() async {
-    final response = await http.get(
-      Uri.parse(
-        'https://apiv.prometeo.in/api/EventSponsors/?event=${widget.eventId}',
-      ),
-    );
-
-    if (response.statusCode == 200) {
-      // If the server did return a 200 OK response,
-      // then parse the JSON.
-      var list = json.decode(response.body) as List;
-
-      //iterate over json and create a list
-      for (var i = 0; i < list.length; i++) {
-        String sponsorLink =
-            'https://apiv.prometeo.in/' + list[i]['image'].substring(19);
-        sponsorLinks.add(sponsorLink);
-      }
-    } else {
-      // If the server did not return a 200 OK response,
-      // then throw an exception.
-      throw Exception('Failed to load album');
-    }
-
-    setState(() {
-      isLoading = false;
-    });
-  }
-
+  
   bool like = false;
-
-  @override
-  void initState() {
-    super.initState();
-    fetchSponsorLink();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +67,7 @@ class _CardsState extends State<Cards> {
                   eventTime: "4pm - 12pm",
                   eventDescription: widget.description,
                   imageLink: widget.imageLink,
-                  sponsorLink: sponsorLinks,
+                  sponsorLink: widget.sponsorLinks,
                   isSpeaker: widget.isSpeaker,
                   ruleBookLink: widget.ruleBookLink,
                   unstopLink: widget.unstopLink,
@@ -135,7 +101,7 @@ class _CardsState extends State<Cards> {
               ),
               Container(
                 padding: const EdgeInsets.only(left: 10.0, bottom: 5.0),
-                height: 60, // check if any overflow happens.
+                height: 80, // check if any overflow happens.
                 // color: Color(0xff110F16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -151,13 +117,17 @@ class _CardsState extends State<Cards> {
                             fontSize: 15.0,
                           ),
                         ),
-                        Text(
-                          widget.title,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18.0,
-                            overflow: TextOverflow.ellipsis,
+                        Container(
+                          width: MediaQuery.of(context).size.width * 0.35,
+                          child: Text(
+                            widget.title,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18.0,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            softWrap: true,
                           ),
                         ),
                       ],
@@ -170,7 +140,7 @@ class _CardsState extends State<Cards> {
                         padding: const EdgeInsets.only(right: 8.0),
                         child: Icon(
                           Icons.favorite_rounded,
-                          size: 40.0,
+                          size: 35.0,
                           color: like ? Colors.pink : Colors.white,
                         ),
                       ),
