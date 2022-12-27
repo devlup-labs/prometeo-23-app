@@ -95,14 +95,13 @@ class _SignUp2State extends State<SignUp2> {
   ];
 
   register() async {
-    setState(() {
-      isProcessing = true;
-    });
     if (_formKey != null &&
         _formKey.currentState != null &&
         _formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-
+      setState(() {
+        isProcessing = true;
+      });
       Map<String, dynamic> requestPayload = {
         "password": widget.password,
         "email": widget.email,
