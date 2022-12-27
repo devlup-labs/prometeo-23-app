@@ -63,18 +63,26 @@ class _EventsPageState extends State<EventsPage> {
           ),
         ),
         SliverGrid(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 0.8,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 0.8,
+          ),
+          delegate: SliverChildBuilderDelegate(
+            childCount: widget.eventList.length,
+            (context, index) => NewEventCard(
+              imageLink: widget.eventList[index].image,
+              eventName: widget.eventList[index].name,
+              eventDate: widget.eventList[index].date,
+              eventPrize: widget.eventList[index].prizeMoney,
+              eventDescription: widget.eventList[index].description,
+              isSpeaker: widget.eventList[index].isSpeaker,
+              ruleBookLink: widget.eventList[index].rulebookLink,
+              unStopLink: widget.eventList[index].unstopLink,
+              eventLocation: widget.eventList[index].eventLocation,
+              sponsorLinks: widget.eventList[index].sponsorLinks,
             ),
-            delegate: SliverChildBuilderDelegate(
-                childCount: widget.eventList.length,
-                (context, index) => NewEventCard(
-                      imageLink: widget.eventList[index].image,
-                      eventName: widget.eventList[index].name,
-                      eventDate: widget.eventList[index].date,
-                      eventPrize: widget.eventList[index].prizeMoney,
-                    )))
+          ),
+        )
       ]),
     );
   }

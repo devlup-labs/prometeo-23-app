@@ -1,16 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
+import 'package:prometeo23/pages/event.dart';
 
 class NewEventCard extends StatelessWidget {
   final String imageLink;
   final String eventName;
   final String eventPrize;
   final String eventDate;
+  final String eventDescription;
+  final bool isSpeaker;
+  final String ruleBookLink;
+  final String unStopLink;
+  final String eventLocation;
+  final List<String> sponsorLinks;
+
+
   const NewEventCard(
       {required this.imageLink,
       required this.eventName,
       required this.eventDate,
       required this.eventPrize,
+      required this.eventDescription,
+      required this.isSpeaker,
+      required this.ruleBookLink,
+      required this.unStopLink,
+      required this.eventLocation,
+      required this.sponsorLinks,
       super.key});
 
   @override
@@ -18,6 +33,9 @@ class NewEventCard extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(
+          Radius.circular(20),
+        ),
         image: DecorationImage(
           image: NetworkImage(imageLink),
           fit: BoxFit.cover,
@@ -51,6 +69,9 @@ class NewEventCard extends StatelessWidget {
           ),
           Container(
             alignment: Alignment.bottomCenter,
+            margin: EdgeInsets.only(
+              bottom: 10,
+            ),
             child: Column(
               children: [
                 const Spacer(),
@@ -60,14 +81,16 @@ class NewEventCard extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text(
-                          eventPrize,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                        (eventPrize != "NA")
+                            ? Text(
+                                eventPrize,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )
+                            : Container(),
                         const SizedBox(height: 5),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -85,8 +108,30 @@ class NewEventCard extends StatelessWidget {
                             ),
                           ],
                         ),
+                        const SizedBox(height: 5),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(
+                              context,
+                              rootNavigator: false,
+                            ).push(
+                              MaterialPageRoute(
+                                builder: (context) => Event(
+                                  eventName: eventName,
+                                  eventDate: eventDate,
+                                  eventTime: "4pm - 12pm",
+                                  eventDescription: eventDescription,
+                                  imageLink: imageLink,
+                                  sponsorLink: sponsorLinks,
+                                  isSpeaker: isSpeaker,
+                                  ruleBookLink: ruleBookLink,
+                                  unstopLink: unStopLink,
+                                  eventLocation: eventLocation,
+                                  eventPrize: eventPrize,
+                                ),
+                              ),
+                            );
+                          },
                           style: TextButton.styleFrom(
                             backgroundColor: const Color(0xff003959),
                             shape: RoundedRectangleBorder(
