@@ -36,8 +36,9 @@ class _NewEventCardState extends State<NewEventCard> {
         children: [
           Container(
             height: 300,
-            width: size.width * 0.4,
+            width: size.width * 0.5,
             decoration: BoxDecoration(
+              //linear gradient
               image: DecorationImage(
                 image: NetworkImage(
                   widget.imageLink,
