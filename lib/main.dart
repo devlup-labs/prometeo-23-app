@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:prometeo23/api/fetchEvents.dart';
 import 'package:prometeo23/api/fetchImages.dart';
+import 'package:prometeo23/api/fetchUser.dart';
 import 'package:prometeo23/widgets/splash_screen.dart';
 
 void main() {
   fetchEvents();
   fetchImages();
+  fetchUser();
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const Prometeo());
@@ -19,9 +21,6 @@ class Prometeo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        debugShowCheckedModeBanner: false, 
-        home: SplashScreen()
-      );
-    }
+        debugShowCheckedModeBanner: false, home: SplashScreen());
+  }
 }
-

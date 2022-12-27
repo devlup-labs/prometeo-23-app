@@ -15,5 +15,5 @@ Color unStopRegistration = Color(0xff1B88C6).withOpacity(0.6);
 EdgeInsets universalPadding = const EdgeInsets.only(
   left: 20,
   right: 20,
-  top: 50,
+  top: 30,
 );

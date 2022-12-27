@@ -135,7 +135,7 @@ class _SponsorsState extends State<Sponsors> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const NavDrawer(),
+      drawer: NavDrawer(),
       backgroundColor: bgColor,
       body: Container(
         padding: EdgeInsets.only(
