@@ -56,11 +56,24 @@ class _EventState extends State<Event> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Color.fromRGBO(0, 0, 0, 0),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(
+            Icons.arrow_back_ios,
+            size: 20,
+            color: Colors.white,
+          ),
+        ),
+      ),
       backgroundColor: bgColor,
       drawer: NavDrawer(),
       body: Container(
         padding: EdgeInsets.only(
-          top: size.height * 0.06,
           left: size.width * 0.05,
           right: size.width * 0.05,
         ),
@@ -70,7 +83,6 @@ class _EventState extends State<Event> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomAppBar(),
                 const SizedBox(
                   height: 10,
                 ),

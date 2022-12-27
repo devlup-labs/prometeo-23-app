@@ -38,36 +38,34 @@ class _UnstopRegistrationState extends State<UnstopRegistration> {
         const SizedBox(
           height: 30,
         ),
-        GestureDetector(
-          onTap: () async {
-            Uri url = Uri.parse(widget.unstopLink);
-            if (await canLaunchUrl(url))
-              await launchUrl(
-                url,
-                mode: LaunchMode.externalApplication,
-              );
-            else
-              throw "Could not launch $url['url']";
-          },
-          child: Container(
-            width: size.width * 0.9,
-            height: size.height / 14,
-            padding: EdgeInsets.only(
-              left: MediaQuery.of(context).size.width * 0.05,
-              right: MediaQuery.of(context).size.width * 0.05,
-            ),
-            decoration: BoxDecoration(
-              color: Color(0xff003959),
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Center(
-              child: Text(
-                "Register at Unstop",
-                style: GoogleFonts.poppins(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                ),
+        Container(
+          width: size.width * 0.9,
+          height: size.height / 14,
+          padding: EdgeInsets.only(
+            left: MediaQuery.of(context).size.width * 0.05,
+            right: MediaQuery.of(context).size.width * 0.05,
+          ),
+          decoration: BoxDecoration(
+            color: Color(0xff003959),
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: TextButton(
+            onPressed: () async {
+              Uri url = Uri.parse(widget.unstopLink);
+              if (await canLaunchUrl(url))
+                await launchUrl(
+                  url,
+                  mode: LaunchMode.externalApplication,
+                );
+              else
+                throw "Could not launch $url['url']";
+            },
+            child: Text(
+              "Register at Unstop",
+              style: GoogleFonts.poppins(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),

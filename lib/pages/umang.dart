@@ -38,10 +38,10 @@ class _UmangState extends State<Umang> {
                 height: 20,
               ),
               Text(
-                "Social Initiatives",
+                "Umang",
                 style: GoogleFonts.poppins(
-                  color: Colors.white,
-                  fontSize: 26,
+                  color: Colors.amber[300],
+                  fontSize: 32,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -60,14 +60,6 @@ class _UmangState extends State<Umang> {
                       "assets/umang.png",
                     ),
                   ),
-                ),
-              ),
-              Text(
-                "Umang",
-                style: GoogleFonts.poppins(
-                  color: Colors.amber[300],
-                  fontSize: 32,
-                  fontWeight: FontWeight.w600,
                 ),
               ),
               const SizedBox(
