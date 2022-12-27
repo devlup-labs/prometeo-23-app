@@ -175,7 +175,7 @@ class _SignUp2State extends State<SignUp2> {
         setState(() {
           isProcessing = false;
         });
-        showError("Internal Server Error");
+        showError(body['email']);
       }
     }
   }
