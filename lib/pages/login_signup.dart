@@ -138,7 +138,7 @@ class _LoginSignUpState extends State<LoginSignUp>
                     height: size.height * 0.07,
                     width: size.width * 0.9,
                     decoration: BoxDecoration(
-                      color: Color(0xff096B65),
+                      color: Color(0xff2087A8),
                       // color: Color(0xff003959),
                       borderRadius: BorderRadius.circular(15),
                     ),

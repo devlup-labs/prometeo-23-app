@@ -7,6 +7,8 @@ import 'package:flutter_gif/flutter_gif.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
 import 'package:prometeo23/widgets/nav_drawer.dart';
 import 'package:prometeo23/widgets/register_button.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class SignUp1 extends StatefulWidget {
   const SignUp1({super.key});
@@ -20,7 +22,7 @@ class _SignUp1State extends State<SignUp1> with TickerProviderStateMixin {
   String? _email, _firstName, _lastName, _password, _confirmPassword;
   late FlutterGifController controller1;
 
-  next() {
+  next() async {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
       if (_password != _confirmPassword) {
@@ -35,17 +37,45 @@ class _SignUp1State extends State<SignUp1> with TickerProviderStateMixin {
         );
         return;
       } else {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => SignUp2(
-              firstName: _firstName!,
-              lastName: _lastName!,
-              email: _email!,
-              password: _password!,
-            ),
-          ),
+        Map<String, dynamic> requestPayload = {"email": _email};
+        var url = Uri.parse('https://apiv.prometeo.in/api/usercheck/');
+
+        var response = await http.post(
+          url,
+          body: jsonEncode(requestPayload),
+          headers: {
+            'Content-Type': 'application/json; charset=UTF-8',
+          },
         );
+
+        var body = jsonDecode(response.body);
+
+        if (response.statusCode == 200) {
+          if (body['status code'] == 200 && body['success'] == "True") {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                backgroundColor: bgColor,
+                content: Text(
+                  'Email already exists',
+                  style: GoogleFonts.poppins(fontSize: 18, color: Colors.white),
+                ),
+              ),
+            );
+            return;
+          } else {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => SignUp2(
+                  firstName: _firstName!,
+                  lastName: _lastName!,
+                  email: _email!,
+                  password: _password!,
+                ),
+              ),
+            );
+          }
+        }
       }
     }
   }
@@ -78,6 +108,17 @@ class _SignUp1State extends State<SignUp1> with TickerProviderStateMixin {
                 style: GoogleFonts.poppins(
                   fontSize: 30,
                   color: Colors.white,
+                ),
+              ),
+              Container(
+                height: size.height * 0.2,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
+                      'assets/prometeo_logo_23.png',
+                    ),
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
               const SizedBox(
@@ -189,7 +230,7 @@ class _SignUp1State extends State<SignUp1> with TickerProviderStateMixin {
                         },
                         decoration: InputDecoration(
                           border: InputBorder.none,
-                          hintText: "Confirm Passowrd",
+                          hintText: "Confirm Password",
                           prefixIcon: Icon(Icons.lock_person),
                         ),
                         obscureText: true,

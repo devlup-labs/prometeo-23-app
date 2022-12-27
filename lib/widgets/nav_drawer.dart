@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prometeo23/api/fetchUser.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/events_screen.dart';
 import 'package:prometeo23/pages/login_signup.dart';
@@ -12,6 +13,10 @@ import 'package:prometeo23/pages/updates_page.dart';
 
 class NavDrawer extends StatelessWidget {
   @override
+  void initState() {
+    fetchUser();
+  }
+
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: bgColor,
@@ -125,19 +130,34 @@ class NavDrawer extends StatelessWidget {
               )
             },
           ),
-          ListTile(
-            leading: Icon(Icons.login, color: Colors.white),
-            title: const Text('Login/Signup',
-                style: TextStyle(color: Colors.white)),
-            onTap: () => {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const LoginSignUp(),
-                ),
-              )
-            },
-          ),
+          (email == "")
+              ? ListTile(
+                  leading: Icon(Icons.login, color: Colors.white),
+                  title: const Text('Login/Signup',
+                      style: TextStyle(color: Colors.white)),
+                  onTap: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LoginSignUp(),
+                      ),
+                    )
+                  },
+                )
+              : ListTile(
+                  leading: Icon(Icons.logout, color: Colors.white),
+                  title: const Text('Logout',
+                      style: TextStyle(color: Colors.white)),
+                  onTap: () => {
+                    logout(),
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HomePage(),
+                      ),
+                    )
+                  },
+                )
         ],
       ),
     );

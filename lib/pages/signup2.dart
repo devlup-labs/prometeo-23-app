@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:prometeo23/api/fetchUser.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
 import 'package:prometeo23/widgets/app_bar.dart';
@@ -8,6 +9,7 @@ import 'package:prometeo23/widgets/nav_drawer.dart';
 import 'package:prometeo23/widgets/register_button.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignUp2 extends StatefulWidget {
   String firstName;
@@ -27,6 +29,7 @@ class SignUp2 extends StatefulWidget {
 }
 
 class _SignUp2State extends State<SignUp2> {
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String? _referral_code,
       _contact,
@@ -34,6 +37,8 @@ class _SignUp2State extends State<SignUp2> {
       _current_year = "Select Year",
       _college,
       _state = "Select State";
+  bool? _accomodation = false;
+  bool? _ambassador = false;
   bool isProcessing = false;
 
   var gender_items = [
@@ -108,10 +113,11 @@ class _SignUp2State extends State<SignUp2> {
         "current_year": _current_year,
         "college": _college,
         "city": _state,
-        "referral_code": _referral_code,
-        "ca_count": 0
+        "referral_code": _referral_code ?? "",
+        "ca_count": 0,
+        "accomodation": _accomodation! ? true : false,
+        "ambassador": _ambassador! ? true : false
       };
-
       var url = Uri.parse('https://apiv.prometeo.in/api/signup/');
 
       var response = await http.post(
@@ -125,6 +131,7 @@ class _SignUp2State extends State<SignUp2> {
       var body = jsonDecode(response.body);
 
       if (response.statusCode == 201) {
+        setUser(widget.email);
         setState(() {
           isProcessing = false;
         });
@@ -133,6 +140,21 @@ class _SignUp2State extends State<SignUp2> {
           builder: (BuildContext context) {
             return AlertDialog(
               title: Text('SUCCESS'),
+              content: Container(
+                height: 75,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Registration Successful',
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text('Registration ID: ${body['registration_id']}'),
+                  ],
+                ),
+              ),
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
@@ -184,6 +206,20 @@ class _SignUp2State extends State<SignUp2> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Color.fromRGBO(0, 0, 0, 0),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(
+            Icons.arrow_back_ios,
+            size: 20,
+            color: Colors.white,
+          ),
+        ),
+      ),
       drawer: NavDrawer(),
       backgroundColor: bgColor,
       body: SingleChildScrollView(
@@ -192,7 +228,7 @@ class _SignUp2State extends State<SignUp2> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomAppBar(),
+              // CustomAppBar(),
               const SizedBox(
                 height: 20,
               ),
@@ -452,6 +488,74 @@ class _SignUp2State extends State<SignUp2> {
                     SizedBox(
                       height: 20,
                     ),
+                    Row(
+                      children: <Widget>[
+                        SizedBox(width: 10), //SizedBox
+                        /** Checkbox Widget **/
+                        Checkbox(
+                          fillColor: MaterialStateProperty.all(
+                            Colors.white,
+                          ),
+                          value: _ambassador,
+                          onChanged: (bool? value) {
+                            setState(() {
+                              _ambassador = value!;
+                            });
+                          },
+                        ), //Checkbox
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          width: size.width * 0.75,
+                          child: Text(
+                            'I want to signup for CA Program',
+                            style: GoogleFonts.poppins(
+                              fontSize: 12.0,
+                              color: Colors.white,
+                            ),
+                            softWrap: true,
+                          ),
+                        ), //Text
+                      ], //<Widget>[]
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        SizedBox(width: 10), //SizedBox
+                        /** Checkbox Widget **/
+                        Checkbox(
+                          fillColor: MaterialStateProperty.all(
+                            Colors.white,
+                          ),
+                          value: _accomodation,
+                          onChanged: (bool? value) {
+                            setState(() {
+                              _accomodation = value!;
+                            });
+                          },
+                        ), //Checkbox
+                        SizedBox(
+                          width: 10,
+                        ), //SizedBox
+                        Container(
+                          width: size.width * 0.75,
+                          child: Text(
+                            'I would like to avail accommodation at IIT Jodhpur campus and agree to abide by the guidelines of the same.',
+                            style: GoogleFonts.poppins(
+                              fontSize: 12.0,
+                              color: Colors.white,
+                            ),
+                            softWrap: true,
+                          ),
+                        ), //Text
+                      ], //<Widget>[]
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
                   ],
                 ),
               ),
@@ -464,8 +568,8 @@ class _SignUp2State extends State<SignUp2> {
                   color: Color(0xff003959),
                   borderRadius: BorderRadius.circular(15),
                 ),
-                child: GestureDetector(
-                  onTap: register,
+                child: TextButton(
+                  onPressed: register,
                   child: Center(
                     child: isProcessing
                         ? CircularProgressIndicator()
