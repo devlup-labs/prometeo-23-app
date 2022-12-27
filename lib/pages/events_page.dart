@@ -65,13 +65,15 @@ class _EventsPageState extends State<EventsPage> {
         SliverGrid(  
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, 
-            mainAxisSpacing: 20,
-            crossAxisSpacing: 20,
             childAspectRatio: 0.8,
           ),
           delegate: SliverChildBuilderDelegate(
+            childCount: widget.eventList.length,
             (context, index) => NewEventCard(
-              imageLink: widget.eventList[index].image
+              imageLink: widget.eventList[index].image,
+              eventName: widget.eventList[index].name,
+              eventDate: widget.eventList[index].date,
+              eventPrize: widget.eventList[index].prizeMoney,
             )
           )
         )
