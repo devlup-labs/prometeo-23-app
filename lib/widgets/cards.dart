@@ -135,7 +135,7 @@ class _CardsState extends State<Cards> {
               ),
               Container(
                 padding: const EdgeInsets.only(left: 10.0, bottom: 5.0),
-                height: 60, // check if any overflow happens.
+                height: 80, // check if any overflow happens.
                 // color: Color(0xff110F16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -151,13 +151,17 @@ class _CardsState extends State<Cards> {
                             fontSize: 15.0,
                           ),
                         ),
-                        Text(
-                          widget.title,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18.0,
-                            overflow: TextOverflow.ellipsis,
+                        Container(
+                          width: MediaQuery.of(context).size.width * 0.35,
+                          child: Text(
+                            widget.title,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18.0,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            softWrap: true,
                           ),
                         ),
                       ],
@@ -170,7 +174,7 @@ class _CardsState extends State<Cards> {
                         padding: const EdgeInsets.only(right: 8.0),
                         child: Icon(
                           Icons.favorite_rounded,
-                          size: 40.0,
+                          size: 35.0,
                           color: like ? Colors.pink : Colors.white,
                         ),
                       ),
