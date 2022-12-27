@@ -20,6 +20,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.symmetric(vertical: 5),
       color: bgColor,
       child: SalomonBottomBar(
         currentIndex: widget.currentIndex,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/events_banner.dart';
 import 'package:prometeo23/widgets/nav_drawer.dart';
 import 'package:prometeo23/widgets/new_event_card.dart';
@@ -18,18 +17,13 @@ class _EventsPageState extends State<EventsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: NavDrawer(),
+      drawer: const NavDrawer(),
       backgroundColor: const Color(0xff061417),
       body: CustomScrollView(slivers: [
         SliverAppBar(
           pinned: true,
           backgroundColor: Colors.black,
           expandedHeight: MediaQuery.of(context).size.height * 0.35,
-          // title: Padding(
-          //   padding: EdgeInsets.symmetric(
-          //       horizontal: MediaQuery.of(context).size.height * 0.016),
-          //   child: const CustomAppBar(),
-          // ),
           flexibleSpace: const FlexibleSpaceBar(
             background: EventBanner(),
           ),
@@ -68,19 +62,18 @@ class _EventsPageState extends State<EventsPage> {
             ),
           ),
         ),
-        SliverList(
-          delegate: SliverChildBuilderDelegate(
-            childCount: widget.eventList.length,
-            (context, index) {
-              return GestureDetector(
-                child: NewEventCard(
-                    eventName: widget.eventList[index].name,
-                    eventDate: widget.eventList[index].date,
-                    eventPrize: widget.eventList[index].prizeMoney,
-                    imageLink: widget.eventList[index].image),
-              );
-            },
+        SliverGrid(  
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2, 
+            mainAxisSpacing: 20,
+            crossAxisSpacing: 20,
+            childAspectRatio: 0.8,
           ),
+          delegate: SliverChildBuilderDelegate(
+            (context, index) => NewEventCard(
+              imageLink: widget.eventList[index].image
+            )
+          )
         )
       ]),
     );

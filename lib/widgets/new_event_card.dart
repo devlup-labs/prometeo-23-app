@@ -1,145 +1,106 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:glassmorphism/glassmorphism.dart';
 
-// ignore: must_be_immutable
-class NewEventCard extends StatefulWidget {
-  String eventName;
-  String eventDate;
-  String eventPrize;
-  String imageLink;
+class NewEventCard extends StatelessWidget {
+  final imageLink;
+  const NewEventCard({required this.imageLink, super.key});
 
-  NewEventCard({super.key, 
-    required this.eventName,
-    required this.eventDate,
-    required this.eventPrize,
-    required this.imageLink,
-  });
-
-  @override
-  State<NewEventCard> createState() => _NewEventCardState();
-}
-
-class _NewEventCardState extends State<NewEventCard> {
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
     return Container(
-      height: 350,
-      width: size.width * 0.9,
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        // color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(
-            height: 300,
-            width: size.width * 0.4,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage(
-                  widget.imageLink,
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        height: MediaQuery.of(context).size.height * 0.3,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            image: DecorationImage(
+                image: NetworkImage(imageLink),
+                fit: BoxFit.cover)),
+        child: Stack(children: [
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: GlassmorphicContainer(
+                width: double.infinity,
+                height: MediaQuery.of(context).size.height * 0.085,
+                borderRadius: 20,
+                blur: 10,
+                border: 0,
+                linearGradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      const Color(0xFFffffff).withOpacity(0.1),
+                      const Color(0xFFFFFFFF).withOpacity(0.05),
+                    ],
+                    stops: const [
+                      0.1,
+                      1,
+                    ]),
+                borderGradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    const Color(0xFFffffff).withOpacity(0.5),
+                    const Color((0xFFFFFFFF)).withOpacity(0.5),
+                  ],
                 ),
-                fit: BoxFit.cover,
-              ),
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(
-                color: Colors.white,
-                width: 0.5,
-              ),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Text(
+                              'Event Name',
+                            ),
+                            Text('Event Dates')
+                          ]),
+                      TextButton(
+                          onPressed: () {},
+                          child: const Text('Prizes fo rthe event '))
+                    ])),
+          ),
+          Positioned(
+            top: 30,
+            right: 30,
+            child: GlassmorphicContainer(
+              padding: const EdgeInsets.all(25),
+              width: 100,
+              height: 100,
+              blur: 10,
+              border: 0,
+              borderRadius: 25,
+              linearGradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    const Color(0xFFffffff).withOpacity(0.1),
+                    const Color(0xFFFFFFFF).withOpacity(0.05),
+                  ],
+                  stops: const [
+                    0.1,
+                    1,
+                  ]),
+              borderGradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    const Color(0xFFffffff).withOpacity(0.1),
+                    const Color(0xFFFFFFFF).withOpacity(0.05),
+                  ],
+                  stops: const [
+                    0.1,
+                    1,
+                  ]),
+
+                  child: const Center(
+                    child: Text(  
+                      'Event date',
+                    ),
+                  )
             ),
-          ),
-          const SizedBox(
-            width: 20,
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                width: size.width * 0.35,
-                child: Text(
-                  widget.eventName,
-                  maxLines: 3,
-                  style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Container(
-                width: size.width * 0.35,
-                child: Text(
-                  widget.eventPrize,
-                  maxLines: 3,
-                  style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Icon(
-                    Icons.calendar_month,
-                    color: Colors.white,
-                    size: 22,
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    widget.eventDate,
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 50,
-              ),
-              GestureDetector(
-                onTap: () {
-                  //Push to event description page.
-                },
-                child: Container(
-                  height: 50,
-                  width: 120,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Read More",
-                      style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
+          )
+        ]));
   }
 }

@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // promete logo
-            ZoomIn(
+            FadeInLeft(
               duration: const Duration(milliseconds: 1500),
               child: Container(
                 width: 200,
@@ -56,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
 
             // prometeo text
-            ZoomIn(
+            FadeInDown(
               duration: const Duration(milliseconds: 1500),
               delay: const Duration(milliseconds: 1500),
               child: Container(
