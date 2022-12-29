@@ -35,30 +35,35 @@ class _EventsPageState extends State<EventsPage> {
               alignment: Alignment.centerLeft,
               padding: const EdgeInsets.only(left: 15),
               child: Container(
-                  margin: const EdgeInsets.only(bottom: 15),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.3),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.white.withOpacity(0.1),
-                        blurRadius: 20,
-                        spreadRadius: -10,
-                        offset: const Offset(-5, -5),
-                      ),
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        blurRadius: 20,
-                        spreadRadius: -10,
-                        offset: const Offset(7, 7),
-                      ),
-                    ],
-                    borderRadius: BorderRadius.circular(20),
+                margin: const EdgeInsets.only(bottom: 15),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.3),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.white.withOpacity(0.1),
+                      blurRadius: 20,
+                      spreadRadius: -10,
+                      offset: const Offset(-5, -5),
+                    ),
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 20,
+                      spreadRadius: -10,
+                      offset: const Offset(7, 7),
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Text(
+                  widget.eventType,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
                   ),
-                  child: Text(widget.eventType,
-                      style:
-                          const TextStyle(fontSize: 20, color: Colors.white))),
+                ),
+              ),
             ),
           ),
         ),
