@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class PrometeoDates extends StatelessWidget {
@@ -5,6 +6,7 @@ class PrometeoDates extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Container(
       width: double.maxFinite, 
       child: Row(  
@@ -22,16 +24,20 @@ class PrometeoDates extends StatelessWidget {
               child: Center(  
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     Icon(Icons.location_on, color: Colors.white),
                     SizedBox(width: 5),
-                    Text(  
+                    SizedBox(
+                    width: size.width * 0.28,
+                    child: AutoSizeText(
                       'IIT Jodhpur',
                       style: TextStyle(  
-                        color: Colors.white,
-                        fontSize: 18
-                      )
-                    ),
+                          color: Colors.white,
+                          fontSize: 18
+                        ),
+                      maxLines: 2,
+                      ),
+                  ),
                   ],
                 )
               )
@@ -50,16 +56,20 @@ class PrometeoDates extends StatelessWidget {
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,  
-                children: const [  
+                children: [  
                   Icon(Icons.calendar_month, color: Colors.white),
                   SizedBox(width: 5),
-                  Text(
-                    '20th - 22nd Jan',
-                    style: TextStyle(  
-                        color: Colors.white,
-                        fontSize: 18
-                      )
-                    )
+                  SizedBox(
+                    width: size.width * 0.28,
+                    child: AutoSizeText(
+                      '20th - 22nd Jan',
+                      style: TextStyle(  
+                          color: Colors.white,
+                          fontSize: 18
+                        ),
+                      maxLines: 2,
+                      ),
+                  ),
                 ]
               )
             ),
