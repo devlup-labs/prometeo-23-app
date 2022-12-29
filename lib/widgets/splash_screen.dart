@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   _navigateToHome() async {
-    await Future.delayed(Duration(milliseconds: 4000));
+    await Future.delayed(Duration(milliseconds: 1500));
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => HomePage()));
   }
@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             // promete logo
             FadeInLeft(
-              duration: const Duration(milliseconds: 1500),
+              duration: const Duration(milliseconds: 750),
               child: Container(
                 width: 200,
                 height: 200,
@@ -57,8 +57,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
             // prometeo text
             FadeInDown(
-              duration: const Duration(milliseconds: 1500),
-              delay: const Duration(milliseconds: 1500),
+              duration: const Duration(milliseconds: 750),
+              delay: const Duration(milliseconds: 750),
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.8,
                 height: MediaQuery.of(context).size.height * 0.2,
