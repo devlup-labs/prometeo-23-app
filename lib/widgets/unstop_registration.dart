@@ -61,7 +61,7 @@ class _UnstopRegistrationState extends State<UnstopRegistration> {
                 throw "Could not launch $url['url']";
             },
             child: Text(
-              "Register at Unstop",
+              "Register",
               style: GoogleFonts.poppins(
                 color: Colors.white,
                 fontSize: 20,

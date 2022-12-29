@@ -48,7 +48,7 @@ void fetchEvents() async {
         description: event['description'] ?? '',
         prizeMoney: event['prize'] ?? 'NA',
         date: event['date'] ?? '',
-        isSpeaker: event['isSpeaker'] ?? false,
+        isSpeaker: (event['type'] == 'talk'),
         unstopLink: event['external_link'] ?? '',
         eventLocation: event['venue'] ?? '',
         eventType: event['type'],
