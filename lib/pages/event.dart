@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:prometeo23/constants.dart';
@@ -197,13 +198,20 @@ class PrizeAndDate extends StatelessWidget {
                   color: Color(0xff496B8B),
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: Center(
-                  child: Text(
-                    widget.eventPrize,
-                    style: GoogleFonts.poppins(
-                      fontSize: 18,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
+                child: Container(
+                  padding: EdgeInsets.only(
+                    left: 10,
+                    right: 10,
+                  ),
+                  child: Center(
+                    child: AutoSizeText(
+                      widget.eventPrize,
+                      style: GoogleFonts.poppins(
+                        fontSize: 18,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      maxLines: 1,
                     ),
                   ),
                 ),
@@ -217,13 +225,20 @@ class PrizeAndDate extends StatelessWidget {
             color: Color(0xff496B8B),
             borderRadius: BorderRadius.circular(10),
           ),
-          child: Center(
-            child: Text(
-              widget.eventDate,
-              style: GoogleFonts.poppins(
-                fontSize: 18,
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
+          child: Container(
+            padding: EdgeInsets.only(
+              left: 10,
+              right: 10,
+            ),
+            child: Center(
+              child: AutoSizeText(
+                widget.eventDate,
+                style: GoogleFonts.poppins(
+                  fontSize: 18,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                ),
+                maxLines: 1,
               ),
             ),
           ),
