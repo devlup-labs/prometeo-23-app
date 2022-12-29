@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:prometeo23/constants.dart';
@@ -40,7 +41,6 @@ class Cards extends StatefulWidget {
 }
 
 class _CardsState extends State<Cards> {
-  
   bool like = false;
 
   @override
@@ -119,15 +119,16 @@ class _CardsState extends State<Cards> {
                         ),
                         Container(
                           width: MediaQuery.of(context).size.width * 0.35,
-                          child: Text(
+                          child: AutoSizeText(
                             widget.title,
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 18.0,
                               overflow: TextOverflow.ellipsis,
                             ),
                             softWrap: true,
+                            maxLines: 1,
                           ),
                         ),
                       ],

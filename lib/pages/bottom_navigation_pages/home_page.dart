@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:prometeo23/api/fetchEvents.dart';
 import 'package:prometeo23/constants.dart';
+import 'package:prometeo23/pages/CA.dart';
 import 'package:prometeo23/pages/umang.dart';
 import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
@@ -11,6 +12,7 @@ import 'package:prometeo23/widgets/nav_drawer.dart';
 import 'package:prometeo23/widgets/promete_dates.dart';
 import 'package:prometeo23/widgets/socials.dart';
 import 'package:prometeo23/widgets/theme_video.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -124,6 +126,26 @@ class _HomePageState extends State<HomePage> {
                 child: Container(
                   alignment: Alignment.bottomLeft,
                   child: Text(
+                    "Campus Ambassador Program",
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+
+              SizedBox(height: MediaQuery.of(context).size.height * 0.025),
+
+              CAImage(size: size),
+
+              SizedBox(height: MediaQuery.of(context).size.height * 0.025),
+
+              SlideInLeft(
+                child: Container(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
                     "Follow Us On",
                     style: GoogleFonts.poppins(
                       color: Colors.white,
@@ -145,6 +167,46 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomNavigationBar: BottomNavigation(
         currentIndex: 0,
+      ),
+    );
+  }
+}
+
+class CAImage extends StatelessWidget {
+  const CAImage({
+    Key? key,
+    required this.size,
+  }) : super(key: key);
+
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => CampusAmbassador(),
+          ),
+        );
+      },
+      child: Container(
+        height: size.height * 0.3,
+        width: size.width,
+        padding: const EdgeInsets.only(
+          left: 20,
+          right: 20,
+          top: 20,
+          bottom: 20,
+        ),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage(
+              "https://prometeo.in/static/media/social_media.e44ee7339ec3772a2bda.png",
+            ),
+          ),
+        ),
       ),
     );
   }
