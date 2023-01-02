@@ -72,9 +72,12 @@ class _LoginSignUpState extends State<LoginSignUp>
           padding: universalPadding,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Positioned(top: 0, child: CustomAppBar()),
+              CustomAppBar(),
+              const SizedBox(
+                height: 20,
+              ),
               Text(
                 "Welcome!",
                 style: GoogleFonts.poppins(
@@ -103,10 +106,7 @@ class _LoginSignUpState extends State<LoginSignUp>
                   // ),
                 ),
               ),
-              const SizedBox(
-                height: 20,
-              ),
-              const SizedBox(height: 10),
+              Spacer(),
               Column(
                 children: [
                   Container(
