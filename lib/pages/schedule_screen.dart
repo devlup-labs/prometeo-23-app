@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:table_calendar/table_calendar.dart';
 
+import '../widgets/news_card.dart';
 import '../widgets/schedule_tile.dart';
 
 class ScheduleScreen extends StatefulWidget {
@@ -55,7 +56,13 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
             Expanded(
               child: ListView.builder( 
                 itemCount: 3,  
-                itemBuilder: (context, builder) => const ScheduleTile(),
+                itemBuilder: (context, builder) => Container(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: NewsCard(
+                  news:
+                      "Your one stop destination to get all the latest updates about the fest.",
+              ),
+                ),
               ),
             )
           ],

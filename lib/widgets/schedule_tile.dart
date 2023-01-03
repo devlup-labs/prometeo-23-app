@@ -31,6 +31,30 @@ class ScheduleTile extends StatelessWidget {
         ],
       ),
 
+      child: Column(   
+        children: [
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: const [
+              Text(
+                'Kaggle Knight',
+                style: TextStyle(  
+                  color: Colors.white,
+                  fontSize: 20,
+                )
+              ),
+              Text(  
+                '10:00', 
+                style: TextStyle(   
+                  color: Colors.white
+                )
+              )
+            ]
+          )
+        ]
+      )
+
 
     );
   }
