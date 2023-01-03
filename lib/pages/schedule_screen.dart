@@ -55,7 +55,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
             ),
             Expanded(
               child: ListView.builder( 
-                itemCount: 3,  
+                itemCount: 10,  
                 itemBuilder: (context, builder) => Container(
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: NewsCard(
