@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prometeo23/constants.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class ScheduleScreen extends StatefulWidget {
@@ -9,12 +10,13 @@ class ScheduleScreen extends StatefulWidget {
 }
 
 class _ScheduleScreenState extends State<ScheduleScreen> {
-  DateTime _selectedDay =  DateTime.now();
+  DateTime _selectedDay =  DateTime.utc(2023, 1, 20);
   DateTime _focusedDay = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(   
+    return Scaffold( 
+      backgroundColor: bgColor,  
       body: SafeArea(
         child: Column(
           children: [
@@ -28,6 +30,18 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                   formatButtonVisible: false,
                   titleCentered: true,
                   formatButtonShowsNext: false,
+                  titleTextStyle: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  )
+                ),
+                calendarStyle: const CalendarStyle(    
+                  weekendTextStyle: TextStyle(  
+                    color: Colors.white
+                  ) ,
+                  defaultTextStyle: TextStyle(  
+                    color: Colors.white,
+                  )     
                 ),
                 onDaySelected: (selectedDay, focusedDay) => 
                   setState(() {
