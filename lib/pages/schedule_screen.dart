@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '../widgets/news_card.dart';
-import '../widgets/schedule_tile.dart';
 
 class ScheduleScreen extends StatefulWidget {
   const ScheduleScreen({super.key});

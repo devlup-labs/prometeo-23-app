@@ -14,8 +14,8 @@ void logout() async {
   email = prefs.getString('email') ?? '';
 }
 
-void setUser(String user_email) async {
+void setUser(String userEmail) async {
   final SharedPreferences prefs = await _prefs;
-  prefs.setString('email', user_email);
+  prefs.setString('email', userEmail);
   email = prefs.getString('email') ?? '';
 }

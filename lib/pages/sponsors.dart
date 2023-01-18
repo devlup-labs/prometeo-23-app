@@ -133,6 +133,7 @@ class _SponsorsState extends State<Sponsors> {
     fetchSponsors();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: NavDrawer(),
@@ -353,7 +354,7 @@ class SponsorTag extends StatelessWidget {
         children: [
           Text(
             sponsorName,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.grey,
               fontSize: 28,
               fontWeight: FontWeight.w600,

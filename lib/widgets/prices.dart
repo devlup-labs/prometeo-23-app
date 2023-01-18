@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/widgets/position.dart';
 
 class Price extends StatefulWidget {
@@ -29,7 +28,7 @@ class _PriceState extends State<Price> {
       ),
       decoration: BoxDecoration(
         // color: Color(0xff64ffda),
-        color: Color(0xff575B5e),
+        color: const Color(0xff575B5e),
         // color: Color(0xffC1DEAE),
         // color: Color(0xff66BFBF),
         borderRadius: BorderRadius.circular(15),
@@ -54,7 +53,7 @@ class _PriceState extends State<Price> {
                 PriceAmount(amount: widget.secondPrice),
               ],
             ),
-            VerticalLine(),
+            const VerticalLine(),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -65,7 +64,7 @@ class _PriceState extends State<Price> {
                 PriceAmount(amount: widget.firstPrice),
               ],
             ),
-            VerticalLine(),
+            const VerticalLine(),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -105,7 +104,7 @@ class PriceAmount extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       amount,
-      style: TextStyle(
+      style: const TextStyle(
         fontSize: 12,
         color: Colors.white,
         fontWeight: FontWeight.w600,

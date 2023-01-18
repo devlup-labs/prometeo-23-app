@@ -6,7 +6,6 @@ import 'package:prometeo23/pages/login_signup.dart';
 import 'package:prometeo23/pages/umang.dart';
 import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
 import 'package:prometeo23/pages/gallery.dart';
-import 'package:prometeo23/pages/preregistration.dart';
 import 'package:prometeo23/pages/sponsors.dart';
 import 'package:prometeo23/pages/theme_reveal.dart';
 import 'package:prometeo23/pages/updates_page.dart';
@@ -17,6 +16,7 @@ class NavDrawer extends StatelessWidget {
     fetchUser();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: bgColor,
@@ -45,7 +45,7 @@ class NavDrawer extends StatelessWidget {
             onTap: () => {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => HomePage()),
+                MaterialPageRoute(builder: (context) => const HomePage()),
               )
             },
           ),
@@ -68,7 +68,7 @@ class NavDrawer extends StatelessWidget {
             onTap: () => {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Gallery()),
+                MaterialPageRoute(builder: (context) => const Gallery()),
               )
             },
           ),
@@ -79,7 +79,7 @@ class NavDrawer extends StatelessWidget {
             onTap: () => {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Sponsors()),
+                MaterialPageRoute(builder: (context) => const Sponsors()),
               )
             },
           ),
@@ -103,23 +103,23 @@ class NavDrawer extends StatelessWidget {
             onTap: () => {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => UpdatesPage()),
+                MaterialPageRoute(builder: (context) => const UpdatesPage()),
               )
             },
           ),
           ListTile(
-            leading: Icon(Icons.video_collection, color: Colors.white),
+            leading: const Icon(Icons.video_collection, color: Colors.white),
             title: const Text('Theme Reveal',
                 style: TextStyle(color: Colors.white)),
             onTap: () => {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ThemeRevealPage()),
+                MaterialPageRoute(builder: (context) => const ThemeRevealPage()),
               )
             },
           ),
           ListTile(
-            leading: Icon(Icons.favorite_outline_outlined, color: Colors.white),
+            leading: const Icon(Icons.favorite_outline_outlined, color: Colors.white),
             title: const Text('Umang', style: TextStyle(color: Colors.white)),
             onTap: () => {
               Navigator.push(
@@ -132,7 +132,7 @@ class NavDrawer extends StatelessWidget {
           ),
           (email == "")
               ? ListTile(
-                  leading: Icon(Icons.login, color: Colors.white),
+                  leading: const Icon(Icons.login, color: Colors.white),
                   title: const Text('Login/Signup',
                       style: TextStyle(color: Colors.white)),
                   onTap: () => {
@@ -145,7 +145,7 @@ class NavDrawer extends StatelessWidget {
                   },
                 )
               : ListTile(
-                  leading: Icon(Icons.logout, color: Colors.white),
+                  leading: const Icon(Icons.logout, color: Colors.white),
                   title: const Text('Logout',
                       style: TextStyle(color: Colors.white)),
                   onTap: () => {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:prometeo23/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UnstopRegistration extends StatefulWidget {
@@ -46,19 +45,20 @@ class _UnstopRegistrationState extends State<UnstopRegistration> {
             right: MediaQuery.of(context).size.width * 0.05,
           ),
           decoration: BoxDecoration(
-            color: Color(0xff003959),
+            color: const Color(0xff003959),
             borderRadius: BorderRadius.circular(15),
           ),
           child: TextButton(
             onPressed: () async {
               Uri url = Uri.parse(widget.unstopLink);
-              if (await canLaunchUrl(url))
+              if (await canLaunchUrl(url)) {
                 await launchUrl(
                   url,
                   mode: LaunchMode.externalApplication,
                 );
-              else
+              } else {
                 throw "Could not launch $url['url']";
+              }
             },
             child: Text(
               "Register",

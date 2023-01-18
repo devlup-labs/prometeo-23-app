@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:prometeo23/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class RuleBookWidget extends StatefulWidget {
@@ -33,19 +32,20 @@ class _RuleBookWidgetState extends State<RuleBookWidget> {
           ),
           decoration: BoxDecoration(
             // color: Color.fromARGB(150, 101, 191, 45),
-            color: Color(0xff003959),
+            color: const Color(0xff003959),
             borderRadius: BorderRadius.circular(15),
           ),
           child: TextButton(
             onPressed: () async {
               Uri url = Uri.parse(widget.ruleBookLink);
-              if (await canLaunchUrl(url))
+              if (await canLaunchUrl(url)) {
                 await launchUrl(
                   url,
                   mode: LaunchMode.externalApplication,
                 );
-              else
+              } else {
                 throw "Could not launch $url['url']";
+              }
             },
             child: Text(
               "Open Rule Book",

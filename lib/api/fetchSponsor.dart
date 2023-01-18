@@ -7,7 +7,7 @@ void fetchSponsorLink(eventId) async {
   sponsorLinks = [];
   final response = await http.get(
     Uri.parse(
-      'https://apiv.prometeo.in/api/EventSponsors/?event=${eventId}',
+      'https://apiv.prometeo.in/api/EventSponsors/?event=$eventId',
     ),
   );
 

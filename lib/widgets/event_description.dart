@@ -22,13 +22,13 @@ class _EventDescriptionState extends State<EventDescription> {
             textAlign: TextAlign.justify,
             widget.eventDescription,
             trimLines: 4,
-            colorClickableText: Color(0xff64ffda),
+            colorClickableText: const Color(0xff64ffda),
             trimMode: TrimMode.Line,
             trimCollapsedText: ' Read more',
             trimExpandedText: ' Read less',
             moreStyle: GoogleFonts.poppins(
               fontSize: 12,
-              color: Color(0xff64ffda),
+              color: const Color(0xff64ffda),
             ),
             style: GoogleFonts.poppins(
               fontSize: 16,
@@ -36,7 +36,7 @@ class _EventDescriptionState extends State<EventDescription> {
             ),
             lessStyle: GoogleFonts.poppins(
               fontSize: 12,
-              color: Color(0xff64ffda),
+              color: const Color(0xff64ffda),
             ),
           ),
         ],

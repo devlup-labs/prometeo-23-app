@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
-import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/events_page.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
 import '../api/fetchEvents.dart';

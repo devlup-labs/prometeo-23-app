@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:prometeo23/api/fetchEvents.dart';
 import 'package:prometeo23/api/fetchImages.dart';
 import 'package:prometeo23/api/fetchUser.dart';
-import 'package:prometeo23/pages/schedule_screen.dart';
 import 'package:prometeo23/widgets/splash_screen.dart';
 
 void main() {

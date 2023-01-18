@@ -20,7 +20,7 @@ class _NewsOfDayCardState extends State<NewsOfDayCard> {
           Container(
             height: size.height * 0.5,
             width: size.width,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(60),
                 bottomRight: Radius.circular(60),
@@ -45,7 +45,7 @@ class _NewsOfDayCardState extends State<NewsOfDayCard> {
                 onTap: () {
                   Navigator.of(context).pop();
                 },
-                child: Icon(
+                child: const Icon(
                   Icons.arrow_back_ios,
                   color: Colors.white,
                   size: 24,
@@ -92,7 +92,7 @@ class _NewsOfDayCardState extends State<NewsOfDayCard> {
                     const SizedBox(
                       height: 15,
                     ),
-                    Text(
+                    const Text(
                       "First Version of Prometeo'23 App released on Play Store",
                       maxLines: 3,
                       style: TextStyle(
@@ -125,7 +125,7 @@ class LearnMore extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
-      children: [
+      children: const [
         Text(
           "Learn More",
           maxLines: 3,
@@ -134,7 +134,7 @@ class LearnMore extends StatelessWidget {
             fontSize: 14,
           ),
         ),
-        const SizedBox(
+        SizedBox(
           width: 10,
         ),
         Icon(

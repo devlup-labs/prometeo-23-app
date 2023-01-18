@@ -141,7 +141,7 @@ class DiscoverNews extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+      children: const [
         Text(
           "Discover",
           style: TextStyle(
@@ -150,7 +150,7 @@ class DiscoverNews extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(
+        SizedBox(
           height: 10,
         ),
         Text(

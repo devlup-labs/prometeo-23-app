@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class SearchBar extends StatefulWidget {
   const SearchBar({super.key});
@@ -16,7 +15,7 @@ class _SearchBarState extends State<SearchBar> {
       decoration: const BoxDecoration(
           color: Color(0xff8892b0),
           borderRadius: BorderRadius.all(Radius.circular(20))),
-      child: TextField(
+      child: const TextField(
         decoration: InputDecoration(
           suffixIcon: Icon(
             Icons.more_vert,

@@ -36,13 +36,14 @@ class Socials extends StatelessWidget {
           (element) {
             return ElevatedButton(
               onPressed: () async {
-                if (await canLaunchUrl(element['url']))
+                if (await canLaunchUrl(element['url'])) {
                   await launchUrl(
                     element['url'],
                     mode: LaunchMode.externalApplication,
                   );
-                else
+                } else {
                   throw "Could not launch $element['url']";
+                }
               },
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(bgColor),

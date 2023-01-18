@@ -33,7 +33,7 @@ class NewsCardState extends State<NewsCard> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Icon(
+              const Icon(
                 Icons.newspaper,
                 size: 40,
                 color: Colors.white,
@@ -41,12 +41,12 @@ class NewsCardState extends State<NewsCard> {
               const SizedBox(
                 width: 10,
               ),
-              Container(
+              SizedBox(
                 width: size.width * 0.6,
                 child: Text(
                   widget.news,
                   maxLines: 2,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 14,
                   ),

@@ -1,6 +1,4 @@
-import 'dart:convert';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/event.dart';
@@ -112,16 +110,16 @@ class _CardsState extends State<Cards> {
                       children: [
                         Text(
                           widget.eventType,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.grey,
                             fontSize: 15.0,
                           ),
                         ),
-                        Container(
+                        SizedBox(
                           width: MediaQuery.of(context).size.width * 0.35,
                           child: AutoSizeText(
                             widget.title,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 18.0,

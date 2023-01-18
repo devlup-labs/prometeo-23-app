@@ -1,5 +1,3 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:prometeo23/api/fetchThemeVideo.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
@@ -37,7 +35,7 @@ class _ThemeVideoState extends State<ThemeVideo> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: YoutubePlayer(
         controller: _controller,
         showVideoProgressIndicator: false,

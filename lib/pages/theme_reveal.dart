@@ -49,7 +49,7 @@ class _ThemeRevealPageState extends State<ThemeRevealPage> {
               const SizedBox(
                 height: 30,
               ),
-              ThemeVideo(),
+              const ThemeVideo(),
               const SizedBox(
                 height: 30,
               ),

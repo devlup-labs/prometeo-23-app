@@ -1,9 +1,5 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:prometeo23/constants.dart';
-import 'package:prometeo23/widgets/cards.dart';
-import 'package:prometeo23/widgets/home_page/cards_list.dart';
 import 'package:prometeo23/widgets/home_page/slider_headings.dart';
 import '../slider.dart';
 
@@ -34,12 +30,13 @@ class _TabsState extends State<Tabs> {
     print(widget.SliderCards.length);
   }
 
+  @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: Column(
         children: [
-          Container(
+          SizedBox(
             height: MediaQuery.of(context).size.height / 12,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,

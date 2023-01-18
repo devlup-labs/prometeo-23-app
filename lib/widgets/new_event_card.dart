@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:glassmorphism/glassmorphism.dart';
 import 'package:prometeo23/pages/event.dart';
 
 class NewEventCard extends StatelessWidget {
@@ -33,7 +32,7 @@ class NewEventCard extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           Radius.circular(20),
         ),
         image: DecorationImage(
@@ -69,7 +68,7 @@ class NewEventCard extends StatelessWidget {
           ),
           Container(
             alignment: Alignment.bottomCenter,
-            margin: EdgeInsets.only(
+            margin: const EdgeInsets.only(
               bottom: 10,
             ),
             child: Column(
