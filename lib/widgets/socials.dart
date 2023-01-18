@@ -7,15 +7,15 @@ class Socials extends StatelessWidget {
 
   List socialMediaHandles = [
     {
-      'imageLink': 'https://i.postimg.cc/MpFZ3T9k/instagram-1.png',
+      'imageLink': 'https://cdn-icons-png.flaticon.com/512/3670/3670125.png',
       'url': Uri.parse('https://www.instagram.com/prometeo.iitj/'),
     },
     {
-      'imageLink': 'https://i.postimg.cc/3RpgJzkR/linkedin.png',
+      'imageLink': 'https://cdn-icons-png.flaticon.com/512/1377/1377213.png',
       'url': Uri.parse('https://www.linkedin.com/company/prometeo2022/'),
     },
     {
-      'imageLink': 'https://i.postimg.cc/gJ9zd79N/twitter.png',
+      'imageLink': 'https://cdn-icons-png.flaticon.com/512/3670/3670127.png',
       'url': Uri.parse('https://twitter.com/IITJ_Prometeo'),
     },
     {

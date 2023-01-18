@@ -22,6 +22,6 @@ class Prometeo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        debugShowCheckedModeBanner: false, home: ScheduleScreen());
+        debugShowCheckedModeBanner: false, home: SplashScreen());
   }
 }
