@@ -4,9 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:prometeo23/api/fetchUser.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
-import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/nav_drawer.dart';
-import 'package:prometeo23/widgets/register_button.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -95,8 +93,7 @@ class _SignUp2State extends State<SignUp2> {
   ];
 
   register() async {
-    if (_formKey != null &&
-        _formKey.currentState != null &&
+    if (_formKey.currentState != null &&
         _formKey.currentState!.validate()) {
       _formKey.currentState!.save();
       setState(() {
@@ -138,13 +135,13 @@ class _SignUp2State extends State<SignUp2> {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text('SUCCESS'),
-              content: Container(
+              title: const Text('SUCCESS'),
+              content: SizedBox(
                 height: 75,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Registration Successful',
                     ),
                     const SizedBox(
@@ -159,10 +156,10 @@ class _SignUp2State extends State<SignUp2> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => HomePage()),
+                      MaterialPageRoute(builder: (context) => const HomePage()),
                     );
                   },
-                  child: Text(
+                  child: const Text(
                     'OK',
                   ),
                 ),
@@ -184,14 +181,14 @@ class _SignUp2State extends State<SignUp2> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('ERROR'),
+          title: const Text('ERROR'),
           content: Text(errormessage),
           actions: <Widget>[
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text(
+              child: const Text(
                 'OK',
               ),
             ),
@@ -207,12 +204,12 @@ class _SignUp2State extends State<SignUp2> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color.fromRGBO(0, 0, 0, 0),
+        backgroundColor: const Color.fromRGBO(0, 0, 0, 0),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios,
             size: 20,
             color: Colors.white,
@@ -247,16 +244,19 @@ class _SignUp2State extends State<SignUp2> {
                   children: [
                     Container(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                          const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                       decoration: BoxDecoration(
                           color: Colors.grey.shade200,
-                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                          borderRadius: const BorderRadius.all(Radius.circular(15))),
                       child: TextFormField(
                         validator: (input) {
-                          if (input != null && input.isEmpty)
+                          if (input != null && input.isEmpty) {
                             return "Enter College";
+                          return null;
+                          }
+                          return null;
                         },
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: "College Name",
                           prefixIcon: Icon(Icons.school),
@@ -264,15 +264,15 @@ class _SignUp2State extends State<SignUp2> {
                         onSaved: (input) => _college = input!,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Container(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                          const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                       decoration: BoxDecoration(
                           color: Colors.grey.shade200,
-                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                          borderRadius: const BorderRadius.all(Radius.circular(15))),
                       child: TextFormField(
                         keyboardType: TextInputType.number,
                         inputFormatters: <TextInputFormatter>[
@@ -282,8 +282,9 @@ class _SignUp2State extends State<SignUp2> {
                           if (input != null &&
                               input.isEmpty &&
                               input.length >= 10) return "Enter Phone number";
+                          return null;
                         },
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: "Phone Number",
                           prefixIcon: Icon(Icons.call),
@@ -291,18 +292,18 @@ class _SignUp2State extends State<SignUp2> {
                         onSaved: (input) => _contact = input!,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Container(
                       width: size.width * 0.9,
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 20,
                         vertical: 5,
                       ),
                       decoration: BoxDecoration(
                         color: Colors.grey.shade200,
-                        borderRadius: BorderRadius.all(
+                        borderRadius: const BorderRadius.all(
                           Radius.circular(
                             20,
                           ),
@@ -313,6 +314,7 @@ class _SignUp2State extends State<SignUp2> {
                           if (input != null &&
                               input.isEmpty &&
                               input == 'Gender') return "Select Gender";
+                          return null;
                         },
                         // Initial Value
                         value: _gender,
@@ -335,11 +337,11 @@ class _SignUp2State extends State<SignUp2> {
                           });
                         },
                         isExpanded: true,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           prefixIcon: Icon(Icons.person),
                         ),
-                        hint: Text(
+                        hint: const Text(
                           "Select Gender",
                           style: TextStyle(
                             color: Colors.black,
@@ -349,18 +351,18 @@ class _SignUp2State extends State<SignUp2> {
                         alignment: Alignment.centerRight,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Container(
                       width: size.width * 0.9,
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 20,
                         vertical: 5,
                       ),
                       decoration: BoxDecoration(
                         color: Colors.grey.shade200,
-                        borderRadius: BorderRadius.all(
+                        borderRadius: const BorderRadius.all(
                           Radius.circular(
                             20,
                           ),
@@ -371,6 +373,7 @@ class _SignUp2State extends State<SignUp2> {
                           if (input != null &&
                               input.isEmpty &&
                               input == 'Select Year') return "Enter Year";
+                          return null;
                         },
                         // Initial Value
                         value: _current_year,
@@ -393,11 +396,11 @@ class _SignUp2State extends State<SignUp2> {
                           });
                         },
                         isExpanded: true,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           prefixIcon: Icon(Icons.numbers),
                         ),
-                        hint: Text(
+                        hint: const Text(
                           "Select Year",
                           style: TextStyle(
                             color: Colors.black,
@@ -407,18 +410,18 @@ class _SignUp2State extends State<SignUp2> {
                         alignment: Alignment.centerRight,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20.0,
                     ),
                     Container(
                       width: size.width * 0.9,
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 20,
                         vertical: 5,
                       ),
                       decoration: BoxDecoration(
                         color: Colors.grey.shade200,
-                        borderRadius: BorderRadius.all(
+                        borderRadius: const BorderRadius.all(
                           Radius.circular(
                             20,
                           ),
@@ -429,6 +432,7 @@ class _SignUp2State extends State<SignUp2> {
                           if (input != null &&
                               input.isEmpty &&
                               input == 'Select State') return "Enter State";
+                          return null;
                         },
                         // Initial Value
                         value: _state,
@@ -451,11 +455,11 @@ class _SignUp2State extends State<SignUp2> {
                           });
                         },
                         isExpanded: true,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           prefixIcon: Icon(Icons.place),
                         ),
-                        hint: Text(
+                        hint: const Text(
                           "Select State",
                           style: TextStyle(
                             color: Colors.black,
@@ -470,13 +474,15 @@ class _SignUp2State extends State<SignUp2> {
                     ),
                     Container(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                          const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                       decoration: BoxDecoration(
                           color: Colors.grey.shade200,
-                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                          borderRadius: const BorderRadius.all(Radius.circular(15))),
                       child: TextFormField(
-                        validator: (input) {},
-                        decoration: InputDecoration(
+                        validator: (input) {
+                          return null;
+                        },
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: "Referral Code",
                           prefixIcon: Icon(Icons.group),
@@ -484,12 +490,12 @@ class _SignUp2State extends State<SignUp2> {
                         onSaved: (input) => _referral_code = input!,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Row(
                       children: <Widget>[
-                        SizedBox(width: 10), //SizedBox
+                        const SizedBox(width: 10), //SizedBox
                         /** Checkbox Widget **/
                         Checkbox(
                           fillColor: MaterialStateProperty.all(
@@ -502,10 +508,10 @@ class _SignUp2State extends State<SignUp2> {
                             });
                           },
                         ), //Checkbox
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
-                        Container(
+                        SizedBox(
                           width: size.width * 0.75,
                           child: Text(
                             'I want to signup for CA Program',
@@ -518,12 +524,12 @@ class _SignUp2State extends State<SignUp2> {
                         ), //Text
                       ], //<Widget>[]
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Row(
                       children: <Widget>[
-                        SizedBox(width: 10), //SizedBox
+                        const SizedBox(width: 10), //SizedBox
                         /** Checkbox Widget **/
                         Checkbox(
                           fillColor: MaterialStateProperty.all(
@@ -536,10 +542,10 @@ class _SignUp2State extends State<SignUp2> {
                             });
                           },
                         ), //Checkbox
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ), //SizedBox
-                        Container(
+                        SizedBox(
                           width: size.width * 0.75,
                           child: Text(
                             'I would like to avail accommodation at IIT Jodhpur campus and agree to abide by the guidelines of the same.',
@@ -552,7 +558,7 @@ class _SignUp2State extends State<SignUp2> {
                         ), //Text
                       ], //<Widget>[]
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                   ],
@@ -564,15 +570,15 @@ class _SignUp2State extends State<SignUp2> {
                 width: size.width * 0.9,
                 decoration: BoxDecoration(
                   // color: Color(0xff096B65),
-                  color: Color(0xff003959),
+                  color: const Color(0xff003959),
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: TextButton(
                   onPressed: register,
                   child: Center(
                     child: isProcessing
-                        ? CircularProgressIndicator()
-                        : Text(
+                        ? const CircularProgressIndicator()
+                        : const Text(
                             "Register",
                             style: TextStyle(
                               color: Colors.white,

@@ -6,7 +6,6 @@ import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:flutter_gif/flutter_gif.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
 import 'package:prometeo23/widgets/nav_drawer.dart';
-import 'package:prometeo23/widgets/register_button.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -88,6 +87,7 @@ class _SignUp1State extends State<SignUp1> with TickerProviderStateMixin {
     super.initState();
   }
 
+  @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
@@ -112,7 +112,7 @@ class _SignUp1State extends State<SignUp1> with TickerProviderStateMixin {
               ),
               Container(
                 height: size.height * 0.2,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(
                       'assets/prometeo_logo_23.png',
@@ -130,16 +130,19 @@ class _SignUp1State extends State<SignUp1> with TickerProviderStateMixin {
                   children: <Widget>[
                     Container(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                          const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                       decoration: BoxDecoration(
                           color: Colors.grey.shade200,
-                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                          borderRadius: const BorderRadius.all(Radius.circular(15))),
                       child: TextFormField(
                         validator: (input) {
-                          if (input != null && input.isEmpty)
+                          if (input != null && input.isEmpty) {
                             return "Enter Name";
+                          return null;
+                          }
+                          return null;
                         },
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: "First Name",
                           prefixIcon: Icon(Icons.person_add),
@@ -147,21 +150,24 @@ class _SignUp1State extends State<SignUp1> with TickerProviderStateMixin {
                         onSaved: (input) => _firstName = input!,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Container(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                          const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                       decoration: BoxDecoration(
                           color: Colors.grey.shade200,
-                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                          borderRadius: const BorderRadius.all(Radius.circular(15))),
                       child: TextFormField(
                         validator: (input) {
-                          if (input != null && input.isEmpty)
+                          if (input != null && input.isEmpty) {
                             return "Enter Name";
+                          return null;
+                          }
+                          return null;
                         },
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: "Last Name",
                           prefixIcon: Icon(Icons.person),
@@ -174,16 +180,19 @@ class _SignUp1State extends State<SignUp1> with TickerProviderStateMixin {
                     ),
                     Container(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                          const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                       decoration: BoxDecoration(
                           color: Colors.grey.shade200,
-                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                          borderRadius: const BorderRadius.all(Radius.circular(15))),
                       child: TextFormField(
                         validator: (input) {
-                          if (input != null && input.isEmpty)
+                          if (input != null && input.isEmpty) {
                             return "Enter Email";
+                          return null;
+                          }
+                          return null;
                         },
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: "Email",
                           prefixIcon: Icon(Icons.email),
@@ -191,21 +200,24 @@ class _SignUp1State extends State<SignUp1> with TickerProviderStateMixin {
                         onSaved: (input) => _email = input!,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Container(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                          const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                       decoration: BoxDecoration(
                           color: Colors.grey.shade200,
-                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                          borderRadius: const BorderRadius.all(Radius.circular(15))),
                       child: TextFormField(
                         validator: (input) {
-                          if (input != null && input.isEmpty)
+                          if (input != null && input.isEmpty) {
                             return "Enter Password";
+                          return null;
+                          }
+                          return null;
                         },
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: "Password",
                           prefixIcon: Icon(Icons.lock),
@@ -214,21 +226,24 @@ class _SignUp1State extends State<SignUp1> with TickerProviderStateMixin {
                         onSaved: (input) => _password = input!,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Container(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                          const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                       decoration: BoxDecoration(
                           color: Colors.grey.shade200,
-                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                          borderRadius: const BorderRadius.all(Radius.circular(15))),
                       child: TextFormField(
                         validator: (input) {
-                          if (input != null && input.isEmpty)
+                          if (input != null && input.isEmpty) {
                             return "Enter Password";
+                          return null;
+                          }
+                          return null;
                         },
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: "Confirm Password",
                           prefixIcon: Icon(Icons.lock_person),
@@ -237,7 +252,7 @@ class _SignUp1State extends State<SignUp1> with TickerProviderStateMixin {
                         onSaved: (input) => _confirmPassword = input!,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                   ],
@@ -249,12 +264,12 @@ class _SignUp1State extends State<SignUp1> with TickerProviderStateMixin {
                 width: size.width * 0.9,
                 decoration: BoxDecoration(
                   // color: Color(0xff096B65),
-                  color: Color(0xff003959),
+                  color: const Color(0xff003959),
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: TextButton(
                   onPressed: next,
-                  child: Text(
+                  child: const Text(
                     "Next",
                     style: TextStyle(
                       color: Colors.white,

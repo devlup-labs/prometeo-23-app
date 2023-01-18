@@ -8,7 +8,6 @@ import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:flutter_gif/flutter_gif.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
 import 'package:prometeo23/widgets/nav_drawer.dart';
-import 'package:prometeo23/widgets/register_button.dart';
 
 class LoginSignUp extends StatefulWidget {
   const LoginSignUp({super.key});
@@ -61,6 +60,7 @@ class _LoginSignUpState extends State<LoginSignUp>
     super.initState();
   }
 
+  @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
@@ -106,7 +106,7 @@ class _LoginSignUpState extends State<LoginSignUp>
                   // ),
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               Column(
                 children: [
                   Container(
@@ -114,17 +114,17 @@ class _LoginSignUpState extends State<LoginSignUp>
                     width: size.width * 0.9,
                     decoration: BoxDecoration(
                       // color: Color(0xff096B65),
-                      color: Color(0xff003959),
+                      color: const Color(0xff003959),
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: TextButton(
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => LoginPage()),
+                          MaterialPageRoute(builder: (context) => const LoginPage()),
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         "Login",
                         style: TextStyle(
                           color: Colors.white,
@@ -138,7 +138,7 @@ class _LoginSignUpState extends State<LoginSignUp>
                     height: size.height * 0.07,
                     width: size.width * 0.9,
                     decoration: BoxDecoration(
-                      color: Color(0xff2087A8),
+                      color: const Color(0xff2087A8),
                       // color: Color(0xff003959),
                       borderRadius: BorderRadius.circular(15),
                     ),
@@ -146,10 +146,10 @@ class _LoginSignUpState extends State<LoginSignUp>
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => SignUp1()),
+                          MaterialPageRoute(builder: (context) => const SignUp1()),
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         "SignUp",
                         style: TextStyle(
                           color: Colors.white,

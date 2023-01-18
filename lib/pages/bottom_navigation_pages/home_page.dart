@@ -12,7 +12,6 @@ import 'package:prometeo23/widgets/nav_drawer.dart';
 import 'package:prometeo23/widgets/promete_dates.dart';
 import 'package:prometeo23/widgets/socials.dart';
 import 'package:prometeo23/widgets/theme_video.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -40,6 +39,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
@@ -187,7 +187,7 @@ class CAImage extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => CampusAmbassador(),
+            builder: (context) => const CampusAmbassador(),
           ),
         );
       },
@@ -227,7 +227,7 @@ class UmangImage extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => Umang(),
+            builder: (context) => const Umang(),
           ),
         );
       },
@@ -261,12 +261,12 @@ class LocationDate extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(
+              const Icon(
                 Icons.location_pin,
                 color: Colors.red,
                 size: 24,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
               Text(
@@ -280,12 +280,12 @@ class LocationDate extends StatelessWidget {
           ),
           Row(
             children: [
-              Icon(
+              const Icon(
                 Icons.edit_calendar,
                 color: Colors.blue,
                 size: 24,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
               Text(

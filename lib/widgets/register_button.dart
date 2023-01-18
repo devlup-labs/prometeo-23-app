@@ -19,14 +19,14 @@ class RegisterButton extends StatelessWidget {
       width: size.width * 0.9,
       decoration: BoxDecoration(
         // color: Color(0xff096B65),
-        color: Color(0xff003959),
+        color: const Color(0xff003959),
         borderRadius: BorderRadius.circular(15),
       ),
       child: TextButton(
         onPressed: onPressed as Future<dynamic> Function()?,
         child: Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 20,
           ),

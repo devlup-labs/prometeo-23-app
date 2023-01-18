@@ -1,14 +1,11 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:prometeo23/api/fetchImages.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
-import 'package:prometeo23/widgets/gallery_card.dart';
 import 'package:prometeo23/widgets/nav_drawer.dart';
 import 'package:prometeo23/widgets/slider.dart';
-import 'package:http/http.dart' as http;
 
 class Gallery extends StatefulWidget {
   const Gallery({super.key});
@@ -27,6 +24,7 @@ class _GalleryState extends State<Gallery> {
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: bgColor,
@@ -48,7 +46,7 @@ class _GalleryState extends State<Gallery> {
                 alignment: Alignment.centerLeft,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: const [
                     // const Text(
                     //   'Prometeo\'22',
                     //   style: TextStyle(
@@ -60,7 +58,7 @@ class _GalleryState extends State<Gallery> {
                     // const SizedBox(
                     //   height: 5,
                     // ),
-                    const Text(
+                    Text(
                       'Gallery ',
                       style: TextStyle(
                         color: Colors.white,
@@ -75,7 +73,7 @@ class _GalleryState extends State<Gallery> {
                 height: 20,
               ),
               isLoading
-                  ? CircularProgressIndicator()
+                  ? const CircularProgressIndicator()
                   : CardSlider(
                       cards: SliderCards,
                       height: MediaQuery.of(context).size.height * 0.3,
@@ -99,9 +97,9 @@ class _GalleryState extends State<Gallery> {
               ),
               for (var i = 1; i < SliderCards.length; i++)
                 isLoading
-                    ? CircularProgressIndicator()
+                    ? const CircularProgressIndicator()
                     : Container(
-                        margin: EdgeInsets.only(
+                        margin: const EdgeInsets.only(
                           bottom: 30,
                         ),
                         child: SliderCards[i],

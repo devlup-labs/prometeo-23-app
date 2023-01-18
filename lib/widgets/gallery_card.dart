@@ -23,19 +23,19 @@ class _GalleryCardState extends State<GalleryCard> {
             color: Colors.white.withOpacity(0.1),
             blurRadius: 20,
             spreadRadius: -10,
-            offset: Offset(-5, -5),
+            offset: const Offset(-5, -5),
           ),
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
             blurRadius: 20,
             spreadRadius: -10,
-            offset: Offset(7, 7),
+            offset: const Offset(7, 7),
           ),
         ],
         borderRadius: BorderRadius.circular(20),
       ),
       child: Container(
-        margin: EdgeInsets.all(20),
+        margin: const EdgeInsets.all(20),
         decoration: BoxDecoration(
           image: DecorationImage(
             image: NetworkImage(

@@ -7,7 +7,7 @@ class PrometeoDates extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return Container(
+    return SizedBox(
         width: double.maxFinite,
         child: Row(children: [
           Flexible(
@@ -23,11 +23,11 @@ class PrometeoDates extends StatelessWidget {
                     child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.location_on, color: Colors.white),
-                    SizedBox(width: 5),
+                    const Icon(Icons.location_on, color: Colors.white),
+                    const SizedBox(width: 5),
                     SizedBox(
                       width: size.width * 0.28,
-                      child: AutoSizeText(
+                      child: const AutoSizeText(
                         'IIT Jodhpur',
                         style: TextStyle(color: Colors.white, fontSize: 18),
                         maxLines: 1,
@@ -47,11 +47,11 @@ class PrometeoDates extends StatelessWidget {
                         topRight: Radius.circular(15))),
                 child:
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Icon(Icons.calendar_month, color: Colors.white),
-                  SizedBox(width: 5),
+                  const Icon(Icons.calendar_month, color: Colors.white),
+                  const SizedBox(width: 5),
                   SizedBox(
                     width: size.width * 0.28,
-                    child: AutoSizeText(
+                    child: const AutoSizeText(
                       '20th - 22nd Jan',
                       style: TextStyle(color: Colors.white, fontSize: 18),
                       maxLines: 1,

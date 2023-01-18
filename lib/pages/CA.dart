@@ -52,13 +52,13 @@ class _CampusAmbassadorState extends State<CampusAmbassador> {
               Container(
                 height: size.height * 0.3,
                 width: size.width,
-                padding: EdgeInsets.only(
+                padding: const EdgeInsets.only(
                   left: 20,
                   right: 20,
                   top: 20,
                   bottom: 20,
                 ),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: NetworkImage(
                       "https://prometeo.in/static/media/boat.01e920eb740d78292aff.png",
@@ -170,10 +170,10 @@ class _CampusAmbassadorState extends State<CampusAmbassador> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => LoginSignUp()),
+                      MaterialPageRoute(builder: (context) => const LoginSignUp()),
                     );
                   },
-                  child: Text(
+                  child: const Text(
                     "Register",
                     style: TextStyle(
                       color: Colors.white,
@@ -211,7 +211,7 @@ class GoldCA extends StatelessWidget {
             Container(
               height: 50,
               width: 50,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(
                     "https://prometeo.in/static/media/concert.813780873847bca2c445.png",
@@ -222,7 +222,7 @@ class GoldCA extends StatelessWidget {
             const SizedBox(
               width: 10,
             ),
-            Container(
+            SizedBox(
               width: size.width * 0.7,
               child: AutoSizeText(
                 "Free Accommodation and Pronite Pass",
@@ -243,7 +243,7 @@ class GoldCA extends StatelessWidget {
             Container(
               height: 50,
               width: 50,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(
                     "https://prometeo.in/static/media/certificate.ad8ddd254a916a66448b.png",
@@ -254,7 +254,7 @@ class GoldCA extends StatelessWidget {
             const SizedBox(
               width: 10,
             ),
-            Container(
+            SizedBox(
               width: size.width * 0.7,
               child: AutoSizeText(
                 "Certificate",
@@ -275,7 +275,7 @@ class GoldCA extends StatelessWidget {
             Container(
               height: 50,
               width: 50,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(
                     "https://prometeo.in/static/media/souvenir.a6875ce9569ef0390cd3.png",
@@ -286,7 +286,7 @@ class GoldCA extends StatelessWidget {
             const SizedBox(
               width: 10,
             ),
-            Container(
+            SizedBox(
               width: size.width * 0.7,
               child: AutoSizeText(
                 "Goodies",
@@ -307,7 +307,7 @@ class GoldCA extends StatelessWidget {
             Container(
               height: 50,
               width: 50,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(
                     "https://prometeo.in/static/media/tickets.e9d6fb50c00e9b2a2ef0.png",
@@ -318,7 +318,7 @@ class GoldCA extends StatelessWidget {
             const SizedBox(
               width: 10,
             ),
-            Container(
+            SizedBox(
               width: size.width * 0.7,
               child: AutoSizeText(
                 "Free entry to 2 workshop",
@@ -354,7 +354,7 @@ class SilverCA extends StatelessWidget {
             Container(
               height: 50,
               width: 50,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(
                     "https://prometeo.in/static/media/concert.813780873847bca2c445.png",
@@ -365,7 +365,7 @@ class SilverCA extends StatelessWidget {
             const SizedBox(
               width: 10,
             ),
-            Container(
+            SizedBox(
               width: size.width * 0.7,
               child: AutoSizeText(
                 "Free Accommodation and Pronite Pass",
@@ -386,7 +386,7 @@ class SilverCA extends StatelessWidget {
             Container(
               height: 50,
               width: 50,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(
                     "https://prometeo.in/static/media/certificate.ad8ddd254a916a66448b.png",
@@ -397,7 +397,7 @@ class SilverCA extends StatelessWidget {
             const SizedBox(
               width: 10,
             ),
-            Container(
+            SizedBox(
               width: size.width * 0.7,
               child: AutoSizeText(
                 "Certificate",
@@ -418,7 +418,7 @@ class SilverCA extends StatelessWidget {
             Container(
               height: 50,
               width: 50,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(
                     "https://prometeo.in/static/media/tickets.e9d6fb50c00e9b2a2ef0.png",
@@ -429,7 +429,7 @@ class SilverCA extends StatelessWidget {
             const SizedBox(
               width: 10,
             ),
-            Container(
+            SizedBox(
               width: size.width * 0.7,
               child: AutoSizeText(
                 "Free entry to 1 workshop",

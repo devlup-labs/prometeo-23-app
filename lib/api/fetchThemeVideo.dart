@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-late var videoUrl = 'https://youtu.be/GdNceDHonLU';
+var videoUrl = 'https://youtu.be/GdNceDHonLU';
 
 Future<void> fetchThemeVideo() async {
   final response =

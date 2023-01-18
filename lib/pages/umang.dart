@@ -48,13 +48,13 @@ class _UmangState extends State<Umang> {
               Container(
                 height: size.height * 0.3,
                 width: size.width,
-                padding: EdgeInsets.only(
+                padding: const EdgeInsets.only(
                   left: 20,
                   right: 20,
                   top: 20,
                   bottom: 20,
                 ),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(
                       "assets/umang.png",

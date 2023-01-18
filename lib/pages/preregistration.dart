@@ -72,8 +72,7 @@ class _PreRegistrationState extends State<PreRegistration> {
   ];
 
   register() async {
-    if (_formKey != null &&
-        _formKey.currentState != null &&
+    if (_formKey.currentState != null &&
         _formKey.currentState!.validate()) {
       _formKey.currentState!.save();
 
@@ -102,17 +101,17 @@ class _PreRegistrationState extends State<PreRegistration> {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text('SUCCESS'),
+              title: const Text('SUCCESS'),
               // content: Text(body['message']),
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => HomePage()),
+                      MaterialPageRoute(builder: (context) => const HomePage()),
                     );
                   },
-                  child: Text(
+                  child: const Text(
                     'OK',
                   ),
                 ),
@@ -131,14 +130,14 @@ class _PreRegistrationState extends State<PreRegistration> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('ERROR'),
+          title: const Text('ERROR'),
           content: Text(errormessage),
           actions: <Widget>[
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text(
+              child: const Text(
                 'OK',
               ),
             ),
@@ -159,7 +158,7 @@ class _PreRegistrationState extends State<PreRegistration> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios,
             size: 20,
             color: Colors.white,
@@ -191,7 +190,7 @@ class _PreRegistrationState extends State<PreRegistration> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   Form(
@@ -200,17 +199,20 @@ class _PreRegistrationState extends State<PreRegistration> {
                       children: <Widget>[
                         Container(
                           padding:
-                              EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                              const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                           decoration: BoxDecoration(
                               color: Colors.grey.shade200,
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(20))),
+                                  const BorderRadius.all(Radius.circular(20))),
                           child: TextFormField(
                             validator: (input) {
-                              if (input != null && input.isEmpty)
+                              if (input != null && input.isEmpty) {
                                 return "Enter Name";
+                              return null;
+                              }
+                              return null;
                             },
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               border: InputBorder.none,
                               hintText: "Name",
                               prefixIcon: Icon(Icons.person_add),
@@ -218,22 +220,25 @@ class _PreRegistrationState extends State<PreRegistration> {
                             onSaved: (input) => _name = input!,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Container(
                           padding:
-                              EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                              const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                           decoration: BoxDecoration(
                               color: Colors.grey.shade200,
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(20))),
+                                  const BorderRadius.all(Radius.circular(20))),
                           child: TextFormField(
                             validator: (input) {
-                              if (input != null && input.isEmpty)
+                              if (input != null && input.isEmpty) {
                                 return "Enter Email";
+                              return null;
+                              }
+                              return null;
                             },
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               border: InputBorder.none,
                               hintText: "Email",
                               prefixIcon: Icon(Icons.email),
@@ -241,16 +246,16 @@ class _PreRegistrationState extends State<PreRegistration> {
                             onSaved: (input) => _email = input!,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Container(
                           padding:
-                              EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                              const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                           decoration: BoxDecoration(
                               color: Colors.grey.shade200,
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(20))),
+                                  const BorderRadius.all(Radius.circular(20))),
                           child: TextFormField(
                             keyboardType: TextInputType.number,
                             inputFormatters: <TextInputFormatter>[
@@ -259,10 +264,13 @@ class _PreRegistrationState extends State<PreRegistration> {
                             validator: (input) {
                               if (input != null &&
                                   input.isEmpty &&
-                                  input.length >= 10)
+                                  input.length >= 10) {
                                 return "Enter Phone number";
+                              return null;
+                              }
+                              return null;
                             },
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               border: InputBorder.none,
                               hintText: "Phone Number",
                               prefixIcon: Icon(Icons.call),
@@ -270,22 +278,25 @@ class _PreRegistrationState extends State<PreRegistration> {
                             onSaved: (input) => _contact = input!,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Container(
                           padding:
-                              EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                              const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                           decoration: BoxDecoration(
                               color: Colors.grey.shade200,
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(20))),
+                                  const BorderRadius.all(Radius.circular(20))),
                           child: TextFormField(
                             validator: (input) {
-                              if (input != null && input.isEmpty)
+                              if (input != null && input.isEmpty) {
                                 return "Enter College Name";
+                              return null;
+                              }
+                              return null;
                             },
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               border: InputBorder.none,
                               hintText: "College",
                               prefixIcon: Icon(Icons.school),
@@ -294,18 +305,18 @@ class _PreRegistrationState extends State<PreRegistration> {
                             onSaved: (input) => _college = input!,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20.0,
                         ),
                         Container(
                           width: size.width * 0.9,
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                             horizontal: 20,
                             vertical: 5,
                           ),
                           decoration: BoxDecoration(
                             color: Colors.grey.shade200,
-                            borderRadius: BorderRadius.all(
+                            borderRadius: const BorderRadius.all(
                               Radius.circular(
                                 20,
                               ),
@@ -316,6 +327,7 @@ class _PreRegistrationState extends State<PreRegistration> {
                               if (input != null &&
                                   input.isEmpty &&
                                   input == 'Select Year') return "Enter Year";
+                              return null;
                             },
                             // Initial Value
                             value: _year,
@@ -338,11 +350,11 @@ class _PreRegistrationState extends State<PreRegistration> {
                               });
                             },
                             isExpanded: true,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               border: InputBorder.none,
                               prefixIcon: Icon(Icons.numbers),
                             ),
-                            hint: Text(
+                            hint: const Text(
                               "Select Year",
                               style: TextStyle(
                                 color: Colors.black,
@@ -352,18 +364,18 @@ class _PreRegistrationState extends State<PreRegistration> {
                             alignment: Alignment.centerRight,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20.0,
                         ),
                         Container(
                           width: size.width * 0.9,
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                             horizontal: 20,
                             vertical: 5,
                           ),
                           decoration: BoxDecoration(
                             color: Colors.grey.shade200,
-                            borderRadius: BorderRadius.all(
+                            borderRadius: const BorderRadius.all(
                               Radius.circular(
                                 20,
                               ),
@@ -374,6 +386,7 @@ class _PreRegistrationState extends State<PreRegistration> {
                               if (input != null &&
                                   input.isEmpty &&
                                   input == 'Select State') return "Enter State";
+                              return null;
                             },
                             // Initial Value
                             value: _state,
@@ -396,11 +409,11 @@ class _PreRegistrationState extends State<PreRegistration> {
                               });
                             },
                             isExpanded: true,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               border: InputBorder.none,
                               prefixIcon: Icon(Icons.place),
                             ),
-                            hint: Text(
+                            hint: const Text(
                               "Select State",
                               style: TextStyle(
                                 color: Colors.black,
@@ -420,12 +433,12 @@ class _PreRegistrationState extends State<PreRegistration> {
                 height: size.height * 0.07,
                 width: size.width * 0.9,
                 decoration: BoxDecoration(
-                  color: Color(0xff096B65),
+                  color: const Color(0xff096B65),
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: TextButton(
                   onPressed: register,
-                  child: Text(
+                  child: const Text(
                     "Register",
                     style: TextStyle(
                       color: Colors.white,

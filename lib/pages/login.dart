@@ -1,17 +1,13 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:prometeo23/api/fetchUser.dart';
 import 'package:prometeo23/constants.dart';
 import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
-import 'package:prometeo23/pages/signup2.dart';
 import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:flutter_gif/flutter_gif.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
 import 'package:prometeo23/widgets/nav_drawer.dart';
-import 'package:prometeo23/widgets/register_button.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -27,8 +23,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
   late FlutterGifController controller1;
 
   login() async {
-    if (_formKey != null &&
-        _formKey.currentState != null &&
+    if (_formKey.currentState != null &&
         _formKey.currentState!.validate()) {
       _formKey.currentState!.save();
       setState(() {
@@ -60,17 +55,17 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text('SUCCESS'),
-              content: Text('Login Successful!'),
+              title: const Text('SUCCESS'),
+              content: const Text('Login Successful!'),
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => HomePage()),
+                      MaterialPageRoute(builder: (context) => const HomePage()),
                     );
                   },
-                  child: Text(
+                  child: const Text(
                     'OK',
                   ),
                 ),
@@ -92,14 +87,14 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('ERROR'),
+          title: const Text('ERROR'),
           content: Text(errormessage),
           actions: <Widget>[
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text(
+              child: const Text(
                 'OK',
               ),
             ),
@@ -117,6 +112,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
     super.initState();
   }
 
+  @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
@@ -129,14 +125,14 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                padding: EdgeInsets.all(
+                padding: const EdgeInsets.all(
                   20,
                 ),
                 height: size.height * 0.4,
                 decoration: BoxDecoration(
-                  color: Color(0xff2C6C7A).withOpacity(.12),
+                  color: const Color(0xff2C6C7A).withOpacity(.12),
                   // color: Colors.white,
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(750),
                     bottomRight: Radius.circular(750),
                   ),
@@ -176,20 +172,23 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                       child: Column(
                         children: <Widget>[
                           Container(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: 20, vertical: 5),
                             decoration: BoxDecoration(
                               color: Colors.grey.shade200,
                               // color: Color(0xff061417),
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(15)),
+                                  const BorderRadius.all(Radius.circular(15)),
                             ),
                             child: TextFormField(
                               validator: (input) {
-                                if (input != null && input.isEmpty)
+                                if (input != null && input.isEmpty) {
                                   return "Enter Email";
+                                return null;
+                                }
+                                return null;
                               },
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 border: InputBorder.none,
                                 hintText: "Email",
                                 prefixIcon: Icon(Icons.email),
@@ -197,22 +196,25 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                               onSaved: (input) => _email = input!,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           Container(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: 20, vertical: 5),
                             decoration: BoxDecoration(
                                 color: Colors.grey.shade200,
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(15))),
+                                    const BorderRadius.all(Radius.circular(15))),
                             child: TextFormField(
                               validator: (input) {
-                                if (input != null && input.isEmpty)
+                                if (input != null && input.isEmpty) {
                                   return "Enter Password";
+                                return null;
+                                }
+                                return null;
                               },
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 border: InputBorder.none,
                                 hintText: "Password",
                                 prefixIcon: Icon(Icons.lock),
@@ -221,7 +223,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                               onSaved: (input) => _password = input!,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                         ],
@@ -233,15 +235,15 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                       width: size.width * 0.9,
                       decoration: BoxDecoration(
                         // color: Color(0xff096B65),
-                        color: Color(0xff003959),
+                        color: const Color(0xff003959),
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child: TextButton(
                         onPressed: login,
                         child: Center(
                           child: isProcessing
-                              ? CircularProgressIndicator()
-                              : Text(
+                              ? const CircularProgressIndicator()
+                              : const Text(
                                   "Login",
                                   style: TextStyle(
                                     color: Colors.white,
