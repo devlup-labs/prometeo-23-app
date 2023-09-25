@@ -2,14 +2,14 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:prometeo23/constants.dart';
-import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
-import 'package:prometeo23/widgets/app_bar.dart';
+// import 'package:prometeo23/pages/bottom_navigation_pages/home_page.dart';
+// import 'package:prometeo23/widgets/app_bar.dart';
 import 'package:prometeo23/widgets/bottom_navigation_bar.dart';
 import 'package:prometeo23/widgets/event_description.dart';
 import 'package:prometeo23/widgets/event_sponsor.dart';
 import 'package:prometeo23/widgets/nav_drawer.dart';
-import 'package:prometeo23/widgets/prices.dart';
-import 'package:prometeo23/widgets/register_button.dart';
+// import 'package:prometeo23/widgets/prices.dart';
+// import 'package:prometeo23/widgets/register_button.dart';
 import 'package:prometeo23/widgets/rule_book.dart';
 import 'package:prometeo23/widgets/unstop_registration.dart';
 
@@ -59,12 +59,12 @@ class _EventState extends State<Event> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color.fromRGBO(0, 0, 0, 0),
+        backgroundColor:const  Color.fromRGBO(0, 0, 0, 0),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
+          icon:const Icon(
             Icons.arrow_back_ios,
             size: 20,
             color: Colors.white,
@@ -79,7 +79,7 @@ class _EventState extends State<Event> {
           right: size.width * 0.05,
         ),
         child: SingleChildScrollView(
-          child: Container(
+          child: SizedBox(
             width: size.width,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -153,7 +153,7 @@ class _EventState extends State<Event> {
                 ),
                 for (var i = 0; i < widget.sponsorLink.length; i++)
                   Container(
-                    margin: EdgeInsets.only(
+                    margin: const EdgeInsets.only(
                       bottom: 20,
                     ),
                     child: EventSponsor(
@@ -195,11 +195,11 @@ class PrizeAndDate extends StatelessWidget {
                 height: 50,
                 width: size.width * 0.4,
                 decoration: BoxDecoration(
-                  color: Color(0xff496B8B),
+                  color: const Color(0xff496B8B),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Container(
-                  padding: EdgeInsets.only(
+                  padding: const EdgeInsets.only(
                     left: 10,
                     right: 10,
                   ),
@@ -217,16 +217,16 @@ class PrizeAndDate extends StatelessWidget {
                 ),
               )
             : Container(),
-        !widget.isSpeaker ? Spacer() : Container(),
+        !widget.isSpeaker ? const Spacer() : Container(),
         Container(
           height: 50,
           width: size.width * 0.4,
           decoration: BoxDecoration(
-            color: Color(0xff496B8B),
+            color: const Color(0xff496B8B),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Container(
-            padding: EdgeInsets.only(
+            padding: const EdgeInsets.only(
               left: 10,
               right: 10,
             ),

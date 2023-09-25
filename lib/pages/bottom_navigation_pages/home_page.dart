@@ -12,7 +12,7 @@ import 'package:prometeo23/widgets/nav_drawer.dart';
 import 'package:prometeo23/widgets/promete_dates.dart';
 import 'package:prometeo23/widgets/socials.dart';
 import 'package:prometeo23/widgets/theme_video.dart';
-import 'package:auto_size_text/auto_size_text.dart';
+// import 'package:auto_size_text/auto_size_text.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
